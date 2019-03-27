@@ -1,1 +1,0 @@
-# smc3_rater
