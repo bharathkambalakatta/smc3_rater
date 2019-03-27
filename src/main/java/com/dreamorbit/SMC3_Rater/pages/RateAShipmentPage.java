@@ -3,6 +3,7 @@ package com.dreamorbit.SMC3_Rater.pages;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -48,8 +49,8 @@ public class RateAShipmentPage extends TestBase {
 	public void clickingOnRateAShipmentTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab))
-				.click();
+		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab));
+		rateAShipmentTab.click();
 	}
 
 	public boolean verifyIfSettingIsAvailable() {
@@ -57,7 +58,7 @@ public class RateAShipmentPage extends TestBase {
 				.getValue("settingForCreateAndDeleteTest");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(settingsDropDown));
+		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
 		boolean found = false;
 		Select select = new Select(settingsDropDown);
 		List<WebElement> allOptions = select.getOptions();
@@ -71,19 +72,18 @@ public class RateAShipmentPage extends TestBase {
 	}
 
 	// Create a Setting with Data Module Test
-	public void selectSetting(String setting) {
-		WebDriverWait wait = new WebDriverWait(driver,
-				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
+	public void selectSetting(String setting) throws InterruptedException {
+		 WebDriverWait wait = new WebDriverWait(driver,
+		 RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		 wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
 		Select select = new Select(settingsDropDown);
 		select.selectByVisibleText(setting);
 	}
 
 	public String verifySelectedValueInRateFamily() throws InterruptedException {
-		// WebDriverWait wait = new WebDriverWait(driver,
-		// RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		// wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
-		Thread.sleep(5000);
+		 WebDriverWait wait = new WebDriverWait(driver,
+		 RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		 wait.until(ExpectedConditions.visibilityOf(rateFamilyDropDown));
 		Select select = new Select(rateFamilyDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
@@ -91,10 +91,9 @@ public class RateAShipmentPage extends TestBase {
 
 	public String verifySelectedValueInAvailableTariffs()
 			throws InterruptedException {
-		// WebDriverWait wait = new WebDriverWait(driver,
-		// RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		// wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
-		Thread.sleep(5000);
+		 WebDriverWait wait = new WebDriverWait(driver,
+		 RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		 wait.until(ExpectedConditions.visibilityOf(rateFamilyDropDown));
 		Select select = new Select(availableTariffsDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;

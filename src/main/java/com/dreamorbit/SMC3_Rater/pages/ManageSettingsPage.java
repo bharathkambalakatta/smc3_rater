@@ -1,5 +1,8 @@
 package com.dreamorbit.SMC3_Rater.pages;
 
+import java.util.concurrent.TimeUnit;
+import java.util.function.Predicate;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -92,8 +96,11 @@ public class ManageSettingsPage extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(addNewRowButton));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", addNewRowButton);
+		wait.until(ExpectedConditions.visibilityOf(settingIDTextBox));
 		settingIDTextBox.sendKeys(settingID);
+		wait.until(ExpectedConditions.visibilityOf(descriptionTextBox));
 		descriptionTextBox.sendKeys(description);
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton));
 		saveButton.click();
 		wait.until(ExpectedConditions.visibilityOf(settingName));
 	}
@@ -104,7 +111,7 @@ public class ManageSettingsPage extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
 				.click();
 		driver.switchTo().alert().accept();
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 	}
 
 	// Create a Setting with Data Module Test
@@ -117,14 +124,12 @@ public class ManageSettingsPage extends TestBase {
 
 	public void settingUpDataModule(String rateFamily, String availableTariffs)
 			throws InterruptedException {
-		// WebDriverWait wait = new WebDriverWait(driver,
-		// RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		// wait.until(ExpectedConditions.visibilityOf(RateFamilyDropDown));
-		Thread.sleep(5000);
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(RateFamilyDropDown));
 		Select select = new Select(RateFamilyDropDown);
 		select.selectByVisibleText(rateFamily);
-		// wait.until(ExpectedConditions.visibilityOf(availableTariffsDropDown));
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(availableTariffsDropDown));
 		Select select1 = new Select(availableTariffsDropDown);
 		select1.selectByVisibleText(availableTariffs);
 	}

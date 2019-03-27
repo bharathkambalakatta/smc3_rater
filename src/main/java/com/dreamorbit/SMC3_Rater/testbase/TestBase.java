@@ -15,16 +15,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 
 public class TestBase {
 
 	public static WebDriver driver;
 	public static Properties prop;
-
-	public static ExtentReports extent;
-	public static ExtentTest test;
 
 	public static final Logger log = Logger.getLogger(TestBase.class.getName());
 
