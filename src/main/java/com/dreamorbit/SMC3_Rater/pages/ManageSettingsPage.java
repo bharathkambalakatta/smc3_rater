@@ -30,6 +30,15 @@ public class ManageSettingsPage extends TestBase {
 
 	WebDriver driver;
 
+	
+	@FindBy(xpath = "//a[@id='defaultPanel']")
+	private WebElement defaultSettingOption;
+	
+	
+	
+	
+	
+	
 	// Create and Delete a Custom Setting Test
 	@FindBy(xpath = "//a[contains(text(),'Manage Settings')]")
 	WebElement manageSettingsTab;
@@ -75,6 +84,17 @@ public class ManageSettingsPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
+	public void clickingDefaultSettingOption() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(defaultSettingOption))
+				.click();
+	}
+	
+	
+	
+	
+	
 	// Create and Delete a Custom Setting Test
 	public void clickingOnManageSettingsTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -127,9 +147,11 @@ public class ManageSettingsPage extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(RateFamilyDropDown));
+		Thread.sleep(1000);
 		Select select = new Select(RateFamilyDropDown);
 		select.selectByVisibleText(rateFamily);
 		wait.until(ExpectedConditions.visibilityOf(availableTariffsDropDown));
+		Thread.sleep(1000);
 		Select select1 = new Select(availableTariffsDropDown);
 		select1.selectByVisibleText(availableTariffs);
 	}

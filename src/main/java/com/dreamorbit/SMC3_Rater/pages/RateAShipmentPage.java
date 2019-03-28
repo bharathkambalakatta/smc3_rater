@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,6 +27,15 @@ public class RateAShipmentPage extends TestBase {
 
 	WebDriver driver;
 
+	
+	@FindBy(xpath = "//div[@class='tooltip']")
+	private WebElement profileBox;
+	
+	@FindBy(xpath = "//a[@class='logout-link']")
+	private WebElement logoutOption;
+	
+	
+	
 	// Create and Delete a Custom Setting Test
 	@FindBy(id = "rateShipmentTab")
 	WebElement rateAShipmentTab;
@@ -40,10 +50,28 @@ public class RateAShipmentPage extends TestBase {
 	@FindBy(xpath = "//select[@name='dataModule']")
 	private WebElement availableTariffsDropDown;
 
+	@FindBy(xpath = "//input[@value='Rate Shipment']")
+	private WebElement rateShipmentButton;
+	
+
+
 	public RateAShipmentPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	
+	
+	public void loggingOutFromTheApplication(){
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(profileBox));
+		Actions action = new Actions(driver);
+		action.moveToElement(profileBox).build().perform();;
+		wait.until(ExpectedConditions.visibilityOf(logoutOption));
+		logoutOption.click();
+	}
+	
 
 	// Create and Delete a Custom Setting Test
 	public void clickingOnRateAShipmentTab() {
@@ -73,17 +101,18 @@ public class RateAShipmentPage extends TestBase {
 
 	// Create a Setting with Data Module Test
 	public void selectSetting(String setting) throws InterruptedException {
-		 WebDriverWait wait = new WebDriverWait(driver,
-		 RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		 wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
 		Select select = new Select(settingsDropDown);
 		select.selectByVisibleText(setting);
 	}
 
 	public String verifySelectedValueInRateFamily() throws InterruptedException {
-		 WebDriverWait wait = new WebDriverWait(driver,
-		 RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		 wait.until(ExpectedConditions.visibilityOf(rateFamilyDropDown));
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
+		Thread.sleep(1000);
 		Select select = new Select(rateFamilyDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
@@ -91,9 +120,11 @@ public class RateAShipmentPage extends TestBase {
 
 	public String verifySelectedValueInAvailableTariffs()
 			throws InterruptedException {
-		 WebDriverWait wait = new WebDriverWait(driver,
-		 RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		 wait.until(ExpectedConditions.visibilityOf(rateFamilyDropDown));
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(availableTariffsDropDown));
+		Thread.sleep(1000);
 		Select select = new Select(availableTariffsDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
