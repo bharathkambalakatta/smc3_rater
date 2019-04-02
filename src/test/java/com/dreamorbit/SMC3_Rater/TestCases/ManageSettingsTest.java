@@ -35,15 +35,15 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	@Test
-	public void verifyCreateDefaultSettingTest(){
+	public void verifyCreateDefaultSettingTest() throws InterruptedException{
 		loginToApplication.LoginToApplication(
 				propertyValue.getValue("loginUserName"),
 				propertyValue.getValue("loginPassword"));
 
 		manageSettings.clickingOnManageSettingsTab();
 		manageSettings.clickingDefaultSettingOption();
-		
-		
+		manageSettings.enteringDefaultDiscountsDetails(propertyValue.getValue("discount1"), propertyValue.getValue("mcDiscount1"), propertyValue.getValue("mcFloor1"));
+//		rateAShipment.clickingOnRateAShipmentTab();
 		
 		
 //		rateAShipment.loggingOutFromTheApplication();

@@ -34,6 +34,16 @@ public class RateAShipmentPage extends TestBase {
 	@FindBy(xpath = "//a[@class='logout-link']")
 	private WebElement logoutOption;
 	
+	@FindBy(xpath = "//input[@name='discount']")
+	private WebElement discountTextBox;
+	
+	@FindBy(xpath = "//input[@id='minChargeDisc']")
+	private WebElement mcDiscountTextBox;
+	
+	@FindBy(xpath = "//input[@id='minChargeFloor']")
+	private WebElement mcFloorTextBox;
+	
+	
 	
 	
 	// Create and Delete a Custom Setting Test

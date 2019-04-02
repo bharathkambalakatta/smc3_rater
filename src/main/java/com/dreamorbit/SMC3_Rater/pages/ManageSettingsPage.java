@@ -5,8 +5,10 @@ import java.util.function.Predicate;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,15 +32,37 @@ public class ManageSettingsPage extends TestBase {
 
 	WebDriver driver;
 
-	
+	// Create Default Setting Test
 	@FindBy(xpath = "//a[@id='defaultPanel']")
 	private WebElement defaultSettingOption;
-	
-	
-	
-	
-	
-	
+
+	@FindBy(xpath = "//div[@class='discount-box']//div[@class='form-group']")
+	private WebElement toggleForDefaultDiscounts;
+
+	@FindBy(xpath = "//input[@id='defaultdiscount']")
+	private WebElement defaultDiscountTextBox;
+
+	@FindBy(xpath = "//input[@id='mcdis']")
+	private WebElement defaultMCDiscountTextBox;
+
+	@FindBy(xpath = "//input[@id='default-mcfloor']")
+	private WebElement defaultMCFloorTextBox;
+
+	@FindBy(xpath = "//div[@id='constant-class']//span[@class='switch']")
+	private WebElement toggleForDefaultConstantClass;
+
+	@FindBy(xpath = "//select[@id='constantDefault1']")
+	private WebElement defaultClassDropDown;
+
+	@FindBy(xpath = "//div[@id='zipInfo']//span[@class='switch']")
+	private WebElement toggleForDefaultConstantZIPs;
+
+	@FindBy(xpath = "//input[@id='orgZip']")
+	private WebElement defaultOriginZIPTextBox;
+
+	@FindBy(xpath = "//input[@id='desZip']")
+	private WebElement defaultDestinationZIPTextBox;
+
 	// Create and Delete a Custom Setting Test
 	@FindBy(xpath = "//a[contains(text(),'Manage Settings')]")
 	WebElement manageSettingsTab;
@@ -87,14 +111,45 @@ public class ManageSettingsPage extends TestBase {
 	public void clickingDefaultSettingOption() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(defaultSettingOption))
+		wait.until(
+				ExpectedConditions.elementToBeClickable(defaultSettingOption))
 				.click();
 	}
+
 	
-	
-	
-	
-	
+	public void enteringDefaultDiscountsDetails(String discount,
+			String mcDiscount, String mcFloor) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultDiscounts));
+		Thread.sleep(1000);
+		if (defaultDiscountTextBox.isDisplayed()) {
+			Actions action = new Actions(driver);
+			action.doubleClick(defaultDiscountTextBox).build().perform();
+			defaultDiscountTextBox.sendKeys(discount);
+//			wait.until(ExpectedConditions
+//					.visibilityOf(defaultMCDiscountTextBox));
+//			action.doubleClick(defaultMCDiscountTextBox).build().perform();
+			defaultMCDiscountTextBox.clear();
+			defaultMCDiscountTextBox.sendKeys(mcDiscount);
+//			defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"), mcDiscount);
+//			wait.until(ExpectedConditions.visibilityOf(defaultMCFloorTextBox));
+//			action.doubleClick(defaultMCFloorTextBox).build().perform();
+//			defaultMCFloorTextBox.sendKeys(mcFloor);
+		} else {
+			toggleForDefaultDiscounts.click();
+			wait.until(ExpectedConditions.visibilityOf(defaultDiscountTextBox));
+			defaultDiscountTextBox.sendKeys(discount);
+			wait.until(ExpectedConditions
+					.visibilityOf(defaultMCDiscountTextBox));
+			defaultMCDiscountTextBox.clear();
+			defaultMCDiscountTextBox.sendKeys(mcDiscount);
+			wait.until(ExpectedConditions.visibilityOf(defaultMCFloorTextBox));
+			defaultMCFloorTextBox.clear();
+			defaultMCFloorTextBox.sendKeys(mcFloor);
+		}
+	}
+
 	// Create and Delete a Custom Setting Test
 	public void clickingOnManageSettingsTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
