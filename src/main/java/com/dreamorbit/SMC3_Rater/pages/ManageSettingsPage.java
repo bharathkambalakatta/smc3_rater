@@ -48,13 +48,13 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//input[@id='default-mcfloor']")
 	private WebElement defaultMCFloorTextBox;
 
-	@FindBy(xpath = "//div[@id='constant-class']//span[@class='switch']")
+	@FindBy(xpath = "//div[@id='constant-class']//div[@class='form-group']")
 	private WebElement toggleForDefaultConstantClass;
 
 	@FindBy(xpath = "//select[@id='constantDefault1']")
 	private WebElement defaultClassDropDown;
 
-	@FindBy(xpath = "//div[@id='zipInfo']//span[@class='switch']")
+	@FindBy(xpath = "//div[@id='zipInfo']//div[@class='form-group']")
 	private WebElement toggleForDefaultConstantZIPs;
 
 	@FindBy(xpath = "//input[@id='orgZip']")
@@ -116,7 +116,6 @@ public class ManageSettingsPage extends TestBase {
 				.click();
 	}
 
-	
 	public void enteringDefaultDiscountsDetails(String discount,
 			String mcDiscount, String mcFloor) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -126,30 +125,75 @@ public class ManageSettingsPage extends TestBase {
 		if (defaultDiscountTextBox.isDisplayed()) {
 			Actions action = new Actions(driver);
 			action.doubleClick(defaultDiscountTextBox).build().perform();
-			defaultDiscountTextBox.sendKeys(discount);
-//			wait.until(ExpectedConditions
-//					.visibilityOf(defaultMCDiscountTextBox));
-//			action.doubleClick(defaultMCDiscountTextBox).build().perform();
-			defaultMCDiscountTextBox.clear();
-			defaultMCDiscountTextBox.sendKeys(mcDiscount);
-//			defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"), mcDiscount);
-//			wait.until(ExpectedConditions.visibilityOf(defaultMCFloorTextBox));
-//			action.doubleClick(defaultMCFloorTextBox).build().perform();
-//			defaultMCFloorTextBox.sendKeys(mcFloor);
-		} else {
-			toggleForDefaultDiscounts.click();
-			wait.until(ExpectedConditions.visibilityOf(defaultDiscountTextBox));
+			Thread.sleep(1000);
 			defaultDiscountTextBox.sendKeys(discount);
 			wait.until(ExpectedConditions
 					.visibilityOf(defaultMCDiscountTextBox));
-			defaultMCDiscountTextBox.clear();
+			action.doubleClick(defaultMCDiscountTextBox).build().perform();
+			Thread.sleep(1000);
 			defaultMCDiscountTextBox.sendKeys(mcDiscount);
 			wait.until(ExpectedConditions.visibilityOf(defaultMCFloorTextBox));
-			defaultMCFloorTextBox.clear();
+			action.doubleClick(defaultMCFloorTextBox).build().perform();
+			Thread.sleep(1000);
+			defaultMCFloorTextBox.sendKeys(mcFloor);
+		} else {
+			toggleForDefaultDiscounts.click();
+			wait.until(ExpectedConditions.visibilityOf(defaultDiscountTextBox));
+			Actions action = new Actions(driver);
+			action.doubleClick(defaultDiscountTextBox).build().perform();
+			Thread.sleep(1000);
+			defaultDiscountTextBox.sendKeys(discount);
+			wait.until(ExpectedConditions
+					.visibilityOf(defaultMCDiscountTextBox));
+			action.doubleClick(defaultMCDiscountTextBox).build().perform();
+			Thread.sleep(1000);
+			 defaultMCDiscountTextBox.sendKeys(mcDiscount);
+			wait.until(ExpectedConditions.visibilityOf(defaultMCFloorTextBox));
+			action.doubleClick(defaultMCFloorTextBox).build().perform();
+			Thread.sleep(1000);
 			defaultMCFloorTextBox.sendKeys(mcFloor);
 		}
 	}
 
+	
+	public void enteringDefaultConstantClassDetails(String constantClass) throws InterruptedException{
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultConstantClass));
+		if(defaultClassDropDown.isDisplayed()){
+			Select select = new Select(defaultClassDropDown);
+			select.selectByVisibleText(constantClass);
+			Thread.sleep(1000);
+		}
+		else{
+			toggleForDefaultConstantClass.click();
+			wait.until(ExpectedConditions.visibilityOf(defaultClassDropDown));
+			Select select = new Select(defaultClassDropDown);
+			select.selectByVisibleText(constantClass);
+			Thread.sleep(1000);
+		}
+	}
+	
+	public void enteringDefaultConstantZIPS(String originZIP, String destinationZIP) throws InterruptedException{
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultConstantZIPs));
+		if(defaultOriginZIPTextBox.isDisplayed()){
+			defaultOriginZIPTextBox.clear();
+			defaultOriginZIPTextBox.sendKeys(originZIP);
+			defaultDestinationZIPTextBox.clear();
+			defaultDestinationZIPTextBox.sendKeys(destinationZIP);
+		}
+		else{
+			toggleForDefaultConstantZIPs.click();
+			wait.until(ExpectedConditions.visibilityOf(defaultOriginZIPTextBox));
+			defaultOriginZIPTextBox.sendKeys(originZIP);
+			defaultDestinationZIPTextBox.sendKeys(destinationZIP);
+		}
+	}
+	
+	
+	
 	// Create and Delete a Custom Setting Test
 	public void clickingOnManageSettingsTab() {
 		WebDriverWait wait = new WebDriverWait(driver,

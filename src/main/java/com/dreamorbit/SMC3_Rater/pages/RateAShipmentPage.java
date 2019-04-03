@@ -43,6 +43,14 @@ public class RateAShipmentPage extends TestBase {
 	@FindBy(xpath = "//input[@id='minChargeFloor']")
 	private WebElement mcFloorTextBox;
 	
+	@FindBy(xpath = "//select[@id='ltl-class-0']")
+	private WebElement classDropDown;
+
+	@FindBy(xpath = "//input[@id='pickupZip']")
+	private WebElement originTextBox;
+	
+	@FindBy(xpath = "//input[@id='deliveryZip']")
+	private WebElement destinationTextBox;
 	
 	
 	
@@ -83,6 +91,17 @@ public class RateAShipmentPage extends TestBase {
 	}
 	
 
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
 	// Create and Delete a Custom Setting Test
 	public void clickingOnRateAShipmentTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -138,5 +157,45 @@ public class RateAShipmentPage extends TestBase {
 		Select select = new Select(availableTariffsDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
+	}
+	
+	public void selectRateFamily(String rateFamily){
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(rateFamilyDropDown));
+		Select select = new Select(rateFamilyDropDown);
+		select.selectByVisibleText(rateFamily);
+	}
+	
+	
+	public String verifyDiscountTextBoxValue() throws InterruptedException{
+		return discountTextBox.getAttribute("value");
+	}
+	
+	
+	public String verifyMCDiscountTextBoxValue(){
+		return mcDiscountTextBox.getAttribute("value");
+	}
+	
+	
+	public String verifyMCFloorTextBoxValue(){
+		return mcFloorTextBox.getAttribute("value");
+	}
+	
+	
+	public String verifyClassDropDownValue(){
+		Select select = new Select(classDropDown);
+		return select.getFirstSelectedOption().getAttribute("value");
+	}
+	
+	
+	public String verifyOriginTextBoxValue(){
+		return originTextBox.getAttribute("value");
+	}
+	
+	
+	public String verifyDestinationTextBoxValue(){
+		return destinationTextBox.getAttribute("value");
 	}
 }
