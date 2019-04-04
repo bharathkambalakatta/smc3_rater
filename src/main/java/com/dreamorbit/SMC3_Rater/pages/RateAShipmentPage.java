@@ -1,9 +1,15 @@
+/* PROJECT		: SMC3 - Rater
+ * AUTHOR		: Bharath Kambalakatta
+ * COMPANY		: DreamOrbit Softech Pvt Ltd
+ * CREATED DATE	: 
+ */
+
 package com.dreamorbit.SMC3_Rater.pages;
 
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -27,38 +33,17 @@ public class RateAShipmentPage extends TestBase {
 
 	WebDriver driver;
 
-	
-	@FindBy(xpath = "//div[@class='tooltip']")
-	private WebElement profileBox;
-	
-	@FindBy(xpath = "//a[@class='logout-link']")
-	private WebElement logoutOption;
-	
-	@FindBy(xpath = "//input[@name='discount']")
-	private WebElement discountTextBox;
-	
-	@FindBy(xpath = "//input[@id='minChargeDisc']")
-	private WebElement mcDiscountTextBox;
-	
-	@FindBy(xpath = "//input[@id='minChargeFloor']")
-	private WebElement mcFloorTextBox;
-	
-	@FindBy(xpath = "//select[@id='ltl-class-0']")
-	private WebElement classDropDown;
-
-	@FindBy(xpath = "//input[@id='pickupZip']")
-	private WebElement originTextBox;
-	
-	@FindBy(xpath = "//input[@id='deliveryZip']")
-	private WebElement destinationTextBox;
-	
-	
-	
-	// Create and Delete a Custom Setting Test
+	// RATE A SHIPMENT page - Elements present in the header
 	@FindBy(id = "rateShipmentTab")
 	WebElement rateAShipmentTab;
 
-	// Create a Setting with Data Module Test
+	@FindBy(xpath = "//div[@class='tooltip']")
+	private WebElement profileBox;
+
+	@FindBy(xpath = "//a[@class='logout-link']")
+	private WebElement logoutOption;
+
+	// RATE A SHIPMENT page - Elements present in the left side section
 	@FindBy(xpath = "//select[@id='settingId']")
 	private WebElement settingsDropDown;
 
@@ -68,46 +53,58 @@ public class RateAShipmentPage extends TestBase {
 	@FindBy(xpath = "//select[@name='dataModule']")
 	private WebElement availableTariffsDropDown;
 
+	@FindBy(xpath = "//input[@id='pickupZip']")
+	private WebElement originTextBox;
+
+	@FindBy(xpath = "//input[@id='deliveryZip']")
+	private WebElement destinationTextBox;
+
+	@FindBy(xpath = "//input[@name='discount']")
+	private WebElement discountTextBox;
+
+	@FindBy(xpath = "//input[@id='minChargeDisc']")
+	private WebElement mcDiscountTextBox;
+
+	@FindBy(xpath = "//input[@id='minChargeFloor']")
+	private WebElement mcFloorTextBox;
+
+	// RATE A SHIPMENT page - Elements present in the right side section
+	@FindBy(xpath = "//select[@id='ltl-class-0']")
+	private WebElement classDropDown;
+
 	@FindBy(xpath = "//input[@value='Rate Shipment']")
 	private WebElement rateShipmentButton;
-	
-
 
 	public RateAShipmentPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	
-	
-	public void loggingOutFromTheApplication(){
-		WebDriverWait wait = new WebDriverWait(driver,
-				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(profileBox));
-		Actions action = new Actions(driver);
-		action.moveToElement(profileBox).build().perform();;
-		wait.until(ExpectedConditions.visibilityOf(logoutOption));
-		logoutOption.click();
-	}
-	
 
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	// Create and Delete a Custom Setting Test
+	// RATE A SHIPMENT page - Various functions which are used in the test cases
 	public void clickingOnRateAShipmentTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab));
 		rateAShipmentTab.click();
+	}
+
+	public void loggingOutFromTheApplication() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(profileBox));
+		Actions action = new Actions(driver);
+		action.moveToElement(profileBox).build().perform();
+		;
+		wait.until(ExpectedConditions.visibilityOf(logoutOption));
+		logoutOption.click();
+	}
+
+	public void selectSetting(String setting) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
+		Select select = new Select(settingsDropDown);
+		select.selectByVisibleText(setting);
 	}
 
 	public boolean verifyIfSettingIsAvailable() {
@@ -128,13 +125,12 @@ public class RateAShipmentPage extends TestBase {
 		return found;
 	}
 
-	// Create a Setting with Data Module Test
-	public void selectSetting(String setting) throws InterruptedException {
+	public void selectRateFamily(String rateFamily) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
-		Select select = new Select(settingsDropDown);
-		select.selectByVisibleText(setting);
+		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
+		Select select = new Select(rateFamilyDropDown);
+		select.selectByVisibleText(rateFamily);
 	}
 
 	public String verifySelectedValueInRateFamily() throws InterruptedException {
@@ -158,44 +154,48 @@ public class RateAShipmentPage extends TestBase {
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
 	}
-	
-	public void selectRateFamily(String rateFamily){
-		WebDriverWait wait = new WebDriverWait(driver,
-				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions
-				.elementToBeClickable(rateFamilyDropDown));
-		Select select = new Select(rateFamilyDropDown);
-		select.selectByVisibleText(rateFamily);
-	}
-	
-	
-	public String verifyDiscountTextBoxValue() throws InterruptedException{
+
+	public String verifyDiscountTextBoxValue() {
 		return discountTextBox.getAttribute("value");
 	}
-	
-	
-	public String verifyMCDiscountTextBoxValue(){
+
+	public String verifyMCDiscountTextBoxValue() {
 		return mcDiscountTextBox.getAttribute("value");
 	}
-	
-	
-	public String verifyMCFloorTextBoxValue(){
+
+	public String verifyMCFloorTextBoxValue() {
 		return mcFloorTextBox.getAttribute("value");
 	}
-	
-	
-	public String verifyClassDropDownValue(){
+
+	public String verifyClassDropDownValue() {
 		Select select = new Select(classDropDown);
 		return select.getFirstSelectedOption().getAttribute("value");
 	}
-	
-	
-	public String verifyOriginTextBoxValue(){
+
+	public String verifyOriginTextBoxValue() {
 		return originTextBox.getAttribute("value");
 	}
-	
-	
-	public String verifyDestinationTextBoxValue(){
+
+	public String verifyDestinationTextBoxValue() {
 		return destinationTextBox.getAttribute("value");
+	}
+
+	public boolean verifyIfClassDropDownHasAnyValueSelected() {
+		boolean notSame = true;
+		try {
+			String text = propertyValue.getValue("constantClass1");
+			WebDriverWait wait = new WebDriverWait(driver,
+					RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(classDropDown));
+
+			Select select = new Select(classDropDown);
+			String value = select.getFirstSelectedOption().getText();
+			if (text.equals(value)) {
+				notSame = false;
+			}
+		} catch (NoSuchElementException e) {
+			System.out.println("No value is selected in 'Class' drop down");
+		}
+		return notSame;
 	}
 }

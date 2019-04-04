@@ -1,18 +1,19 @@
-package com.dreamorbit.SMC3_Rater.pages;
+/* PROJECT		: SMC3 - Rater
+ * AUTHOR		: Bharath Kambalakatta
+ * COMPANY		: DreamOrbit Softech Pvt Ltd
+ * CREATED DATE	: 
+ */
 
-import java.util.concurrent.TimeUnit;
-import java.util.function.Predicate;
+package com.dreamorbit.SMC3_Rater.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,7 +33,11 @@ public class ManageSettingsPage extends TestBase {
 
 	WebDriver driver;
 
-	// Create Default Setting Test
+	// RATE A SHIPMENT page - Elements present in the header
+	@FindBy(xpath = "//a[contains(text(),'Manage Settings')]")
+	WebElement manageSettingsTab;
+
+	// RATE A SHIPMENT page - Elements present in 'Default Setting' section
 	@FindBy(xpath = "//a[@id='defaultPanel']")
 	private WebElement defaultSettingOption;
 
@@ -63,13 +68,12 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//input[@id='desZip']")
 	private WebElement defaultDestinationZIPTextBox;
 
-	// Create and Delete a Custom Setting Test
-	@FindBy(xpath = "//a[contains(text(),'Manage Settings')]")
-	WebElement manageSettingsTab;
-
+	// RATE A SHIPMENT page - Elements present in 'Custom Setting' section
 	@FindBy(xpath = "//a[@id='custom-set-button']")
 	private WebElement customSettingOption;
 
+	// RATE A SHIPMENT page - Elements present in 'Custom Setting' section -
+	// Setting table
 	@FindBy(xpath = "//div[@class='card-header add-header custom-row active']//*[contains(text(),'Add New Row')]")
 	private WebElement addNewRowButton;
 
@@ -82,15 +86,19 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//tr[@id='trCust-1 ']//div[3]")
 	private WebElement saveButton;
 
-	@FindBy(xpath = "//span[@id='settingName']")
-	private WebElement settingName;
+	@FindBy(xpath = "//tr[1]/td[1]//img[@class='arrow-one']")
+	private WebElement arrowPresentInFirstRow;
 
-	// span[text()='RaterTest']/parent::div/parent::td/following-sibling::td//a[@class='delete-row
-	// custom']
 	@FindBy(xpath = "//tr[1]/td[5]//a[@class='delete-row custom']")
 	private WebElement deleteButton;
 
-	// Create a Setting with Data Module Test
+	// RATE A SHIPMENT page - Elements present in 'Custom Setting' section -
+	// When setting is opened
+	@FindBy(xpath = "//span[@id='settingName']")
+	private WebElement settingName;
+
+	// RATE A SHIPMENT page - Elements present in 'Custom Setting' section -
+	// When setting is opened - Data Module sub-section
 	@FindBy(xpath = "//div[@class='data-module-container']//div[@class='form-group']")
 	private WebElement toggleForDataModule;
 
@@ -100,15 +108,22 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//select[@id='rater-tariff']")
 	private WebElement availableTariffsDropDown;
 
-	@FindBy(xpath = "//tr[1]/td[1]//img[@class='arrow-one']")
-	private WebElement arrowPresentInFirstRow;
-
 	public ManageSettingsPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickingDefaultSettingOption() {
+	// RATE A SHIPMENT page - Various functions which are used in the test cases
+	public void clickingOnManageSettingsTab() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(manageSettingsTab))
+				.click();
+	}
+
+	// RATE A SHIPMENT page - Default Setting - Various functions which are used
+	// in the test cases
+	public void clickingOnDefaultSettingOption() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(
@@ -147,7 +162,7 @@ public class ManageSettingsPage extends TestBase {
 					.visibilityOf(defaultMCDiscountTextBox));
 			action.doubleClick(defaultMCDiscountTextBox).build().perform();
 			Thread.sleep(1000);
-			 defaultMCDiscountTextBox.sendKeys(mcDiscount);
+			defaultMCDiscountTextBox.sendKeys(mcDiscount);
 			wait.until(ExpectedConditions.visibilityOf(defaultMCFloorTextBox));
 			action.doubleClick(defaultMCFloorTextBox).build().perform();
 			Thread.sleep(1000);
@@ -155,17 +170,17 @@ public class ManageSettingsPage extends TestBase {
 		}
 	}
 
-	
-	public void enteringDefaultConstantClassDetails(String constantClass) throws InterruptedException{
+	public void enteringDefaultConstantClassDetails(String constantClass)
+			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultConstantClass));
-		if(defaultClassDropDown.isDisplayed()){
+		wait.until(ExpectedConditions
+				.visibilityOf(toggleForDefaultConstantClass));
+		if (defaultClassDropDown.isDisplayed()) {
 			Select select = new Select(defaultClassDropDown);
 			select.selectByVisibleText(constantClass);
 			Thread.sleep(1000);
-		}
-		else{
+		} else {
 			toggleForDefaultConstantClass.click();
 			wait.until(ExpectedConditions.visibilityOf(defaultClassDropDown));
 			Select select = new Select(defaultClassDropDown);
@@ -173,42 +188,69 @@ public class ManageSettingsPage extends TestBase {
 			Thread.sleep(1000);
 		}
 	}
-	
-	public void enteringDefaultConstantZIPS(String originZIP, String destinationZIP) throws InterruptedException{
+
+	public void enteringDefaultConstantZIPSDetails(String originZIP,
+			String destinationZIP) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultConstantZIPs));
-		if(defaultOriginZIPTextBox.isDisplayed()){
+		wait.until(ExpectedConditions
+				.visibilityOf(toggleForDefaultConstantZIPs));
+		if (defaultOriginZIPTextBox.isDisplayed()) {
 			defaultOriginZIPTextBox.clear();
 			defaultOriginZIPTextBox.sendKeys(originZIP);
 			defaultDestinationZIPTextBox.clear();
 			defaultDestinationZIPTextBox.sendKeys(destinationZIP);
-		}
-		else{
+		} else {
 			toggleForDefaultConstantZIPs.click();
 			wait.until(ExpectedConditions.visibilityOf(defaultOriginZIPTextBox));
 			defaultOriginZIPTextBox.sendKeys(originZIP);
 			defaultDestinationZIPTextBox.sendKeys(destinationZIP);
 		}
 	}
-	
-	
-	
-	// Create and Delete a Custom Setting Test
-	public void clickingOnManageSettingsTab() {
+
+	public void makingDefaultDiscountsToggleOff() throws InterruptedException {
+		Thread.sleep(1000);
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(manageSettingsTab))
-				.click();
+		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultDiscounts));
+		toggleForDefaultDiscounts.click();
+		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
 	}
 
-	public void clickingCustomSettingOption() {
+	public void makingDefaultConstantClassToggleOff()
+			throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.visibilityOf(toggleForDefaultConstantClass));
+		toggleForDefaultConstantClass.click();
+		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
+	}
+
+	public void makingDefaultConstantZIPSToggleOff()
+			throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.visibilityOf(toggleForDefaultConstantZIPs));
+		toggleForDefaultConstantZIPs.click();
+		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
+	}
+
+	// RATE A SHIPMENT page - Custom Setting - Various functions which are used
+	// in the test cases
+	public void clickingOnCustomSettingOption() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(customSettingOption))
 				.click();
 	}
 
+	// RATE A SHIPMENT page - Custom Setting - Setting table - Various functions
+	// which are used in the test cases
 	public void addingACustomSetting(String settingID, String description) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -224,6 +266,14 @@ public class ManageSettingsPage extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(settingName));
 	}
 
+	public void clickingOnArrowPresentInFirstRow() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(
+				ExpectedConditions.elementToBeClickable(arrowPresentInFirstRow))
+				.click();
+	}
+
 	public void clickingOnDeleteCustomSetting() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -233,7 +283,8 @@ public class ManageSettingsPage extends TestBase {
 		Thread.sleep(1000);
 	}
 
-	// Create a Setting with Data Module Test
+	// RATE A SHIPMENT page - Custom Setting - Data Module - Various functions
+	// which are used in the test cases
 	public void clickingOnTogglePresentForDataModule() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -253,13 +304,5 @@ public class ManageSettingsPage extends TestBase {
 		Thread.sleep(1000);
 		Select select1 = new Select(availableTariffsDropDown);
 		select1.selectByVisibleText(availableTariffs);
-	}
-
-	public void clickingOnArrowPresentInFirstRow() {
-		WebDriverWait wait = new WebDriverWait(driver,
-				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(
-				ExpectedConditions.elementToBeClickable(arrowPresentInFirstRow))
-				.click();
 	}
 }
