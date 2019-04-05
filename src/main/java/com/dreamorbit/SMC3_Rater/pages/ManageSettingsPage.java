@@ -33,11 +33,11 @@ public class ManageSettingsPage extends TestBase {
 
 	WebDriver driver;
 
-	// RATE A SHIPMENT page - Elements present in the header
+	// MANAGE SETTINGS page - Elements present in the header
 	@FindBy(xpath = "//a[contains(text(),'Manage Settings')]")
 	WebElement manageSettingsTab;
 
-	// RATE A SHIPMENT page - Elements present in 'Default Setting' section
+	// MANAGE SETTINGS page - Elements present in 'Default Setting' section
 	@FindBy(xpath = "//a[@id='defaultPanel']")
 	private WebElement defaultSettingOption;
 
@@ -68,11 +68,11 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//input[@id='desZip']")
 	private WebElement defaultDestinationZIPTextBox;
 
-	// RATE A SHIPMENT page - Elements present in 'Custom Setting' section
+	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section
 	@FindBy(xpath = "//a[@id='custom-set-button']")
 	private WebElement customSettingOption;
 
-	// RATE A SHIPMENT page - Elements present in 'Custom Setting' section -
+	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// Setting table
 	@FindBy(xpath = "//div[@class='card-header add-header custom-row active']//*[contains(text(),'Add New Row')]")
 	private WebElement addNewRowButton;
@@ -92,12 +92,12 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//tr[1]/td[5]//a[@class='delete-row custom']")
 	private WebElement deleteButton;
 
-	// RATE A SHIPMENT page - Elements present in 'Custom Setting' section -
+	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// When setting is opened
 	@FindBy(xpath = "//span[@id='settingName']")
 	private WebElement settingName;
 
-	// RATE A SHIPMENT page - Elements present in 'Custom Setting' section -
+	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// When setting is opened - Data Module sub-section
 	@FindBy(xpath = "//div[@class='data-module-container']//div[@class='form-group']")
 	private WebElement toggleForDataModule;
@@ -113,7 +113,7 @@ public class ManageSettingsPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	// RATE A SHIPMENT page - Various functions which are used in the test cases
+	// MANAGE SETTINGS page - Various functions which are used in the test cases
 	public void clickingOnManageSettingsTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -121,7 +121,7 @@ public class ManageSettingsPage extends TestBase {
 				.click();
 	}
 
-	// RATE A SHIPMENT page - Default Setting - Various functions which are used
+	// MANAGE SETTINGS page - Default Setting - Various functions which are used
 	// in the test cases
 	public void clickingOnDefaultSettingOption() {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -135,8 +135,8 @@ public class ManageSettingsPage extends TestBase {
 			String mcDiscount, String mcFloor) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultDiscounts));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(toggleForDefaultDiscounts));
+//		Thread.sleep(1000);
 		if (defaultDiscountTextBox.isDisplayed()) {
 			Actions action = new Actions(driver);
 			action.doubleClick(defaultDiscountTextBox).build().perform();
@@ -240,7 +240,7 @@ public class ManageSettingsPage extends TestBase {
 		Thread.sleep(1000);
 	}
 
-	// RATE A SHIPMENT page - Custom Setting - Various functions which are used
+	// MANAGE SETTINGS page - Custom Setting - Various functions which are used
 	// in the test cases
 	public void clickingOnCustomSettingOption() {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -249,7 +249,7 @@ public class ManageSettingsPage extends TestBase {
 				.click();
 	}
 
-	// RATE A SHIPMENT page - Custom Setting - Setting table - Various functions
+	// MANAGE SETTINGS page - Custom Setting - Setting table - Various functions
 	// which are used in the test cases
 	public void addingACustomSetting(String settingID, String description) {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -283,7 +283,7 @@ public class ManageSettingsPage extends TestBase {
 		Thread.sleep(1000);
 	}
 
-	// RATE A SHIPMENT page - Custom Setting - Data Module - Various functions
+	// MANAGE SETTINGS page - Custom Setting - Data Module - Various functions
 	// which are used in the test cases
 	public void clickingOnTogglePresentForDataModule() {
 		WebDriverWait wait = new WebDriverWait(driver,

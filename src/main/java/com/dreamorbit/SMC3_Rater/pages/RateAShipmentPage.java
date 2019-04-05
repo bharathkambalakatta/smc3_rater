@@ -194,7 +194,7 @@ public class RateAShipmentPage extends TestBase {
 				notSame = false;
 			}
 		} catch (NoSuchElementException e) {
-			System.out.println("No value is selected in 'Class' drop down");
+			System.out.println("----->>>>> No value is selected in 'Class' drop down <<<<<-----");
 		}
 		return notSame;
 	}

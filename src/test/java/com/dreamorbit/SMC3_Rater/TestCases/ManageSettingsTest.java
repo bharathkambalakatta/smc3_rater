@@ -54,73 +54,80 @@ public class ManageSettingsTest extends TestBase {
 					propertyValue.getValue("discount1"),
 					propertyValue.getValue("mcDiscount1"),
 					propertyValue.getValue("mcFloor1"));
-			manageSettings.enteringDefaultConstantClassDetails(propertyValue
-					.getValue("constantClass1"));
-			manageSettings.enteringDefaultConstantZIPSDetails(
-					propertyValue.getValue("constantZIPSOriginZIP"),
-					propertyValue.getValue("constantZIPSDestinationZIP"));
+			
+			
+			
+			
+			
+//			manageSettings.enteringDefaultConstantClassDetails(propertyValue
+//					.getValue("constantClass1"));
+//			manageSettings.enteringDefaultConstantZIPSDetails(
+//					propertyValue.getValue("constantZIPSOriginZIP"),
+//					propertyValue.getValue("constantZIPSDestinationZIP"));
+//
+//			rateAShipment.clickingOnRateAShipmentTab();
+//			rateAShipment.selectRateFamily(propertyValue
+//					.getValue("rateFamily1"));
+//
+//			Thread.sleep(1000);
+//			String actual = rateAShipment.verifyDiscountTextBoxValue();
+//			Assert.assertEquals(propertyValue.getValue("discount1"), actual);
+//			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
+//			Assert.assertEquals(propertyValue.getValue("mcDiscount1"), actual1);
+//			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
+//			Assert.assertEquals(propertyValue.getValue("mcFloor1"), actual2);
+//			String actual3 = rateAShipment.verifyClassDropDownValue();
+//			Assert.assertEquals(propertyValue.getValue("constantClass1"),
+//					actual3);
+//			String actual4 = rateAShipment.verifyOriginTextBoxValue();
+//			Assert.assertEquals(
+//					propertyValue.getValue("constantZIPSOriginZIP"), actual4);
+//			String actual5 = rateAShipment.verifyDestinationTextBoxValue();
+//			Assert.assertEquals(
+//					propertyValue.getValue("constantZIPSDestinationZIP"),
+//					actual5);
+//
+//			rateAShipment.loggingOutFromTheApplication();
+//			loginToApplication.LoginToApplication(
+//					propertyValue.getValue("user1LoginName"),
+//					propertyValue.getValue("user1LoginPassword"));
+//			rateAShipment.selectRateFamily(propertyValue
+//					.getValue("rateFamily1"));
+//
+//			Thread.sleep(1000);
+//			String actual6 = rateAShipment.verifyDiscountTextBoxValue();
+//			Assert.assertNotSame(propertyValue.getValue("discount1"), actual6);
+//			String actual7 = rateAShipment.verifyMCDiscountTextBoxValue();
+//			Assert.assertNotSame(propertyValue.getValue("mcDiscount1"), actual7);
+//			String actual8 = rateAShipment.verifyMCFloorTextBoxValue();
+//			Assert.assertNotSame(propertyValue.getValue("mcFloor1"), actual8);
+//			boolean found = rateAShipment
+//					.verifyIfClassDropDownHasAnyValueSelected();
+//			Assert.assertTrue(found);
+//			String actual10 = rateAShipment.verifyOriginTextBoxValue();
+//			Assert.assertNotSame(
+//					propertyValue.getValue("constantZIPSOriginZIP"), actual10);
+//			String actual11 = rateAShipment.verifyDestinationTextBoxValue();
+//			Assert.assertNotSame(
+//					propertyValue.getValue("constantZIPSDestinationZIP"),
+//					actual11);
+//
+//			rateAShipment.loggingOutFromTheApplication();
+//			loginToApplication.LoginToApplication(
+//					propertyValue.getValue("loginUserName"),
+//					propertyValue.getValue("loginPassword"));
+//
+//			manageSettings.clickingOnManageSettingsTab();
+//			manageSettings.clickingOnDefaultSettingOption();
+//			manageSettings.makingDefaultDiscountsToggleOff();
+//			manageSettings.makingDefaultConstantClassToggleOff();
+//			manageSettings.makingDefaultConstantZIPSToggleOff();
+//
+//			System.out
+//					.println("---------->>>>>>>>>> Create Default Setting Test Executed Successfully <<<<<<<<<<----------");
 
-			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectRateFamily(propertyValue
-					.getValue("rateFamily1"));
-
-			Thread.sleep(1000);
-			String actual = rateAShipment.verifyDiscountTextBoxValue();
-			Assert.assertEquals(propertyValue.getValue("discount1"), actual);
-			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
-			Assert.assertEquals(propertyValue.getValue("mcDiscount1"), actual1);
-			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
-			Assert.assertEquals(propertyValue.getValue("mcFloor1"), actual2);
-			String actual3 = rateAShipment.verifyClassDropDownValue();
-			Assert.assertEquals(propertyValue.getValue("constantClass1"),
-					actual3);
-			String actual4 = rateAShipment.verifyOriginTextBoxValue();
-			Assert.assertEquals(
-					propertyValue.getValue("constantZIPSOriginZIP"), actual4);
-			String actual5 = rateAShipment.verifyDestinationTextBoxValue();
-			Assert.assertEquals(
-					propertyValue.getValue("constantZIPSDestinationZIP"),
-					actual5);
-
-			rateAShipment.loggingOutFromTheApplication();
-			loginToApplication.LoginToApplication(
-					propertyValue.getValue("user1LoginName"),
-					propertyValue.getValue("user1LoginPassword"));
-			rateAShipment.selectRateFamily(propertyValue
-					.getValue("rateFamily1"));
-
-			Thread.sleep(1000);
-			String actual6 = rateAShipment.verifyDiscountTextBoxValue();
-			Assert.assertNotSame(propertyValue.getValue("discount1"), actual6);
-			String actual7 = rateAShipment.verifyMCDiscountTextBoxValue();
-			Assert.assertNotSame(propertyValue.getValue("mcDiscount1"), actual7);
-			String actual8 = rateAShipment.verifyMCFloorTextBoxValue();
-			Assert.assertNotSame(propertyValue.getValue("mcFloor1"), actual8);
-			boolean found = rateAShipment
-					.verifyIfClassDropDownHasAnyValueSelected();
-			Assert.assertTrue(found);
-			String actual10 = rateAShipment.verifyOriginTextBoxValue();
-			Assert.assertNotSame(
-					propertyValue.getValue("constantZIPSOriginZIP"), actual10);
-			String actual11 = rateAShipment.verifyDestinationTextBoxValue();
-			Assert.assertNotSame(
-					propertyValue.getValue("constantZIPSDestinationZIP"),
-					actual11);
-
-			rateAShipment.loggingOutFromTheApplication();
-			loginToApplication.LoginToApplication(
-					propertyValue.getValue("loginUserName"),
-					propertyValue.getValue("loginPassword"));
-
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnDefaultSettingOption();
-			manageSettings.makingDefaultDiscountsToggleOff();
-			manageSettings.makingDefaultConstantClassToggleOff();
-			manageSettings.makingDefaultConstantZIPSToggleOff();
-
-			System.out
-					.println(">>>>> CUSTOM MESSAGE :: Default Setting Test Executed Successfully <<<<<");
-
+		
+		
 		} catch (Exception e) {
 			System.out.println(e);
 			Assert.fail();
@@ -132,7 +139,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
-	// @Test
+//	@Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -158,7 +165,7 @@ public class ManageSettingsTest extends TestBase {
 			Assert.assertFalse(notAvailable);
 
 			System.out
-					.println(">>>>> CUSTOM MESSAGE :: Custom Setting Created and Deleted Successfully <<<<<");
+					.println("---------->>>>>>>>>> Custom Setting Created and Deleted Successfully <<<<<<<<<<----------");
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -171,7 +178,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 4. Create a Setting with Data Module Test
-	// @Test
+//	@Test
 	public void verifyCreateASettingWithDataModule() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -220,7 +227,7 @@ public class ManageSettingsTest extends TestBase {
 			manageSettings.clickingOnDeleteCustomSetting();
 
 			System.out
-					.println(">>>>> CUSTOM MESSAGE :: Data Module set for a Custom Setting are populating in 'RATE A SHIPMENT' tab successfully <<<<<<");
+					.println("---------->>>>>>>>>> Create a Setting with Data Module Test Executed Successfully <<<<<<<<<<----------");
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -233,7 +240,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 5. Create a Setting with Single Discount Test
-	// @Test
+// @Test
 	public void verifyCreateASettingWithSingleDiscount() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -243,7 +250,7 @@ public class ManageSettingsTest extends TestBase {
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
 
-			System.out.println(">>>>> CUSTOM MESSAGE ::  <<<<<");
+			System.out.println("---------->>>>>>>>>> Create a Setting with Single Discount Test Executed Successfully <<<<<<<<<<----------");
 
 		} catch (Exception e) {
 			System.out.println(e);
