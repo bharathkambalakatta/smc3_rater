@@ -12,7 +12,7 @@ import com.dreamorbit.SMC3_Rater.testbase.TestBase;
 
 public class LoginPage extends TestBase {
 
-	public static final Logger log = Logger
+	public static final Logger logger = Logger
 			.getLogger(LoginPage.class.getName());
 
 	WebDriver driver;
@@ -51,6 +51,7 @@ public class LoginPage extends TestBase {
 		this.setUserName(userName);
 		this.setPassword(password);
 		this.clickLogin();
+		logger.info("MESSAGE :: '"+userName+"' user has logged in to the application");
 		return PageFactory.initElements(driver, RateAShipmentPage.class);
 	}
 

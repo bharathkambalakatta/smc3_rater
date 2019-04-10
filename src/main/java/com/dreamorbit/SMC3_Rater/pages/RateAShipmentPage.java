@@ -25,8 +25,8 @@ import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
 public class RateAShipmentPage extends TestBase {
 
-	public static final Logger log = Logger.getLogger(RateAShipmentPage.class
-			.getName());
+	public static final Logger logger = Logger
+			.getLogger(RateAShipmentPage.class.getName());
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
@@ -59,6 +59,9 @@ public class RateAShipmentPage extends TestBase {
 	@FindBy(xpath = "//input[@id='deliveryZip']")
 	private WebElement destinationTextBox;
 
+	@FindBy(xpath = "//input[@id='discountTypeSingle']")
+	private WebElement singleDiscountRadioButton;
+
 	@FindBy(xpath = "//input[@name='discount']")
 	private WebElement discountTextBox;
 
@@ -86,6 +89,7 @@ public class RateAShipmentPage extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab));
 		rateAShipmentTab.click();
+		logger.info("MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab");
 	}
 
 	public void loggingOutFromTheApplication() {
@@ -94,9 +98,9 @@ public class RateAShipmentPage extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(profileBox));
 		Actions action = new Actions(driver);
 		action.moveToElement(profileBox).build().perform();
-		;
 		wait.until(ExpectedConditions.visibilityOf(logoutOption));
 		logoutOption.click();
+		logger.info("MESSAGE :: User has been logged out from the application");
 	}
 
 	public void selectSetting(String setting) throws InterruptedException {
@@ -105,9 +109,11 @@ public class RateAShipmentPage extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
 		Select select = new Select(settingsDropDown);
 		select.selectByVisibleText(setting);
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down");
 	}
 
 	public boolean verifyIfSettingIsAvailable() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Setting' drop down value");
 		String setting = propertyValue
 				.getValue("settingForCreateAndDeleteTest");
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -122,18 +128,26 @@ public class RateAShipmentPage extends TestBase {
 				break;
 			}
 		}
+		if (found==true) {
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - Expected value is present in 'Settings' drop down");
+		} else {
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - Expected value is not present in 'Settings' drop down");
+		}
 		return found;
 	}
 
-	public void selectRateFamily(String rateFamily) {
+	public void selectRateFamily(String rateFamily) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
 		Select select = new Select(rateFamilyDropDown);
 		select.selectByVisibleText(rateFamily);
+		Thread.sleep(1000);
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down");
 	}
 
 	public String verifySelectedValueInRateFamily() throws InterruptedException {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Rate Family' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
@@ -145,6 +159,7 @@ public class RateAShipmentPage extends TestBase {
 
 	public String verifySelectedValueInAvailableTariffs()
 			throws InterruptedException {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Available Tariffs' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -155,32 +170,70 @@ public class RateAShipmentPage extends TestBase {
 		return valueSelected;
 	}
 
-	public String verifyDiscountTextBoxValue() {
-		return discountTextBox.getAttribute("value");
-	}
-
-	public String verifyMCDiscountTextBoxValue() {
-		return mcDiscountTextBox.getAttribute("value");
-	}
-
-	public String verifyMCFloorTextBoxValue() {
-		return mcFloorTextBox.getAttribute("value");
-	}
-
-	public String verifyClassDropDownValue() {
-		Select select = new Select(classDropDown);
-		return select.getFirstSelectedOption().getAttribute("value");
-	}
-
 	public String verifyOriginTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Origin' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(originTextBox));
 		return originTextBox.getAttribute("value");
 	}
 
 	public String verifyDestinationTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Destination' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(destinationTextBox));
 		return destinationTextBox.getAttribute("value");
 	}
 
+	public boolean verifyIfSingleDiscountIsSelected() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeSelected(singleDiscountRadioButton));
+		boolean found = false;
+		if (singleDiscountRadioButton.isSelected()) {
+			found = true;
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Single' Discount radio button is selected");
+		}
+		return found;
+	}
+
+	public String verifyDiscountTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Discount' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(discountTextBox));
+		return discountTextBox.getAttribute("value");
+	}
+
+	public String verifyMCDiscountTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'MC Discount' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(mcDiscountTextBox));
+		return mcDiscountTextBox.getAttribute("value");
+	}
+
+	public String verifyMCFloorTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'MC Floor' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(mcFloorTextBox));
+		return mcFloorTextBox.getAttribute("value");
+	}
+
+	public String verifyClassDropDownValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Class' drop down value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(classDropDown));
+		Select select = new Select(classDropDown);
+		return select.getFirstSelectedOption().getAttribute("value");
+	}
+
 	public boolean verifyIfClassDropDownHasAnyValueSelected() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Class' drop down value");
 		boolean notSame = true;
 		try {
 			String text = propertyValue.getValue("constantClass1");
@@ -194,7 +247,7 @@ public class RateAShipmentPage extends TestBase {
 				notSame = false;
 			}
 		} catch (NoSuchElementException e) {
-			System.out.println("----->>>>> No value is selected in 'Class' drop down <<<<<-----");
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - No value is selected in 'Class' drop down");
 		}
 		return notSame;
 	}
