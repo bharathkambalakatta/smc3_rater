@@ -15,11 +15,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
+import com.dreamorbit.SMC3_Rater.testutils.PropertyFileWriteUtility;
 
 public class TestForTesting {
 
-	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
-			+ "/DataFile.properties");
+	static PropertyFileWriteUtility propertyValue = new PropertyFileWriteUtility("./Files/"
+			+ "/Test.properties");
 	
 //	static WebDriver driver;
 //	
@@ -61,35 +62,20 @@ public class TestForTesting {
 //	}
 //}
 
+	
+	
 	public static void main(String[] args) {
-		try {
-			Properties properties = new Properties();
-			properties.setProperty("favoriteAnimal", "ABCDEF");
-
-			File file = new File("C://Bharath//Automation//SMC3_Rater//Files//Test.properties");
-			FileOutputStream fileOut = new FileOutputStream(file);
-			properties.store(fileOut, null);
-			fileOut.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	public String generatingRandomNumber(){
+		
 		Random randomGenerator = new Random(); 
 		int randomInt = randomGenerator.nextInt(999999);  
-		String randomString = Integer.toString(randomInt);
-		return randomString;
+	
+		String randomString = "setting"+Integer.toString(randomInt);
+		System.out.println(randomString);
+		propertyValue.setValue("setting", randomString);
+//		return randomString;
 	}
 	
-	public String generatingSettingName(){
-		String setting = propertyValue.getValue("settingForSingleDiscountTest");
-		String settingNameFinal = setting+generatingRandomNumber();
-		return settingNameFinal;
-	}
+
 
 
 }

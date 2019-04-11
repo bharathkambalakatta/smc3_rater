@@ -21,6 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.dreamorbit.SMC3_Rater.testbase.TestBase;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
+import com.dreamorbit.SMC3_Rater.testutils.PropertyFileWriteUtility;
 import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
 public class RateAShipmentPage extends TestBase {
@@ -30,6 +31,9 @@ public class RateAShipmentPage extends TestBase {
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
+	PropertyFileWriteUtility propertyKeyValue = new PropertyFileWriteUtility(
+			"./Files/" + "/Test.properties");
+	PropertyFileUtility propertyValue1 = new PropertyFileUtility("./Files/" + "/Test.properties");
 
 	WebDriver driver;
 
@@ -37,7 +41,7 @@ public class RateAShipmentPage extends TestBase {
 	@FindBy(id = "rateShipmentTab")
 	WebElement rateAShipmentTab;
 
-	@FindBy(xpath = "//div[@class='tooltip']")
+	@FindBy(xpath = "//a[@class='profile-pic profile-text-link']")
 	private WebElement profileBox;
 
 	@FindBy(xpath = "//a[@class='logout-link']")
@@ -98,7 +102,7 @@ public class RateAShipmentPage extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(profileBox));
 		Actions action = new Actions(driver);
 		action.moveToElement(profileBox).build().perform();
-		wait.until(ExpectedConditions.visibilityOf(logoutOption));
+		wait.until(ExpectedConditions.elementToBeClickable(logoutOption));
 		logoutOption.click();
 		logger.info("MESSAGE :: User has been logged out from the application");
 	}
@@ -114,8 +118,8 @@ public class RateAShipmentPage extends TestBase {
 
 	public boolean verifyIfSettingIsAvailable() {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Setting' drop down value");
-		String setting = propertyValue
-				.getValue("settingForCreateAndDeleteTest");
+		String setting = propertyValue1
+				.getValue("settingName");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));

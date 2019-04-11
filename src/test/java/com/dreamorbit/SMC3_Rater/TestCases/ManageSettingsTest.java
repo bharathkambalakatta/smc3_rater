@@ -19,6 +19,7 @@ import com.dreamorbit.SMC3_Rater.pages.RateAShipmentPage;
 import com.dreamorbit.SMC3_Rater.testbase.TestBase;
 import com.dreamorbit.SMC3_Rater.testutils.ExceptionalHandlingFunctions;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
+import com.dreamorbit.SMC3_Rater.testutils.PropertyFileWriteUtility;
 
 public class ManageSettingsTest extends TestBase {
 
@@ -27,6 +28,9 @@ public class ManageSettingsTest extends TestBase {
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
+	PropertyFileUtility propertyValue1 = new PropertyFileUtility("./Files/" + "/Test.properties");
+	PropertyFileWriteUtility propertyKeyValue = new PropertyFileWriteUtility(
+			"./Files/" + "/Test.properties");
 
 	LoginPage loginToApplication;
 	RateAShipmentPage rateAShipment;
@@ -41,7 +45,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 1. Create Default Setting Test
-	@Test
+//	@Test
 	public void verifyCreateDefaultSettingTest() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -54,12 +58,12 @@ public class ManageSettingsTest extends TestBase {
 					propertyValue.getValue("discount1"),
 					propertyValue.getValue("mcDiscount1"),
 					propertyValue.getValue("mcFloor1"));
-			manageSettings.enteringDefaultConstantClassDetails(propertyValue
-					.getValue("constantClass1"));
-			manageSettings.enteringDefaultConstantZIPSDetails(
-					propertyValue.getValue("constantZIPSOriginZIP"),
-					propertyValue.getValue("constantZIPSDestinationZIP"));
-
+//			manageSettings.enteringDefaultConstantClassDetails(propertyValue
+//					.getValue("constantClass1"));
+//			manageSettings.enteringDefaultConstantZIPSDetails(
+//					propertyValue.getValue("constantZIPSOriginZIP"),
+//					propertyValue.getValue("constantZIPSDestinationZIP"));
+//
 //			rateAShipment.clickingOnRateAShipmentTab();
 //			rateAShipment.selectRateFamily(propertyValue
 //					.getValue("rateFamily1"));
@@ -102,9 +106,9 @@ public class ManageSettingsTest extends TestBase {
 //			String actual8 = rateAShipment.verifyMCFloorTextBoxValue();
 //			Assert.assertNotSame("RateAShipmentPage - 'mcFloorTextBox' ::",
 //					propertyValue.getValue("mcFloor1"), actual8);
-//			boolean found = rateAShipment
-//					.verifyIfClassDropDownHasAnyValueSelected();
-//			Assert.assertTrue("RateAShipmentPage - 'classDropDown' ::", found);
+////			boolean found = rateAShipment
+////					.verifyIfClassDropDownHasAnyValueSelected();
+////			Assert.assertTrue("RateAShipmentPage - 'classDropDown' ::", found);
 //			String actual10 = rateAShipment.verifyOriginTextBoxValue();
 //			Assert.assertNotSame("RateAShipmentPage - 'originTextBox' ::",
 //					propertyValue.getValue("constantZIPSOriginZIP"), actual10);
@@ -133,11 +137,12 @@ public class ManageSettingsTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
 					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
 		}
 	}
 
 	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
-	// @Test
+	@Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -146,9 +151,10 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
 			manageSettings.addingACustomSetting(
-					propertyValue.getValue("settingForCreateAndDeleteTest"),
-					propertyValue.getValue("description"));
+					propertyValue1.getValue("settingName"),
+					propertyValue.getValue("customSettingdescription"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
 
@@ -168,17 +174,19 @@ public class ManageSettingsTest extends TestBase {
 
 			logger.info("FINAL MESSAGE :: Custom Setting Created and Deleted Successfully");
 
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
 					.currentThread().getStackTrace()[1].getMethodName());
 			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
 					.currentThread().getStackTrace()[1].getMethodName());
+					Assert.fail();
 		}
 	}
 
 	// 4. Create a Setting with Data Module Test
-//	 @Test
+	// @Test
 	public void verifyCreateASettingWithDataModule() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -240,6 +248,7 @@ public class ManageSettingsTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
 					.currentThread().getStackTrace()[1].getMethodName());
+					Assert.fail();
 		}
 	}
 
@@ -291,6 +300,8 @@ public class ManageSettingsTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
 					.currentThread().getStackTrace()[1].getMethodName());
+					Assert.fail();
 		}
 	}
+	
 }

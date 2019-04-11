@@ -50,6 +50,11 @@ public class TestBase {
 							+ "//drivers//IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 
+//		} else if (browser.equals("edge")) {
+//			System.setProperty("webdriver.edge.driver",
+//					System.getProperty("user.dir")
+//							+ "//drivers//IEDriverServer.exe");
+//			driver = new InternetExplorerDriver();
 		}
 	}
 

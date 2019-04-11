@@ -6,13 +6,13 @@
 
 package com.dreamorbit.SMC3_Rater.pages;
 
+import java.util.Random;
+
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,6 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.dreamorbit.SMC3_Rater.testbase.TestBase;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
+import com.dreamorbit.SMC3_Rater.testutils.PropertyFileWriteUtility;
 import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
 public class ManageSettingsPage extends TestBase {
@@ -30,6 +31,8 @@ public class ManageSettingsPage extends TestBase {
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
+	PropertyFileWriteUtility propertyKeyValue = new PropertyFileWriteUtility(
+			"./Files/" + "/Test.properties");
 
 	public final String manageSettingsTabName = "MANAGE SETTINGS";
 
@@ -69,6 +72,7 @@ public class ManageSettingsPage extends TestBase {
 
 	@FindBy(xpath = "//input[@id='desZip']")
 	private WebElement defaultDestinationZIPTextBox;
+
 
 	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section
 	@FindBy(xpath = "//a[@id='custom-set-button']")
@@ -177,28 +181,21 @@ public class ManageSettingsPage extends TestBase {
 			defaultMCFloorTextBox.sendKeys(mcFloor);
 		} else {
 			toggleForDefaultDiscounts.click();
-			wait.until(ExpectedConditions.elementToBeClickable(defaultDiscountTextBox));
+			wait.until(ExpectedConditions
+					.elementToBeClickable(defaultDiscountTextBox));
 			defaultDiscountTextBox.sendKeys(discount);
 			wait.until(ExpectedConditions
 					.elementToBeClickable(defaultMCDiscountTextBox));
-//			action.doubleClick(defaultMCDiscountTextBox).build().perform();
-			// wait.until(ExpectedConditions
-			// .elementToBeClickable(defaultMCDiscountTextBox));
-			Thread.sleep(2000);
 			defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
-			Thread.sleep(2000);
 			defaultMCDiscountTextBox.sendKeys(mcDiscount);
-			Thread.sleep(2000);
-			wait.until(ExpectedConditions.elementToBeClickable(defaultMCFloorTextBox));
-//			action.doubleClick(defaultMCFloorTextBox).build().perform();
-			// wait.until(ExpectedConditions
-			// .elementToBeClickable(defaultMCFloorTextBox));
-//			defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-//			defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
-//			Thread.sleep(1000);
-//			defaultMCFloorTextBox.sendKeys(mcFloor);
+			wait.until(ExpectedConditions
+					.elementToBeClickable(defaultMCFloorTextBox));
+			defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+			Thread.sleep(1000);
+			defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
+			defaultMCFloorTextBox.sendKeys(mcFloor);
 		}
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Discount' details");
 	}
@@ -230,18 +227,25 @@ public class ManageSettingsPage extends TestBase {
 		wait.until(ExpectedConditions
 				.visibilityOf(toggleForDefaultConstantZIPs));
 		if (defaultOriginZIPTextBox.isDisplayed()) {
-			wait.until(ExpectedConditions.elementToBeClickable(defaultOriginZIPTextBox));
+			wait.until(ExpectedConditions
+					.elementToBeClickable(defaultOriginZIPTextBox));
 			defaultOriginZIPTextBox.clear();
 			defaultOriginZIPTextBox.sendKeys(originZIP);
-			wait.until(ExpectedConditions.elementToBeClickable(defaultDestinationZIPTextBox));
+			wait.until(ExpectedConditions
+					.elementToBeClickable(defaultDestinationZIPTextBox));
 			defaultDestinationZIPTextBox.clear();
+			Thread.sleep(2000);
 			defaultDestinationZIPTextBox.sendKeys(destinationZIP);
 		} else {
 			toggleForDefaultConstantZIPs.click();
-			wait.until(ExpectedConditions.elementToBeClickable(defaultOriginZIPTextBox));
+			wait.until(ExpectedConditions
+					.elementToBeClickable(defaultOriginZIPTextBox));
+			defaultDestinationZIPTextBox.click();
 			defaultOriginZIPTextBox.sendKeys(originZIP);
-			wait.until(ExpectedConditions.elementToBeClickable(defaultDestinationZIPTextBox));
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions
+					.elementToBeClickable(defaultDestinationZIPTextBox));
+			defaultDestinationZIPTextBox.click();
+			Thread.sleep(2000);
 			defaultDestinationZIPTextBox.sendKeys(destinationZIP);
 		}
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant ZIPS' details");
@@ -282,6 +286,7 @@ public class ManageSettingsPage extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant ZIPS' section toggle has been set to OFF");
 	}
 
+
 	// MANAGE SETTINGS page - Custom Setting - Various functions which are used
 	// in the test cases
 	public void clickingOnCustomSettingOption() {
@@ -294,7 +299,15 @@ public class ManageSettingsPage extends TestBase {
 
 	// MANAGE SETTINGS page - Custom Setting - Setting table - Various functions
 	// which are used in the test cases
-	public void addingACustomSetting(String settingID, String description) throws InterruptedException {
+	public void generatingAndStoringARandomSettingName() {
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(999999);
+		String randomString = "Setting" + Integer.toString(randomInt);
+		propertyKeyValue.setValue("settingName", randomString);
+	}
+	
+	public void addingACustomSetting(String settingID, String description)
+			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(addNewRowButton));
@@ -307,7 +320,8 @@ public class ManageSettingsPage extends TestBase {
 		descriptionTextBox.sendKeys(description);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton));
 		saveButton.click();
-		wait.until(ExpectedConditions.visibilityOf(settingName));
+		wait.until(ExpectedConditions.elementToBeClickable(settingName));
+		Thread.sleep(2000);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting");
 	}
 
@@ -321,6 +335,7 @@ public class ManageSettingsPage extends TestBase {
 	}
 
 	public void deletingACustomSetting() throws InterruptedException {
+		Thread.sleep(2000);
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
@@ -349,8 +364,9 @@ public class ManageSettingsPage extends TestBase {
 		Select select = new Select(RateFamilyDropDown);
 		select.selectByVisibleText(rateFamily);
 		wait.until(ExpectedConditions.visibilityOf(availableTariffsDropDown));
-//		wait.until(ExpectedConditions.attributeContains(By.xpath("//select[@id='rater-tariff']/option[text()='LITECZ02 20140915']"), "LITECZ02 20140915", "value"));
-//		Thread.sleep(1000);
+		// wait.until(ExpectedConditions.attributeContains(By.xpath("//select[@id='rater-tariff']/option[text()='LITECZ02 20140915']"),
+		// "LITECZ02 20140915", "value"));
+		// Thread.sleep(1000);
 		Select select1 = new Select(availableTariffsDropDown);
 		select1.selectByVisibleText(availableTariffs);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Data Module' details");
@@ -374,4 +390,5 @@ public class ManageSettingsPage extends TestBase {
 		mcFloorTextBox.sendKeys(mcFloor);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Discount' details");
 	}
+	
 }
