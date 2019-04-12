@@ -116,10 +116,10 @@ public class RateAShipmentPage extends TestBase {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down");
 	}
 
-	public boolean verifyIfSettingIsAvailable() {
+	public boolean verifyIfSettingIsAvailable(String setting) {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Setting' drop down value");
-		String setting = propertyValue1
-				.getValue("settingName");
+//		String setting = propertyValue1
+//				.getValue("settingName");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));

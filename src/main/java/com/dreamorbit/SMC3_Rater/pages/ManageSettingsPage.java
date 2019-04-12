@@ -73,7 +73,6 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//input[@id='desZip']")
 	private WebElement defaultDestinationZIPTextBox;
 
-
 	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section
 	@FindBy(xpath = "//a[@id='custom-set-button']")
 	private WebElement customSettingOption;
@@ -127,6 +126,45 @@ public class ManageSettingsPage extends TestBase {
 
 	@FindBy(xpath = "//input[@id='singleMcfloor']")
 	private WebElement mcFloorTextBox;
+
+	@FindBy(xpath = "//a[@class='btn btn-responsive bar-class multiple-padding']")
+	private WebElement multipleOption;
+
+	@FindBy(xpath = "//input[@id='l5c']")
+	private WebElement l5cTextBox;
+
+	@FindBy(xpath = "//input[@id='m5c']")
+	private WebElement m5cTextBox;
+
+	@FindBy(xpath = "//input[@id='m1m']")
+	private WebElement m1mTextBox;
+
+	@FindBy(xpath = "//input[@id='m2m']")
+	private WebElement m2mTextBox;
+
+	@FindBy(xpath = "//input[@id='m5m']")
+	private WebElement m5mTextBox;
+
+	@FindBy(xpath = "//input[@id='m10m']")
+	private WebElement m10mTextBox;
+
+	@FindBy(xpath = "//input[@id='m20m']")
+	private WebElement m20mTextBox;
+
+	@FindBy(xpath = "//input[@id='m30m']")
+	private WebElement m30mTextBox;
+
+	@FindBy(xpath = "//input[@id='m40m']")
+	private WebElement m40mTextBox;
+
+	@FindBy(xpath = "//input[@id='mc']")
+	private WebElement mcTextBox;
+
+	@FindBy(xpath = "//input[@id='mcfloor']")
+	private WebElement mcFloorMultipleTextBox;
+
+	@FindBy(xpath = "//div[@class='card-header add-header cust-multiple-disc show-table']//a[@title='Update']")
+	private WebElement saveMultipleDiscountButton;
 
 	public ManageSettingsPage(WebDriver driver) {
 		this.driver = driver;
@@ -286,7 +324,6 @@ public class ManageSettingsPage extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant ZIPS' section toggle has been set to OFF");
 	}
 
-
 	// MANAGE SETTINGS page - Custom Setting - Various functions which are used
 	// in the test cases
 	public void clickingOnCustomSettingOption() {
@@ -305,7 +342,7 @@ public class ManageSettingsPage extends TestBase {
 		String randomString = "Setting" + Integer.toString(randomInt);
 		propertyKeyValue.setValue("settingName", randomString);
 	}
-	
+
 	public void addingACustomSetting(String settingID, String description)
 			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -314,6 +351,7 @@ public class ManageSettingsPage extends TestBase {
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", addNewRowButton);
+		// generatingAndStoringARandomSettingName();
 		wait.until(ExpectedConditions.visibilityOf(settingIDTextBox));
 		settingIDTextBox.sendKeys(settingID);
 		wait.until(ExpectedConditions.visibilityOf(descriptionTextBox));
@@ -374,12 +412,18 @@ public class ManageSettingsPage extends TestBase {
 
 	// MANAGE SETTINGS page - Custom Setting - Discounts - Various functions
 	// which are used in the test cases
-	public void enteringDiscountsDetails(String discount, String mcDiscount,
-			String mcFloor) {
+	public void clickingOnTogglePresentForDiscounts() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(toggleForDiscounts));
-		toggleForDiscounts.click();
+		wait.until(ExpectedConditions.elementToBeClickable(toggleForDiscounts))
+				.click();
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on toggle present for 'Discounts'");
+	}
+
+	public void enteringSingleDiscountsDetails(String discount,
+			String mcDiscount, String mcFloor) {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(discountTextBox));
 		discountTextBox.sendKeys(discount);
 		wait.until(ExpectedConditions.elementToBeClickable(mcDiscountTextBox));
@@ -390,5 +434,74 @@ public class ManageSettingsPage extends TestBase {
 		mcFloorTextBox.sendKeys(mcFloor);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Discount' details");
 	}
-	
+
+	public void enteringMultipleDiscountsDetails(String l5c, String m5c,
+			String m1m, String m2m, String m5m, String m10m, String m20m,
+			String m30m, String m40m, String mc, String mcFloor)
+			throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(multipleOption));
+		multipleOption.click();
+		wait.until(ExpectedConditions.elementToBeClickable(l5cTextBox));
+		Thread.sleep(1000);
+		l5cTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		l5cTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		l5cTextBox.sendKeys(l5c);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(m5cTextBox));
+		m5cTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		m5cTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		m5cTextBox.sendKeys(m5c);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(m1mTextBox));
+		m1mTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		m1mTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		m1mTextBox.sendKeys(m1m);
+
+		wait.until(ExpectedConditions.elementToBeClickable(m2mTextBox));
+		m2mTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		m2mTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		m2mTextBox.sendKeys(m2m);
+
+		wait.until(ExpectedConditions.elementToBeClickable(m5mTextBox));
+		m5mTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		m5mTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		m5mTextBox.sendKeys(m5m);
+
+		wait.until(ExpectedConditions.elementToBeClickable(m10mTextBox));
+		m10mTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		m10mTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		m10mTextBox.sendKeys(m10m);
+
+		wait.until(ExpectedConditions.elementToBeClickable(m20mTextBox));
+		m20mTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		m20mTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		m20mTextBox.sendKeys(m20m);
+
+		wait.until(ExpectedConditions.elementToBeClickable(m30mTextBox));
+		m30mTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		m30mTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		m30mTextBox.sendKeys(m30m);
+
+		wait.until(ExpectedConditions.elementToBeClickable(m40mTextBox));
+		m40mTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		m40mTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		m40mTextBox.sendKeys(m40m);
+
+		wait.until(ExpectedConditions.elementToBeClickable(mcTextBox));
+		mcTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		mcTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		mcTextBox.sendKeys(mc);
+
+		wait.until(ExpectedConditions
+				.elementToBeClickable(mcFloorMultipleTextBox));
+		mcFloorMultipleTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		mcFloorMultipleTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		mcFloorMultipleTextBox.sendKeys(mcFloor);
+
+		wait.until(ExpectedConditions
+				.elementToBeClickable(saveMultipleDiscountButton));
+		saveMultipleDiscountButton.click();
+	}
 }

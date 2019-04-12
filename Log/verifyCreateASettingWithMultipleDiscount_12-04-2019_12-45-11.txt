@@ -1,0 +1,1 @@
+Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //div[@class='card-header add-header custom-row active']//*[contains(text(),'Add New Row')]' (tried for 25 second(s) with 500 milliseconds interval)

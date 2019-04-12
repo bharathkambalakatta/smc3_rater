@@ -28,7 +28,8 @@ public class ManageSettingsTest extends TestBase {
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
-	PropertyFileUtility propertyValue1 = new PropertyFileUtility("./Files/" + "/Test.properties");
+	PropertyFileUtility propertyValue1 = new PropertyFileUtility("./Files/"
+			+ "/Test.properties");
 	PropertyFileWriteUtility propertyKeyValue = new PropertyFileWriteUtility(
 			"./Files/" + "/Test.properties");
 
@@ -45,7 +46,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 1. Create Default Setting Test
-//	@Test
+	// @Test
 	public void verifyCreateDefaultSettingTest() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -58,78 +59,79 @@ public class ManageSettingsTest extends TestBase {
 					propertyValue.getValue("discount1"),
 					propertyValue.getValue("mcDiscount1"),
 					propertyValue.getValue("mcFloor1"));
-//			manageSettings.enteringDefaultConstantClassDetails(propertyValue
-//					.getValue("constantClass1"));
-//			manageSettings.enteringDefaultConstantZIPSDetails(
-//					propertyValue.getValue("constantZIPSOriginZIP"),
-//					propertyValue.getValue("constantZIPSDestinationZIP"));
-//
-//			rateAShipment.clickingOnRateAShipmentTab();
-//			rateAShipment.selectRateFamily(propertyValue
-//					.getValue("rateFamily1"));
-//
-//			String actual = rateAShipment.verifyDiscountTextBoxValue();
-//			Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
-//					propertyValue.getValue("discount1"), actual);
-//			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
-//			Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
-//					propertyValue.getValue("mcDiscount1"), actual1);
-//			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
-//			Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
-//					propertyValue.getValue("mcFloor1"), actual2);
-//			String actual3 = rateAShipment.verifyClassDropDownValue();
-//			Assert.assertEquals("RateAShipmentPage - 'classDropDown' ::",
-//					propertyValue.getValue("constantClass1"), actual3);
-//			String actual4 = rateAShipment.verifyOriginTextBoxValue();
-//			Assert.assertEquals("RateAShipmentPage - 'originTextBox' ::",
-//					propertyValue.getValue("constantZIPSOriginZIP"), actual4);
-//			String actual5 = rateAShipment.verifyDestinationTextBoxValue();
-//			Assert.assertEquals("RateAShipmentPage - 'destinationTextBox' ::",
-//					propertyValue.getValue("constantZIPSDestinationZIP"),
-//					actual5);
-//
-//			rateAShipment.loggingOutFromTheApplication();
-//
-//			loginToApplication.LoginToApplication(
-//					propertyValue.getValue("user1LoginName"),
-//					propertyValue.getValue("user1LoginPassword"));
-//
-//			rateAShipment.selectRateFamily(propertyValue
-//					.getValue("rateFamily1"));
-//
-//			String actual6 = rateAShipment.verifyDiscountTextBoxValue();
-//			Assert.assertNotSame("RateAShipmentPage - 'discountTextBox' ::",
-//					propertyValue.getValue("discount1"), actual6);
-//			String actual7 = rateAShipment.verifyMCDiscountTextBoxValue();
-//			Assert.assertNotSame("RateAShipmentPage - 'mcDiscountTextBox' ::",
-//					propertyValue.getValue("mcDiscount1"), actual7);
-//			String actual8 = rateAShipment.verifyMCFloorTextBoxValue();
-//			Assert.assertNotSame("RateAShipmentPage - 'mcFloorTextBox' ::",
-//					propertyValue.getValue("mcFloor1"), actual8);
-////			boolean found = rateAShipment
-////					.verifyIfClassDropDownHasAnyValueSelected();
-////			Assert.assertTrue("RateAShipmentPage - 'classDropDown' ::", found);
-//			String actual10 = rateAShipment.verifyOriginTextBoxValue();
-//			Assert.assertNotSame("RateAShipmentPage - 'originTextBox' ::",
-//					propertyValue.getValue("constantZIPSOriginZIP"), actual10);
-//			String actual11 = rateAShipment.verifyDestinationTextBoxValue();
-//			Assert.assertNotSame("RateAShipmentPage - 'destinationTextBox' ::",
-//					propertyValue.getValue("constantZIPSDestinationZIP"),
-//					actual11);
-//
-//			rateAShipment.loggingOutFromTheApplication();
-//
-//			loginToApplication.LoginToApplication(
-//					propertyValue.getValue("loginUserName"),
-//					propertyValue.getValue("loginPassword"));
-//
-//			manageSettings.clickingOnManageSettingsTab();
-//			manageSettings.clickingOnDefaultSettingOption();
-//			manageSettings.makingDefaultDiscountsToggleOff();
-//			manageSettings.makingDefaultConstantClassToggleOff();
-//			manageSettings.makingDefaultConstantZIPSToggleOff();
-//
-//			logger.info("FINAL MESSAGE :: Create Default Setting Test Executed Successfully");
+			// manageSettings.enteringDefaultConstantClassDetails(propertyValue
+			// .getValue("constantClass1"));
+			// manageSettings.enteringDefaultConstantZIPSDetails(
+			// propertyValue.getValue("constantZIPSOriginZIP"),
+			// propertyValue.getValue("constantZIPSDestinationZIP"));
+			//
+			// rateAShipment.clickingOnRateAShipmentTab();
+			// rateAShipment.selectRateFamily(propertyValue
+			// .getValue("rateFamily1"));
+			//
+			// String actual = rateAShipment.verifyDiscountTextBoxValue();
+			// Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
+			// propertyValue.getValue("discount1"), actual);
+			// String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
+			// Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
+			// propertyValue.getValue("mcDiscount1"), actual1);
+			// String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
+			// Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
+			// propertyValue.getValue("mcFloor1"), actual2);
+			// String actual3 = rateAShipment.verifyClassDropDownValue();
+			// Assert.assertEquals("RateAShipmentPage - 'classDropDown' ::",
+			// propertyValue.getValue("constantClass1"), actual3);
+			// String actual4 = rateAShipment.verifyOriginTextBoxValue();
+			// Assert.assertEquals("RateAShipmentPage - 'originTextBox' ::",
+			// propertyValue.getValue("constantZIPSOriginZIP"), actual4);
+			// String actual5 = rateAShipment.verifyDestinationTextBoxValue();
+			// Assert.assertEquals("RateAShipmentPage - 'destinationTextBox' ::",
+			// propertyValue.getValue("constantZIPSDestinationZIP"),
+			// actual5);
+			//
+			// rateAShipment.loggingOutFromTheApplication();
+			//
+			// loginToApplication.LoginToApplication(
+			// propertyValue.getValue("user1LoginName"),
+			// propertyValue.getValue("user1LoginPassword"));
+			//
+			// rateAShipment.selectRateFamily(propertyValue
+			// .getValue("rateFamily1"));
+			//
+			// String actual6 = rateAShipment.verifyDiscountTextBoxValue();
+			// Assert.assertNotSame("RateAShipmentPage - 'discountTextBox' ::",
+			// propertyValue.getValue("discount1"), actual6);
+			// String actual7 = rateAShipment.verifyMCDiscountTextBoxValue();
+			// Assert.assertNotSame("RateAShipmentPage - 'mcDiscountTextBox' ::",
+			// propertyValue.getValue("mcDiscount1"), actual7);
+			// String actual8 = rateAShipment.verifyMCFloorTextBoxValue();
+			// Assert.assertNotSame("RateAShipmentPage - 'mcFloorTextBox' ::",
+			// propertyValue.getValue("mcFloor1"), actual8);
+			// // boolean found = rateAShipment
+			// // .verifyIfClassDropDownHasAnyValueSelected();
+			// // Assert.assertTrue("RateAShipmentPage - 'classDropDown' ::",
+			// found);
+			// String actual10 = rateAShipment.verifyOriginTextBoxValue();
+			// Assert.assertNotSame("RateAShipmentPage - 'originTextBox' ::",
+			// propertyValue.getValue("constantZIPSOriginZIP"), actual10);
+			// String actual11 = rateAShipment.verifyDestinationTextBoxValue();
+			// Assert.assertNotSame("RateAShipmentPage - 'destinationTextBox' ::",
+			// propertyValue.getValue("constantZIPSDestinationZIP"),
+			// actual11);
+			//
+			// rateAShipment.loggingOutFromTheApplication();
+			//
+			// loginToApplication.LoginToApplication(
+			// propertyValue.getValue("loginUserName"),
+			// propertyValue.getValue("loginPassword"));
+			//
+			// manageSettings.clickingOnManageSettingsTab();
+			// manageSettings.clickingOnDefaultSettingOption();
+			// manageSettings.makingDefaultDiscountsToggleOff();
+			// manageSettings.makingDefaultConstantClassToggleOff();
+			// manageSettings.makingDefaultConstantZIPSToggleOff();
+			//
+			// logger.info("FINAL MESSAGE :: Create Default Setting Test Executed Successfully");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -142,7 +144,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
-	@Test
+	// @Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -151,29 +153,31 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.generatingAndStoringARandomSettingName();
 			manageSettings.addingACustomSetting(
 					propertyValue1.getValue("settingName"),
 					propertyValue.getValue("customSettingdescription"));
 
-			rateAShipment.clickingOnRateAShipmentTab();
-
-			boolean available = rateAShipment.verifyIfSettingIsAvailable();
-			Assert.assertTrue("RateAShipmentPage - 'settingsDropDown' ::",
-					available);
-
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting();
-
-			rateAShipment.clickingOnRateAShipmentTab();
-
-			boolean notAvailable = rateAShipment.verifyIfSettingIsAvailable();
-			Assert.assertFalse("RateAShipmentPage - 'settingsDropDown' ::",
-					notAvailable);
+			// rateAShipment.clickingOnRateAShipmentTab();
+			//
+			// boolean available =
+			// rateAShipment.verifyIfSettingIsAvailable(propertyValue1
+			// .getValue("settingName"));
+			// Assert.assertTrue("RateAShipmentPage - 'settingsDropDown' ::",
+			// available);
+			//
+			// manageSettings.clickingOnManageSettingsTab();
+			// manageSettings.clickingOnCustomSettingOption();
+			// manageSettings.deletingACustomSetting();
+			//
+			// rateAShipment.clickingOnRateAShipmentTab();
+			//
+			// boolean notAvailable =
+			// rateAShipment.verifyIfSettingIsAvailable(propertyValue1
+			// .getValue("settingName"));
+			// Assert.assertFalse("RateAShipmentPage - 'settingsDropDown' ::",
+			// notAvailable);
 
 			logger.info("FINAL MESSAGE :: Custom Setting Created and Deleted Successfully");
-
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -181,7 +185,7 @@ public class ManageSettingsTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
 					.currentThread().getStackTrace()[1].getMethodName());
-					Assert.fail();
+			Assert.fail();
 		}
 	}
 
@@ -248,7 +252,7 @@ public class ManageSettingsTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
 					.currentThread().getStackTrace()[1].getMethodName());
-					Assert.fail();
+			Assert.fail();
 		}
 	}
 
@@ -265,7 +269,8 @@ public class ManageSettingsTest extends TestBase {
 			manageSettings.addingACustomSetting(
 					propertyValue.getValue("settingForSingleDiscountTest"),
 					propertyValue.getValue("description"));
-			manageSettings.enteringDiscountsDetails(
+			manageSettings.clickingOnTogglePresentForDiscounts();
+			manageSettings.enteringSingleDiscountsDetails(
 					propertyValue.getValue("discount2"),
 					propertyValue.getValue("mcDiscount2"),
 					propertyValue.getValue("mcFloor2"));
@@ -300,8 +305,71 @@ public class ManageSettingsTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
 					.currentThread().getStackTrace()[1].getMethodName());
-					Assert.fail();
+			Assert.fail();
+		}
+
+	}
+
+	// 5. Create a Setting with Multiple Discount Test
+	@Test
+	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
+		try {
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.addingACustomSetting(
+					propertyValue.getValue("settingForSingleDiscountTest"),
+					propertyValue.getValue("customSettingdescription"));
+			manageSettings.clickingOnTogglePresentForDiscounts();
+			manageSettings.enteringMultipleDiscountsDetails(
+					propertyValue.getValue("l5c1"),
+					propertyValue.getValue("m5c1"),
+					propertyValue.getValue("m1m1"),
+					propertyValue.getValue("m2m1"),
+					propertyValue.getValue("m5m1"),
+					propertyValue.getValue("m10m1"),
+					propertyValue.getValue("m20m1"),
+					propertyValue.getValue("m30m1"),
+					propertyValue.getValue("m40m1"),
+					propertyValue.getValue("mc1"),
+					propertyValue.getValue("mcFloor1"));
+
+			 rateAShipment.clickingOnRateAShipmentTab();
+			 rateAShipment.selectSetting(propertyValue
+			 .getValue("settingForSingleDiscountTest"));
+			//
+			// boolean selected =
+			// rateAShipment.verifyIfSingleDiscountIsSelected();
+			// Assert.assertTrue(
+			// "RateAShipmentPage - 'singleDiscountRadioButton' ::",
+			// selected);
+			// String actual = rateAShipment.verifyDiscountTextBoxValue();
+			// Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
+			// propertyValue.getValue("discount2"), actual);
+			// String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
+			// Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
+			// propertyValue.getValue("mcDiscount2"), actual1);
+			// String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
+			// Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
+			// propertyValue.getValue("mcFloor2"), actual2);
+			//
+			// manageSettings.clickingOnManageSettingsTab();
+			// manageSettings.clickingOnCustomSettingOption();
+			// manageSettings.deletingACustomSetting();
+			//
+			// logger.info("FINAL MESSAGE :: Create a Setting with Single Discount Test Executed Successfully");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
 		}
 	}
-	
+
 }
