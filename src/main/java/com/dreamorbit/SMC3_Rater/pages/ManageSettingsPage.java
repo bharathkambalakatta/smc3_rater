@@ -247,13 +247,13 @@ public class ManageSettingsPage extends TestBase {
 		if (defaultClassDropDown.isDisplayed()) {
 			Select select = new Select(defaultClassDropDown);
 			select.selectByVisibleText(constantClass);
-//			Thread.sleep(1000);
+			Thread.sleep(1000);
 		} else {
 			toggleForDefaultConstantClass.click();
 			wait.until(ExpectedConditions.visibilityOf(defaultClassDropDown));
 			Select select = new Select(defaultClassDropDown);
 			select.selectByVisibleText(constantClass);
-//			Thread.sleep(1000);
+			Thread.sleep(1000);
 		}
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant Class' details");
 	}
@@ -503,7 +503,7 @@ public class ManageSettingsPage extends TestBase {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(saveMultipleDiscountButton));
 		saveMultipleDiscountButton.click();
-		
+
 		Thread.sleep(1000);
 	}
 }

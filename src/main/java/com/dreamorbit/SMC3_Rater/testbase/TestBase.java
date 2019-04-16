@@ -11,6 +11,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -50,11 +51,11 @@ public class TestBase {
 							+ "//drivers//IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 
-//		} else if (browser.equals("edge")) {
-//			System.setProperty("webdriver.edge.driver",
-//					System.getProperty("user.dir")
-//							+ "//drivers//IEDriverServer.exe");
-//			driver = new InternetExplorerDriver();
+		} else if (browser.equals("edge")) {
+			System.setProperty("webdriver.edge.driver",
+					System.getProperty("user.dir")
+							+ "//drivers//MicrosoftWebDriver.exe");
+			driver = new EdgeDriver();
 		}
 	}
 

@@ -1,6 +1,0 @@
-Expected condition failed: waiting for element to be clickable: [[FirefoxDriver: firefox on WINDOWS (8c363d4d-8131-4b00-9fc1-b0171350852b)] -> xpath: //div[@class='discount-box']//div[@class='form-group']] (tried for 25 second(s) with 500 milliseconds interval)
-Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
-System info: host: 'DOSYSNET042', ip: '10.1.3.3', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_144'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 66.0.3, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.22.0, moz:headless: false, moz:processID: 24480, moz:profile: C:\Users\bharath.k\AppData\..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 6.3, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 8c363d4d-8131-4b00-9fc1-b0171350852b

@@ -1,1 +1,0 @@
-Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: ///td[contains(text(),'L5C')]/parent::tr//input' (tried for 25 second(s) with 500 milliseconds interval)
