@@ -247,13 +247,13 @@ public class ManageSettingsPage extends TestBase {
 		if (defaultClassDropDown.isDisplayed()) {
 			Select select = new Select(defaultClassDropDown);
 			select.selectByVisibleText(constantClass);
-			Thread.sleep(1000);
+//			Thread.sleep(1000);
 		} else {
 			toggleForDefaultConstantClass.click();
 			wait.until(ExpectedConditions.visibilityOf(defaultClassDropDown));
 			Select select = new Select(defaultClassDropDown);
 			select.selectByVisibleText(constantClass);
-			Thread.sleep(1000);
+//			Thread.sleep(1000);
 		}
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant Class' details");
 	}
@@ -448,12 +448,12 @@ public class ManageSettingsPage extends TestBase {
 		l5cTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		l5cTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		l5cTextBox.sendKeys(l5c);
-		
+
 		wait.until(ExpectedConditions.elementToBeClickable(m5cTextBox));
 		m5cTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		m5cTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		m5cTextBox.sendKeys(m5c);
-		
+
 		wait.until(ExpectedConditions.elementToBeClickable(m1mTextBox));
 		m1mTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		m1mTextBox.sendKeys(Keys.chord(Keys.DELETE));
@@ -503,5 +503,7 @@ public class ManageSettingsPage extends TestBase {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(saveMultipleDiscountButton));
 		saveMultipleDiscountButton.click();
+		
+		Thread.sleep(1000);
 	}
 }

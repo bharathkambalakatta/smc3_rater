@@ -46,7 +46,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 1. Create Default Setting Test
-	// @Test
+	 @Test
 	public void verifyCreateDefaultSettingTest() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -55,19 +55,19 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnDefaultSettingOption();
-			manageSettings.enteringDefaultDiscountsDetails(
-					propertyValue.getValue("discount1"),
-					propertyValue.getValue("mcDiscount1"),
-					propertyValue.getValue("mcFloor1"));
-			// manageSettings.enteringDefaultConstantClassDetails(propertyValue
-			// .getValue("constantClass1"));
-			// manageSettings.enteringDefaultConstantZIPSDetails(
-			// propertyValue.getValue("constantZIPSOriginZIP"),
-			// propertyValue.getValue("constantZIPSDestinationZIP"));
-			//
-			// rateAShipment.clickingOnRateAShipmentTab();
-			// rateAShipment.selectRateFamily(propertyValue
-			// .getValue("rateFamily1"));
+//			manageSettings.enteringDefaultDiscountsDetails(
+//					propertyValue.getValue("discount1"),
+//					propertyValue.getValue("mcDiscount1"),
+//					propertyValue.getValue("mcFloor1"));
+			 manageSettings.enteringDefaultConstantClassDetails(propertyValue
+			 .getValue("constantClass1"));
+//			 manageSettings.enteringDefaultConstantZIPSDetails(
+//			 propertyValue.getValue("constantZIPSOriginZIP"),
+//			 propertyValue.getValue("constantZIPSDestinationZIP"));
+//			
+//			 rateAShipment.clickingOnRateAShipmentTab();
+//			 rateAShipment.selectRateFamily(propertyValue
+//			 .getValue("rateFamily1"));
 			//
 			// String actual = rateAShipment.verifyDiscountTextBoxValue();
 			// Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
@@ -279,7 +279,7 @@ public class ManageSettingsTest extends TestBase {
 			rateAShipment.selectSetting(propertyValue
 					.getValue("settingForSingleDiscountTest"));
 
-			boolean selected = rateAShipment.verifyIfSingleDiscountIsSelected();
+			boolean selected = rateAShipment.verifyIfSingleDiscountRadioButtonIsSelected();
 			Assert.assertTrue(
 					"RateAShipmentPage - 'singleDiscountRadioButton' ::",
 					selected);
@@ -311,7 +311,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 5. Create a Setting with Multiple Discount Test
-	@Test
+//	@Test
 	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -340,27 +340,51 @@ public class ManageSettingsTest extends TestBase {
 			 rateAShipment.clickingOnRateAShipmentTab();
 			 rateAShipment.selectSetting(propertyValue
 			 .getValue("settingForSingleDiscountTest"));
-			//
-			// boolean selected =
-			// rateAShipment.verifyIfSingleDiscountIsSelected();
-			// Assert.assertTrue(
-			// "RateAShipmentPage - 'singleDiscountRadioButton' ::",
-			// selected);
-			// String actual = rateAShipment.verifyDiscountTextBoxValue();
-			// Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
-			// propertyValue.getValue("discount2"), actual);
-			// String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
-			// Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
-			// propertyValue.getValue("mcDiscount2"), actual1);
-			// String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
-			// Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
-			// propertyValue.getValue("mcFloor2"), actual2);
-			//
-			// manageSettings.clickingOnManageSettingsTab();
-			// manageSettings.clickingOnCustomSettingOption();
-			// manageSettings.deletingACustomSetting();
-			//
-			// logger.info("FINAL MESSAGE :: Create a Setting with Single Discount Test Executed Successfully");
+			
+			 boolean selected =
+			 rateAShipment.verifyIfMultipleDiscountRadioButtonIsSelected();
+			 Assert.assertTrue(
+			 "RateAShipmentPage - 'multipleDiscountRadioButton' ::",
+			 selected);
+			 String actual = rateAShipment.verifyL5CTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'l5cTextBox' ::",
+			 propertyValue.getValue("l5c1"), actual);
+			 String actual1 = rateAShipment.verifyM5CTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'm5cTextBox' ::",
+			 propertyValue.getValue("m5c1"), actual1);
+			 String actual2 = rateAShipment.verifyM1MTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'm1mTextBox' ::",
+			 propertyValue.getValue("m1m1"), actual2);
+			 String actual3 = rateAShipment.verifyM2MTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'm2mTextBox' ::",
+			 propertyValue.getValue("m2m1"), actual3);
+			 String actual4 = rateAShipment.verifyM5MTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'm5mTextBox' ::",
+			 propertyValue.getValue("m5m1"), actual4);
+			 String actual5 = rateAShipment.verifyM10MTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'm10mTextBox' ::",
+			 propertyValue.getValue("m10m1"), actual5);
+			 String actual6 = rateAShipment.verifyM20MTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'm20mTextBox' ::",
+			 propertyValue.getValue("m20m1"), actual6);
+			 String actual7 = rateAShipment.verifyM30MTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'm30mTextBox' ::",
+			 propertyValue.getValue("m30m1"), actual7);
+			 String actual8 = rateAShipment.verifyM40MTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'm40mTextBox' ::",
+			 propertyValue.getValue("m40m1"), actual8);
+			 String actual9 = rateAShipment.verifyMCDiscountMultipleTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'mcDiscountMultipleTextBox' ::",
+			 propertyValue.getValue("mc1"), actual9);
+			 String actual10 = rateAShipment.verifyMCFloorMultipleTextBoxValue();
+			 Assert.assertEquals("RateAShipmentPage - 'mcFloorMultipleTextBox' ::",
+			 propertyValue.getValue("mcFloor1"), actual10);
+			 			
+			 manageSettings.clickingOnManageSettingsTab();
+			 manageSettings.clickingOnCustomSettingOption();
+			 manageSettings.deletingACustomSetting();
+			
+			 logger.info("FINAL MESSAGE :: Create a Setting with Single Discount Test Executed Successfully");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -33,7 +33,8 @@ public class RateAShipmentPage extends TestBase {
 			+ "/DataFile.properties");
 	PropertyFileWriteUtility propertyKeyValue = new PropertyFileWriteUtility(
 			"./Files/" + "/Test.properties");
-	PropertyFileUtility propertyValue1 = new PropertyFileUtility("./Files/" + "/Test.properties");
+	PropertyFileUtility propertyValue1 = new PropertyFileUtility("./Files/"
+			+ "/Test.properties");
 
 	WebDriver driver;
 
@@ -66,6 +67,9 @@ public class RateAShipmentPage extends TestBase {
 	@FindBy(xpath = "//input[@id='discountTypeSingle']")
 	private WebElement singleDiscountRadioButton;
 
+	@FindBy(xpath = "//input[@value='multiple']")
+	private WebElement multipleDiscountRadioButton;
+
 	@FindBy(xpath = "//input[@name='discount']")
 	private WebElement discountTextBox;
 
@@ -74,6 +78,39 @@ public class RateAShipmentPage extends TestBase {
 
 	@FindBy(xpath = "//input[@id='minChargeFloor']")
 	private WebElement mcFloorTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'L5C')]/parent::tr//input")
+	private WebElement l5cTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'M5C')]/parent::tr//input")
+	private WebElement m5cTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'M1M')]/parent::tr//input")
+	private WebElement m1mTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'M2M')]/parent::tr//input")
+	private WebElement m2mTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'M5M')]/parent::tr//input")
+	private WebElement m5mTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'M10M')]/parent::tr//input")
+	private WebElement m10mTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'M20M')]/parent::tr//input")
+	private WebElement m20mTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'M30M')]/parent::tr//input")
+	private WebElement m30mTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'M40M')]/parent::tr//input")
+	private WebElement m40mTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'MC Discount')]/parent::tr//input")
+	private WebElement mcDiscountMultipleTextBox;
+
+	@FindBy(xpath = "//td[contains(text(),'MC Floor')]/parent::tr//input")
+	private WebElement mcFloorMultipleTextBox;
 
 	// RATE A SHIPMENT page - Elements present in the right side section
 	@FindBy(xpath = "//select[@id='ltl-class-0']")
@@ -118,8 +155,8 @@ public class RateAShipmentPage extends TestBase {
 
 	public boolean verifyIfSettingIsAvailable(String setting) {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Setting' drop down value");
-//		String setting = propertyValue1
-//				.getValue("settingName");
+		// String setting = propertyValue1
+		// .getValue("settingName");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
@@ -132,7 +169,7 @@ public class RateAShipmentPage extends TestBase {
 				break;
 			}
 		}
-		if (found==true) {
+		if (found == true) {
 			logger.info("MESSAGE :: RATE A SHIPMENT Tab - Expected value is present in 'Settings' drop down");
 		} else {
 			logger.info("MESSAGE :: RATE A SHIPMENT Tab - Expected value is not present in 'Settings' drop down");
@@ -190,7 +227,7 @@ public class RateAShipmentPage extends TestBase {
 		return destinationTextBox.getAttribute("value");
 	}
 
-	public boolean verifyIfSingleDiscountIsSelected() {
+	public boolean verifyIfSingleDiscountRadioButtonIsSelected() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -198,7 +235,20 @@ public class RateAShipmentPage extends TestBase {
 		boolean found = false;
 		if (singleDiscountRadioButton.isSelected()) {
 			found = true;
-			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Single' Discount radio button is selected");
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Single' discount radio button is selected");
+		}
+		return found;
+	}
+
+	public boolean verifyIfMultipleDiscountRadioButtonIsSelected() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeSelected(multipleDiscountRadioButton));
+		boolean found = false;
+		if (multipleDiscountRadioButton.isSelected()) {
+			found = true;
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Multiple' discount radio button is selected");
 		}
 		return found;
 	}
@@ -225,6 +275,96 @@ public class RateAShipmentPage extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(mcFloorTextBox));
 		return mcFloorTextBox.getAttribute("value");
+	}
+
+	public String verifyL5CTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'L5C' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(l5cTextBox));
+		return l5cTextBox.getAttribute("value");
+	}
+
+	public String verifyM5CTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'M5C' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(m5cTextBox));
+		return m5cTextBox.getAttribute("value");
+	}
+
+	public String verifyM1MTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'M1M' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(m1mTextBox));
+		return m1mTextBox.getAttribute("value");
+	}
+
+	public String verifyM2MTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'M2M' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(m2mTextBox));
+		return m2mTextBox.getAttribute("value");
+	}
+
+	public String verifyM5MTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'M5M' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(m5mTextBox));
+		return m5mTextBox.getAttribute("value");
+	}
+
+	public String verifyM10MTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'M10M' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(m10mTextBox));
+		return m10mTextBox.getAttribute("value");
+	}
+
+	public String verifyM20MTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'M20M' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(m20mTextBox));
+		return m20mTextBox.getAttribute("value");
+	}
+
+	public String verifyM30MTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'M30M' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(m30mTextBox));
+		return m30mTextBox.getAttribute("value");
+	}
+
+	public String verifyM40MTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'M40M' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(m40mTextBox));
+		return m40mTextBox.getAttribute("value");
+	}
+
+	public String verifyMCDiscountMultipleTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'MC Discount' multiple text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(mcDiscountMultipleTextBox));
+		return mcDiscountMultipleTextBox.getAttribute("value");
+	}
+
+	public String verifyMCFloorMultipleTextBoxValue() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'MC Floor' multiple text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(mcFloorMultipleTextBox));
+		return mcFloorMultipleTextBox.getAttribute("value");
 	}
 
 	public String verifyClassDropDownValue() {
