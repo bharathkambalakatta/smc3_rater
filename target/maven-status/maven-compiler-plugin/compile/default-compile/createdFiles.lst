@@ -1,5 +1,6 @@
 com\dreamorbit\SMC3_Rater\testbase\TestBase.class
 com\dreamorbit\SMC3_Rater\testutils\RaterTestUtils.class
+com\dreamorbit\SMC3_Rater\testutils\PropertyFileWriteUtility.class
 com\dreamorbit\SMC3_Rater\testutils\ExceptionalHandlingFunctions.class
 com\dreamorbit\SMC3_Rater\pages\LoginPage.class
 com\dreamorbit\SMC3_Rater\pages\RateAShipmentPage.class

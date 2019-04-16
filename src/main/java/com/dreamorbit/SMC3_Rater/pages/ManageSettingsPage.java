@@ -45,6 +45,9 @@ public class ManageSettingsPage extends TestBase {
 	// MANAGE SETTINGS page - Elements present in 'Default Setting' section
 	@FindBy(xpath = "//a[@id='defaultPanel']")
 	private WebElement defaultSettingOption;
+	
+	@FindBy (xpath = "//div[@id='ajax-loader']/img")
+	private WebElement loadingImage;
 
 	@FindBy(xpath = "//div[@class='discount-box']//div[@class='form-group']")
 	private WebElement toggleForDefaultDiscounts;
@@ -331,6 +334,7 @@ public class ManageSettingsPage extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(customSettingOption))
 				.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option");
 	}
 
@@ -343,23 +347,21 @@ public class ManageSettingsPage extends TestBase {
 		propertyKeyValue.setValue("settingName", randomString);
 	}
 
-	public void addingACustomSetting(String settingID, String description)
-			throws InterruptedException {
+	public void addingACustomSetting(String settingID, String description) throws InterruptedException
+			  {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(addNewRowButton));
-		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", addNewRowButton);
-		// generatingAndStoringARandomSettingName();
 		wait.until(ExpectedConditions.visibilityOf(settingIDTextBox));
 		settingIDTextBox.sendKeys(settingID);
 		wait.until(ExpectedConditions.visibilityOf(descriptionTextBox));
 		descriptionTextBox.sendKeys(description);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton));
 		saveButton.click();
-		wait.until(ExpectedConditions.elementToBeClickable(settingName));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		wait.until(ExpectedConditions.visibilityOf(settingName));
+		Thread.sleep(2000);//Added for firefox browser
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting");
 	}
 
@@ -373,13 +375,12 @@ public class ManageSettingsPage extends TestBase {
 	}
 
 	public void deletingACustomSetting() throws InterruptedException {
-		Thread.sleep(2000);
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
 				.click();
 		driver.switchTo().alert().accept();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting");
 	}
 

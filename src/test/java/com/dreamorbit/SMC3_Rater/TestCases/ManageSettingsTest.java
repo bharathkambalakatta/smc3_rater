@@ -46,7 +46,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 1. Create Default Setting Test
-	@Test
+//	@Test
 	public void verifyCreateDefaultSettingTest() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -92,8 +92,8 @@ public class ManageSettingsTest extends TestBase {
 			rateAShipment.loggingOutFromTheApplication();
 
 			loginToApplication.LoginToApplication(
-					propertyValue.getValue("user1LoginName"),
-					propertyValue.getValue("user1LoginPassword"));
+					propertyValue.getValue("loginUserNameCompany2"),
+					propertyValue.getValue("loginPasswordCompany2"));
 
 			rateAShipment.selectRateFamily(propertyValue
 					.getValue("rateFamily1"));
@@ -143,7 +143,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
-	// @Test
+	@Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
