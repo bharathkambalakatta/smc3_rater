@@ -128,8 +128,7 @@ public class RateAShipmentPage extends TestBase {
 	public void clickingOnRateAShipmentTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab));
-		rateAShipmentTab.click();
+		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab)).click();
 		logger.info("MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab");
 	}
 
@@ -155,8 +154,6 @@ public class RateAShipmentPage extends TestBase {
 
 	public boolean verifyIfSettingIsAvailable(String setting) {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Setting' drop down value");
-		// String setting = propertyValue1
-		// .getValue("settingName");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(settingsDropDown));
@@ -172,7 +169,7 @@ public class RateAShipmentPage extends TestBase {
 		if (found == true) {
 			logger.info("MESSAGE :: RATE A SHIPMENT Tab - Expected value is present in 'Settings' drop down");
 		} else {
-			logger.info("MESSAGE :: RATE A SHIPMENT Tab - Expected value is not present in 'Settings' drop down");
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value is not present in 'Settings' drop down");
 		}
 		return found;
 	}

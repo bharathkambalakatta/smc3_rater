@@ -46,6 +46,9 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//a[@id='defaultPanel']")
 	private WebElement defaultSettingOption;
 
+	@FindBy(xpath = "//div[@id='ajax-loader']/img")
+	private WebElement loadingImage;
+
 	@FindBy(xpath = "//div[@class='discount-box']//div[@class='form-group']")
 	private WebElement toggleForDefaultDiscounts;
 
@@ -165,6 +168,9 @@ public class ManageSettingsPage extends TestBase {
 
 	@FindBy(xpath = "//div[@class='card-header add-header cust-multiple-disc show-table']//a[@title='Update']")
 	private WebElement saveMultipleDiscountButton;
+
+	@FindBy(xpath = "//div[@class='card-header add-header cust-multiple-disc show-table']//img[@class='img img-responsive']")
+	private WebElement editMultipleDiscountButton;
 
 	public ManageSettingsPage(WebDriver driver) {
 		this.driver = driver;
@@ -331,6 +337,7 @@ public class ManageSettingsPage extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(customSettingOption))
 				.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option");
 	}
 
@@ -347,19 +354,17 @@ public class ManageSettingsPage extends TestBase {
 			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(addNewRowButton));
-		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", addNewRowButton);
-		// generatingAndStoringARandomSettingName();
 		wait.until(ExpectedConditions.visibilityOf(settingIDTextBox));
 		settingIDTextBox.sendKeys(settingID);
 		wait.until(ExpectedConditions.visibilityOf(descriptionTextBox));
 		descriptionTextBox.sendKeys(description);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton));
 		saveButton.click();
-		wait.until(ExpectedConditions.elementToBeClickable(settingName));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		wait.until(ExpectedConditions.visibilityOf(settingName));
+		Thread.sleep(2000);// Required for Firefox browser
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting");
 	}
 
@@ -372,14 +377,13 @@ public class ManageSettingsPage extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has opened the custom setting");
 	}
 
-	public void deletingACustomSetting() throws InterruptedException {
-		Thread.sleep(2000);
+	public void deletingACustomSetting() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
 				.click();
 		driver.switchTo().alert().accept();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting");
 	}
 
@@ -437,14 +441,14 @@ public class ManageSettingsPage extends TestBase {
 
 	public void enteringMultipleDiscountsDetails(String l5c, String m5c,
 			String m1m, String m2m, String m5m, String m10m, String m20m,
-			String m30m, String m40m, String mc, String mcFloor)
-			throws InterruptedException {
+			String m30m, String m40m, String mc, String mcFloor) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(multipleOption));
 		multipleOption.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+
 		wait.until(ExpectedConditions.elementToBeClickable(l5cTextBox));
-		Thread.sleep(1000);
 		l5cTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		l5cTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		l5cTextBox.sendKeys(l5c);
@@ -499,11 +503,23 @@ public class ManageSettingsPage extends TestBase {
 		mcFloorMultipleTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		mcFloorMultipleTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcFloorMultipleTextBox.sendKeys(mcFloor);
+	}
 
+	public void clickingOnSaveMultipleDiscountButton() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(saveMultipleDiscountButton));
 		saveMultipleDiscountButton.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+	}
 
-		Thread.sleep(1000);
+	public void clickingOnEditMultipleDiscountButton() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		wait.until(ExpectedConditions
+				.elementToBeClickable(editMultipleDiscountButton));
+		editMultipleDiscountButton.click();
 	}
 }

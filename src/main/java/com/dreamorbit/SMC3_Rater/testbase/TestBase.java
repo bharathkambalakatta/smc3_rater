@@ -73,7 +73,7 @@ public class TestBase {
 		PropertyConfigurator.configure("log4j//log4j.properties");
 		loadPropertiesFile();
 		selectBrowser(prop.getProperty("browser"));
-		getUrl(prop.getProperty("url"));
+		getUrl(prop.getProperty("TestingURL"));
 	}
 
 	@After
