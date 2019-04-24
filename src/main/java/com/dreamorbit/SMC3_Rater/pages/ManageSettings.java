@@ -91,15 +91,9 @@ public class ManageSettings extends TestBase {
 
 	@FindBy(xpath = "//tr[1]/td[1]//img[@class='arrow-one']")
 	private WebElement arrowPresentInFirstRow;
-
-	@FindBy(xpath = "//tr[1]/td[5]//a[@class='delete-row custom']")
-	private WebElement deleteButton;
-
-//	String settingFromFileForDelete = propertyValue.getValue("settingName");
-//	private By deleteButton1 = By
-//			.xpath("//span[contains(text(),'"
-//					+ settingFromFileForDelete
-//					+ "')]/parent::div/parent::td/parent::tr/td[5]//a[@class='delete-row custom']");
+	
+//	@FindBy(xpath = "//tr[1]/td[5]//a[@class='delete-row custom']")
+//	private WebElement deleteButton;
 
 	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// When setting is opened
@@ -378,13 +372,14 @@ public class ManageSettings extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has opened the custom setting");
 	}
 
-	public void deletingACustomSetting(String abc) {
-		WebElement  deleteButton1 = driver.findElement(By.xpath("//span[contains(text(),'"
-						+ abc
-						+ "')]/parent::div/parent::td/parent::tr/td[5]//a[@class='delete-row custom']"));
+	public void deletingACustomSetting(String settingID) {
+		By deleteButton = By
+				.xpath("//span[contains(text(),'"
+						+ settingID
+						+ "')]/parent::div/parent::td/parent::tr/td[5]//a[@class='delete-row custom']");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(deleteButton1))
+		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
 				.click();
 		driver.switchTo().alert().accept();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
