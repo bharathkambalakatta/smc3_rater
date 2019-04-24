@@ -143,7 +143,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
-	// @Test
+	 @Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -461,7 +461,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 18. Procedure to Rate a LTL Shipment
-	@Test
+//	@Test
 	public void verifyProcedureToRateALTLShipment() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -476,14 +476,11 @@ public class ManageSettingsTest extends TestBase {
 
 			rateAShipment.clickingOnRateAShipmentTab();
 
-
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
 			manageSettings.deletingACustomSetting();
 
 			rateAShipment.clickingOnRateAShipmentTab();
-
-
 
 			logger.info("========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========");
 

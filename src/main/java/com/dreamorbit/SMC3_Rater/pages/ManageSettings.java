@@ -20,8 +20,8 @@ import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
 public class ManageSettings extends TestBase {
 
-	public static final Logger logger = Logger
-			.getLogger(ManageSettings.class.getName());
+	public static final Logger logger = Logger.getLogger(ManageSettings.class
+			.getName());
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");

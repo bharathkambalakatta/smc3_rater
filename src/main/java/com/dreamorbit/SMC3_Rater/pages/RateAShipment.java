@@ -20,8 +20,8 @@ import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
 public class RateAShipment extends TestBase {
 
-	public static final Logger logger = Logger
-			.getLogger(RateAShipment.class.getName());
+	public static final Logger logger = Logger.getLogger(RateAShipment.class
+			.getName());
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
@@ -122,7 +122,8 @@ public class RateAShipment extends TestBase {
 	public void clickingOnRateAShipmentTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab))
+				.click();
 		logger.info("MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab");
 	}
 
