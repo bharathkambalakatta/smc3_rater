@@ -95,11 +95,11 @@ public class ManageSettings extends TestBase {
 	@FindBy(xpath = "//tr[1]/td[5]//a[@class='delete-row custom']")
 	private WebElement deleteButton;
 
-	String settingFromFileForDelete;// = propertyValue.getValue("settingName")
-	private By deleteButton1 = By
-			.xpath("//span[contains(text(),'"
-					+ settingFromFileForDelete
-					+ "')]/parent::div/parent::td/parent::tr/td[5]//a[@class='delete-row custom']");
+//	String settingFromFileForDelete = propertyValue.getValue("settingName");
+//	private By deleteButton1 = By
+//			.xpath("//span[contains(text(),'"
+//					+ settingFromFileForDelete
+//					+ "')]/parent::div/parent::td/parent::tr/td[5]//a[@class='delete-row custom']");
 
 	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// When setting is opened
@@ -378,7 +378,10 @@ public class ManageSettings extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has opened the custom setting");
 	}
 
-	public void deletingACustomSetting(String settingFromFileForDelete) {
+	public void deletingACustomSetting(String abc) {
+		WebElement  deleteButton1 = driver.findElement(By.xpath("//span[contains(text(),'"
+						+ abc
+						+ "')]/parent::div/parent::td/parent::tr/td[5]//a[@class='delete-row custom']"));
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(deleteButton1))

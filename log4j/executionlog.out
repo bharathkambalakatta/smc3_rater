@@ -1,0 +1,14 @@
+2019-04-24 16:17:36 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-24 16:17:41 INFO  ManageSettings:187 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-24 16:17:43 INFO  ManageSettings:342 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-24 16:17:50 INFO  ManageSettings:369 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-24 16:17:59 INFO  RateAShipment:127 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-24 16:17:59 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Setting' drop down value
+2019-04-24 16:17:59 INFO  RateAShipment:165 - MESSAGE :: RATE A SHIPMENT Tab - Expected value is present in 'Settings' drop down
+2019-04-24 16:18:04 INFO  ManageSettings:187 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-24 16:18:06 INFO  ManageSettings:342 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-24 16:18:07 INFO  ManageSettings:391 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-24 16:18:15 INFO  RateAShipment:127 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-24 16:18:15 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Setting' drop down value
+2019-04-24 16:18:15 INFO  RateAShipment:167 - MESSAGE :: RATE A SHIPMENT Tab - Value is not present in 'Settings' drop down
+2019-04-24 16:18:15 INFO  ManageSettingsTest:180 - ========== FINAL MESSAGE :: Custom Setting Created and Deleted Successfully ==========

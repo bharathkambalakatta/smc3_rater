@@ -36,6 +36,7 @@ public class ManageSettingsTest extends TestBase {
 	LoginPage loginToApplication;
 	RateAShipment rateAShipment;
 	ManageSettings manageSettings;
+	String Theme1=propertyValue.getValue("settingName");
 
 	@Before
 	public void setUp() throws IOException {
@@ -166,7 +167,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
+			manageSettings.deletingACustomSetting(Theme1);
 
 			rateAShipment.clickingOnRateAShipmentTab();
 
@@ -239,7 +240,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
+			manageSettings.deletingACustomSetting(Theme1);
 
 			logger.info("========== FINAL MESSAGE :: Create a Setting with Data Module Test Executed Successfully ==========");
 
@@ -292,7 +293,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
+			manageSettings.deletingACustomSetting(Theme1);
 
 			logger.info("========== FINAL MESSAGE :: Create a Setting with Single Discount Test Executed Successfully ==========");
 
@@ -446,7 +447,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
+			manageSettings.deletingACustomSetting(Theme1);
 
 			logger.info("========== FINAL MESSAGE :: Multiple Discount Test (Create & Edit) Executed Successfully ==========");
 
@@ -475,10 +476,10 @@ public class ManageSettingsTest extends TestBase {
 					propertyValue.getValue("customSettingDescription"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
-
+ 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
+			manageSettings.deletingACustomSetting(Theme1);
 
 			rateAShipment.clickingOnRateAShipmentTab();
 
