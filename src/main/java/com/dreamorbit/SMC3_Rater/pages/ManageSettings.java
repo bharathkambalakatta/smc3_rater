@@ -3,6 +3,7 @@ package com.dreamorbit.SMC3_Rater.pages;
 import java.util.Random;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -94,10 +95,11 @@ public class ManageSettings extends TestBase {
 	@FindBy(xpath = "//tr[1]/td[5]//a[@class='delete-row custom']")
 	private WebElement deleteButton;
 
-	// String settingFromFile = propertyValue.getValue("settingName");
-	// @FindBy(xpath =
-	// "//span[contains(text(),'+settingFromFile+')]/parent::div/parent::td/following-sibling::td[4]//a[@class='delete-row custom']")
-	// private WebElement deleteButton;
+	String settingFromFileForDelete;// = propertyValue.getValue("settingName")
+	private By deleteButton1 = By
+			.xpath("//span[contains(text(),'"
+					+ settingFromFileForDelete
+					+ "')]/parent::div/parent::td/parent::tr/td[5]//a[@class='delete-row custom']");
 
 	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// When setting is opened
@@ -376,10 +378,10 @@ public class ManageSettings extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has opened the custom setting");
 	}
 
-	public void deletingACustomSetting() {
+	public void deletingACustomSetting(String settingFromFileForDelete) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
+		wait.until(ExpectedConditions.elementToBeClickable(deleteButton1))
 				.click();
 		driver.switchTo().alert().accept();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));

@@ -143,7 +143,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
-	 @Test
+	@Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -166,7 +166,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting();
+			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
 
@@ -239,7 +239,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting();
+			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
 
 			logger.info("========== FINAL MESSAGE :: Create a Setting with Data Module Test Executed Successfully ==========");
 
@@ -292,7 +292,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting();
+			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
 
 			logger.info("========== FINAL MESSAGE :: Create a Setting with Single Discount Test Executed Successfully ==========");
 
@@ -446,7 +446,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting();
+			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
 
 			logger.info("========== FINAL MESSAGE :: Multiple Discount Test (Create & Edit) Executed Successfully ==========");
 
@@ -461,7 +461,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 18. Procedure to Rate a LTL Shipment
-//	@Test
+	// @Test
 	public void verifyProcedureToRateALTLShipment() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -478,7 +478,7 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting();
+			manageSettings.deletingACustomSetting(propertyValue.getValue("settingName"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
 
