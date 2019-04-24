@@ -1,9 +1,3 @@
-/* PROJECT		: SMC3 - Rater
- * AUTHOR		: Bharath Kambalakatta
- * COMPANY		: DreamOrbit Softech Pvt Ltd
- * CREATED DATE	: 
- */
-
 package com.dreamorbit.SMC3_Rater.pages;
 
 import java.util.Random;
@@ -24,10 +18,10 @@ import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileWriteUtility;
 import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
-public class ManageSettingsPage extends TestBase {
+public class ManageSettings extends TestBase {
 
 	public static final Logger logger = Logger
-			.getLogger(ManageSettingsPage.class.getName());
+			.getLogger(ManageSettings.class.getName());
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
@@ -99,6 +93,11 @@ public class ManageSettingsPage extends TestBase {
 
 	@FindBy(xpath = "//tr[1]/td[5]//a[@class='delete-row custom']")
 	private WebElement deleteButton;
+
+	// String settingFromFile = propertyValue.getValue("settingName");
+	// @FindBy(xpath =
+	// "//span[contains(text(),'+settingFromFile+')]/parent::div/parent::td/following-sibling::td[4]//a[@class='delete-row custom']")
+	// private WebElement deleteButton;
 
 	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// When setting is opened
@@ -172,7 +171,7 @@ public class ManageSettingsPage extends TestBase {
 	@FindBy(xpath = "//div[@class='card-header add-header cust-multiple-disc show-table']//img[@class='img img-responsive']")
 	private WebElement editMultipleDiscountButton;
 
-	public ManageSettingsPage(WebDriver driver) {
+	public ManageSettings(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

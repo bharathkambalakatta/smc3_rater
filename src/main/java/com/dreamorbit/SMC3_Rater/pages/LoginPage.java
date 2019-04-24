@@ -47,12 +47,12 @@ public class LoginPage extends TestBase {
 		
 	}
 
-	public RateAShipmentPage LoginToApplication(String userName, String password) {
+	public RateAShipment LoginToApplication(String userName, String password) {
 		this.setUserName(userName);
 		this.setPassword(password);
 		this.clickLogin();
 		logger.info("MESSAGE :: '"+userName+"' user has logged in to the application");
-		return PageFactory.initElements(driver, RateAShipmentPage.class);
+		return PageFactory.initElements(driver, RateAShipment.class);
 	}
 
 }

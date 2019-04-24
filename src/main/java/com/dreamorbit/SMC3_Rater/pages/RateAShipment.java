@@ -1,9 +1,3 @@
-/* PROJECT		: SMC3 - Rater
- * AUTHOR		: Bharath Kambalakatta
- * COMPANY		: DreamOrbit Softech Pvt Ltd
- * CREATED DATE	: 
- */
-
 package com.dreamorbit.SMC3_Rater.pages;
 
 import java.util.List;
@@ -24,10 +18,10 @@ import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileWriteUtility;
 import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
-public class RateAShipmentPage extends TestBase {
+public class RateAShipment extends TestBase {
 
 	public static final Logger logger = Logger
-			.getLogger(RateAShipmentPage.class.getName());
+			.getLogger(RateAShipment.class.getName());
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
@@ -119,7 +113,7 @@ public class RateAShipmentPage extends TestBase {
 	@FindBy(xpath = "//input[@value='Rate Shipment']")
 	private WebElement rateShipmentButton;
 
-	public RateAShipmentPage(WebDriver driver) {
+	public RateAShipment(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

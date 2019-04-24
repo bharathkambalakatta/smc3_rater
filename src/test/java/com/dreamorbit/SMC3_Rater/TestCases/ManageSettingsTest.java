@@ -14,8 +14,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.dreamorbit.SMC3_Rater.pages.LoginPage;
-import com.dreamorbit.SMC3_Rater.pages.ManageSettingsPage;
-import com.dreamorbit.SMC3_Rater.pages.RateAShipmentPage;
+import com.dreamorbit.SMC3_Rater.pages.ManageSettings;
+import com.dreamorbit.SMC3_Rater.pages.RateAShipment;
 import com.dreamorbit.SMC3_Rater.testbase.TestBase;
 import com.dreamorbit.SMC3_Rater.testutils.ExceptionalHandlingFunctions;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
@@ -34,15 +34,15 @@ public class ManageSettingsTest extends TestBase {
 			"./Files/" + "/Test.properties");
 
 	LoginPage loginToApplication;
-	RateAShipmentPage rateAShipment;
-	ManageSettingsPage manageSettings;
+	RateAShipment rateAShipment;
+	ManageSettings manageSettings;
 
 	@Before
 	public void setUp() throws IOException {
 		initialization();
 		loginToApplication = new LoginPage(driver);
-		rateAShipment = new RateAShipmentPage(driver);
-		manageSettings = new ManageSettingsPage(driver);
+		rateAShipment = new RateAShipment(driver);
+		manageSettings = new ManageSettings(driver);
 	}
 
 	// 1. Create Default Setting Test
@@ -143,7 +143,7 @@ public class ManageSettingsTest extends TestBase {
 	}
 
 	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
-	 @Test
+	// @Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -309,7 +309,7 @@ public class ManageSettingsTest extends TestBase {
 
 	// 5. Create a Setting with Multiple Discount Test & 20. Procedure to Create
 	// a Multiple Discount
-//	@Test
+	// @Test
 	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -458,6 +458,44 @@ public class ManageSettingsTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			Assert.fail();
 		}
+	}
+
+	// 18. Procedure to Rate a LTL Shipment
+	@Test
+	public void verifyProcedureToRateALTLShipment() throws Exception {
+		try {
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.addingACustomSetting(
+					propertyValue.getValue("settingName"),
+					propertyValue.getValue("customSettingDescription"));
+
+			rateAShipment.clickingOnRateAShipmentTab();
+
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting();
+
+			rateAShipment.clickingOnRateAShipmentTab();
+
+
+
+			logger.info("========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
+
 	}
 
 }
