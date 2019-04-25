@@ -14,15 +14,13 @@ import com.dreamorbit.SMC3_Rater.testbase.TestBase;
 import com.dreamorbit.SMC3_Rater.testutils.ExceptionalHandlingFunctions;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
 
-public class ManageSettingsTest extends TestBase {
+public class RateAShipmentTest extends TestBase {
 
 	public static final Logger logger = Logger
-			.getLogger(ManageSettingsTest.class.getName());
+			.getLogger(RateAShipmentTest.class.getName());
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
-	PropertyFileUtility customSettingDetails = new PropertyFileUtility(
-			"./Files/" + "/RandomSetting.properties");
 
 	LoginPage loginToApplication;
 	RateAShipment rateAShipment;
@@ -36,9 +34,9 @@ public class ManageSettingsTest extends TestBase {
 		manageSettings = new ManageSettings(driver);
 	}
 
-	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
+	// 18. Procedure to Rate a LTL Shipment
 	@Test
-	public void verifyCreateAndDeleteACustomSetting() throws Exception {
+	public void verifyProcedureToRateALTLShipment() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -46,33 +44,33 @@ public class ManageSettingsTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.generatingAndStoringARandomSettingName();
 			manageSettings.addingACustomSetting(
-					customSettingDetails.getValue("customSettingID"),
-					customSettingDetails.getValue("customSettingDescription"));
+					propertyValue.getValue("settingName"),
+					propertyValue.getValue("customSettingDescription"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
-
-			boolean available = rateAShipment
-					.verifyIfSettingIsAvailable(customSettingDetails
-							.getValue("customSettingID"));
-			Assert.assertTrue("RateAShipmentPage - 'settingsDropDown' ::",
-					available);
-
+			rateAShipment.selectSetting(propertyValue.getValue("settingName"));
+			rateAShipment.selectRateFamily(propertyValue
+					.getValue("rateFamily1"));
+			rateAShipment.selectAvailableTariffs(propertyValue
+					.getValue("availableTariffs1"));
+			rateAShipment.enterOrigin(propertyValue
+					.getValue("origin1"));
+			rateAShipment.enterDestination(propertyValue
+					.getValue("destination1"));
+			rateAShipment.selectClass(propertyValue
+					.getValue("class1"));
+			rateAShipment.enterWeight(propertyValue
+					.getValue("weight1"));
+			rateAShipment.clickingOnRateShipmentButton();
+			rateAShipment.verifyChargeTotalValue();
+			
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(customSettingDetails
-					.getValue("customSettingID"));
+			manageSettings.deletingACustomSetting(propertyValue
+					.getValue("settingName"));
 
-			rateAShipment.clickingOnRateAShipmentTab();
-
-			boolean notAvailable = rateAShipment
-					.verifyIfSettingIsAvailable(customSettingDetails
-							.getValue("customSettingID"));
-			Assert.assertFalse("RateAShipmentPage - 'settingsDropDown' ::",
-					notAvailable);
-
-			logger.info("========== FINAL MESSAGE :: Custom Setting Created and Deleted Successfully ==========");
+			logger.info("========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -82,6 +80,6 @@ public class ManageSettingsTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			Assert.fail();
 		}
-	}
 
+	}
 }

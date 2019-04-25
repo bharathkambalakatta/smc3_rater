@@ -1,9 +1,13 @@
 C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\testutils\PropertyFileUtility.java
+C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\DefaultSetting.java
+C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\RateAShipment.java
+C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\ZipDiscount.java
+C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\testbase\TestBase.java
+C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\CustomSetting.java
+C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\testutils\PropertyFileWriteUtility.java
+C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\FuelSurcharge.java
 C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\testutils\RaterTestUtils.java
-C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\ManageSettingsPage.java
 C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\testutils\CommonFunctions.java
 C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\testutils\ExceptionalHandlingFunctions.java
-C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\testbase\TestBase.java
 C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\LoginPage.java
-C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\RateAShipmentPage.java
-C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\testutils\PropertyFileWriteUtility.java
+C:\Bharath\Automation\SMC3_Rater\src\main\java\com\dreamorbit\SMC3_Rater\pages\ManageSettings.java

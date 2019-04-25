@@ -3,12 +3,15 @@ package com.dreamorbit.SMC3_Rater.TestCases;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.junit.Before;
 
+import com.dreamorbit.SMC3_Rater.pages.DefaultSetting;
 import com.dreamorbit.SMC3_Rater.pages.LoginPage;
 import com.dreamorbit.SMC3_Rater.pages.ManageSettings;
 import com.dreamorbit.SMC3_Rater.pages.RateAShipment;
 import com.dreamorbit.SMC3_Rater.testbase.TestBase;
+import com.dreamorbit.SMC3_Rater.testutils.ExceptionalHandlingFunctions;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
 
 public class DefaultSettingTest extends TestBase {
@@ -22,6 +25,7 @@ public class DefaultSettingTest extends TestBase {
 	LoginPage loginToApplication;
 	RateAShipment rateAShipment;
 	ManageSettings manageSettings;
+	DefaultSetting defaultSetting;
 
 	@Before
 	public void setUp() throws IOException {
@@ -29,5 +33,103 @@ public class DefaultSettingTest extends TestBase {
 		loginToApplication = new LoginPage(driver);
 		rateAShipment = new RateAShipment(driver);
 		manageSettings = new ManageSettings(driver);
+		defaultSetting = new DefaultSetting(driver);
+	}
+
+	// 1. Create Default Setting Test
+	// @Test
+	public void verifyCreateDefaultSettingTest() throws Exception {
+		try {
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnDefaultSettingOption();
+			defaultSetting.enteringDefaultDiscountsDetails(
+					propertyValue.getValue("discount1"),
+					propertyValue.getValue("mcDiscount1"),
+					propertyValue.getValue("mcFloor1"));
+			defaultSetting.enteringDefaultConstantClassDetails(propertyValue
+					.getValue("constantClass1"));
+			defaultSetting.enteringDefaultConstantZIPSDetails(
+					propertyValue.getValue("constantZIPSOriginZIP"),
+					propertyValue.getValue("constantZIPSDestinationZIP"));
+
+			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.selectRateFamily(propertyValue
+					.getValue("rateFamily1"));
+
+			String actual = rateAShipment.verifyDiscountTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
+					propertyValue.getValue("discount1"), actual);
+			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
+					propertyValue.getValue("mcDiscount1"), actual1);
+			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
+					propertyValue.getValue("mcFloor1"), actual2);
+			String actual3 = rateAShipment.verifyClassDropDownValue();
+			Assert.assertEquals("RateAShipmentPage - 'classDropDown' ::",
+					propertyValue.getValue("constantClass1"), actual3);
+			String actual4 = rateAShipment.verifyOriginTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'originTextBox' ::",
+					propertyValue.getValue("constantZIPSOriginZIP"), actual4);
+			String actual5 = rateAShipment.verifyDestinationTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'destinationTextBox' ::",
+					propertyValue.getValue("constantZIPSDestinationZIP"),
+					actual5);
+
+			rateAShipment.loggingOutFromTheApplication();
+
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserNameCompany2"),
+					propertyValue.getValue("loginPasswordCompany2"));
+
+			rateAShipment.selectRateFamily(propertyValue
+					.getValue("rateFamily1"));
+
+			String actual6 = rateAShipment.verifyDiscountTextBoxValue();
+			Assert.assertNotSame("RateAShipmentPage - 'discountTextBox' ::",
+					propertyValue.getValue("discount1"), actual6);
+			String actual7 = rateAShipment.verifyMCDiscountTextBoxValue();
+			Assert.assertNotSame("RateAShipmentPage - 'mcDiscountTextBox' ::",
+					propertyValue.getValue("mcDiscount1"), actual7);
+			String actual8 = rateAShipment.verifyMCFloorTextBoxValue();
+			Assert.assertNotSame("RateAShipmentPage - 'mcFloorTextBox' ::",
+					propertyValue.getValue("mcFloor1"), actual8);
+			boolean found = rateAShipment
+					.verifyIfClassDropDownHasAnyValueSelected();
+			Assert.assertTrue("RateAShipmentPage - 'classDropDown' ::", found);
+			String actual10 = rateAShipment.verifyOriginTextBoxValue();
+			Assert.assertNotSame("RateAShipmentPage - 'originTextBox' ::",
+					propertyValue.getValue("constantZIPSOriginZIP"), actual10);
+			String actual11 = rateAShipment.verifyDestinationTextBoxValue();
+			Assert.assertNotSame("RateAShipmentPage - 'destinationTextBox' ::",
+					propertyValue.getValue("constantZIPSDestinationZIP"),
+					actual11);
+
+			rateAShipment.loggingOutFromTheApplication();
+
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnDefaultSettingOption();
+			defaultSetting.makingDefaultDiscountsToggleOff();
+			defaultSetting.makingDefaultConstantClassToggleOff();
+			defaultSetting.makingDefaultConstantZIPSToggleOff();
+
+			logger.info("========== FINAL MESSAGE :: Create Default Setting Test Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
 	}
 }

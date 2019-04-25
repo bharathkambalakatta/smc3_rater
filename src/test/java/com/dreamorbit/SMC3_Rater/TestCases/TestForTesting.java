@@ -15,12 +15,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
-import com.dreamorbit.SMC3_Rater.testutils.PropertyFileWriteUtility;
 
 public class TestForTesting {
 
-	static PropertyFileWriteUtility propertyValue = new PropertyFileWriteUtility("./Files/"
-			+ "/Test.properties");
+	static PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
+			+ "/RandomSetting.properties");
 	
 //	static WebDriver driver;
 //	
@@ -69,10 +68,11 @@ public class TestForTesting {
 		Random randomGenerator = new Random(); 
 		int randomInt = randomGenerator.nextInt(999999);  
 	
-		String randomString = "setting"+Integer.toString(randomInt);
+		String randomString = "ratersetting"+Integer.toString(randomInt);
 		System.out.println(randomString);
-		propertyValue.setValue("setting", randomString);
-//		return randomString;
+		propertyValue.addDataToTheFile("settingName", randomString);
+
+		
 	}
 	
 
