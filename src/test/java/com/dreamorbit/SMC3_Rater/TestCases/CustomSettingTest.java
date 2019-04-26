@@ -69,7 +69,7 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.clickingOnArrowPresentInFirstRow(propertyValue
+			manageSettings.clickingOnArrowPresentForASetting(propertyValue
 					.getValue("settingName"));
 			customSetting.settingUpDataModule(
 					propertyValue.getValue("rateFamily2"),
@@ -236,7 +236,7 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.clickingOnArrowPresentInFirstRow(propertyValue
+			manageSettings.clickingOnArrowPresentForASetting(propertyValue
 					.getValue("settingName"));
 
 			customSetting.clickingOnEditMultipleDiscountButton();

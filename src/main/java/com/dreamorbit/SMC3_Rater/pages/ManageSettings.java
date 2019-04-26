@@ -108,6 +108,7 @@ public class ManageSettings extends TestBase {
 		String randomString = "Custom Setting "+Integer.toString(randomInt);
 		logger.info("MESSAGE :: Random Setting ID generated is :: "+randomString);
 		customSettingDetails.addDataToTheFile("customSettingID", randomString);
+		customSettingDetails.addDataToTheFile("customSettingDescription", "Custom Setting Test Description");
 	}
 
 	public void addingACustomSetting(String settingID, String description)
@@ -128,7 +129,7 @@ public class ManageSettings extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting");
 	}
 
-	public void clickingOnArrowPresentInFirstRow(String settingID) {
+	public void clickingOnArrowPresentForASetting(String settingID) {
 		By arrowPresentForSetting = By.xpath("//span[contains(text(),'"
 				+ settingID + "')]/parent::div//img[@class='arrow-one']");
 		WebDriverWait wait = new WebDriverWait(driver,

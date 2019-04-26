@@ -51,7 +51,7 @@ public class ManageSettingsTest extends TestBase {
 					customSettingDetails.getValue("customSettingID"),
 					customSettingDetails.getValue("customSettingDescription"));
 
-			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.clickingOnRateAShipmentTab(); 
 
 			boolean available = rateAShipment
 					.verifyIfSettingIsAvailable(customSettingDetails

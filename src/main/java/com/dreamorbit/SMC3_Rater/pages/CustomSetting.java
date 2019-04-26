@@ -148,7 +148,7 @@ public class CustomSetting extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(mcFloorTextBox));
 		mcFloorTextBox.clear();
 		mcFloorTextBox.sendKeys(mcFloor);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Discount' details");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Single Discount' details");
 	}
 
 	public void enteringMultipleDiscountsDetails(String l5c, String m5c,
@@ -215,6 +215,8 @@ public class CustomSetting extends TestBase {
 		mcFloorMultipleTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		mcFloorMultipleTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcFloorMultipleTextBox.sendKeys(mcFloor);
+		
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Multiple Discount' details");
 	}
 
 	public void clickingOnSaveMultipleDiscountButton() {
@@ -224,6 +226,7 @@ public class CustomSetting extends TestBase {
 				.elementToBeClickable(saveMultipleDiscountButton));
 		saveMultipleDiscountButton.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has saved 'Multiple Discount' details");
 	}
 
 	public void clickingOnEditMultipleDiscountButton() {
@@ -233,5 +236,6 @@ public class CustomSetting extends TestBase {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(editMultipleDiscountButton));
 		editMultipleDiscountButton.click();
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Edit' multiple discount");
 	}
 }
