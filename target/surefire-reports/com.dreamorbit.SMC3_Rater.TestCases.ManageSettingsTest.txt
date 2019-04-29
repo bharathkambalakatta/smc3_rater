@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.dreamorbit.SMC3_Rater.TestCases.ManageSettingsTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 62.65 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 58.157 sec

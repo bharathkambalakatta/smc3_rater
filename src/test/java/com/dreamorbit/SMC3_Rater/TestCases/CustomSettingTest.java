@@ -22,6 +22,8 @@ public class CustomSettingTest extends TestBase {
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
+	PropertyFileUtility customSettingDetails = new PropertyFileUtility(
+			"./Files/" + "/RandomSetting.properties");
 
 	LoginPage loginToApplication;
 	RateAShipment rateAShipment;
@@ -50,6 +52,7 @@ public class CustomSettingTest extends TestBase {
 			manageSettings.addingACustomSetting(
 					propertyValue.getValue("settingName"),
 					propertyValue.getValue("customSettingDescription"));
+
 			customSetting.clickingOnTogglePresentForDataModule();
 			customSetting.settingUpDataModule(
 					propertyValue.getValue("rateFamily1"),
@@ -159,9 +162,9 @@ public class CustomSettingTest extends TestBase {
 
 	}
 
-	// 5. Create a Setting with Multiple Discount Test & 20. Procedure to Create
+	// 6. Create a Setting with Multiple Discount Test & 19. Procedure to Create
 	// a Multiple Discount
-	// @Test
+	@Test
 	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -170,11 +173,13 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
 			manageSettings.addingACustomSetting(
-					propertyValue.getValue("settingName"),
-					propertyValue.getValue("customSettingDescription"));
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
 
 			customSetting.clickingOnTogglePresentForDiscounts();
+			customSetting.clickingOnMultipleDiscountOption();
 			customSetting.enteringMultipleDiscountsDetails(
 					propertyValue.getValue("l5c1"),
 					propertyValue.getValue("m5c1"),
@@ -190,7 +195,8 @@ public class CustomSettingTest extends TestBase {
 			customSetting.clickingOnSaveMultipleDiscountButton();
 
 			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(propertyValue.getValue("settingName"));
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			boolean selected = rateAShipment
 					.verifyIfMultipleDiscountRadioButtonIsSelected();
@@ -236,8 +242,9 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.clickingOnArrowPresentForASetting(propertyValue
-					.getValue("settingName"));
+			manageSettings
+					.clickingOnArrowPresentForASetting(customSettingDetails
+							.getValue("customSettingID"));
 
 			customSetting.clickingOnEditMultipleDiscountButton();
 			customSetting.enteringMultipleDiscountsDetails(
@@ -255,7 +262,8 @@ public class CustomSettingTest extends TestBase {
 			customSetting.clickingOnSaveMultipleDiscountButton();
 
 			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(propertyValue.getValue("settingName"));
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			boolean selected1 = rateAShipment
 					.verifyIfMultipleDiscountRadioButtonIsSelected();
@@ -301,8 +309,8 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue
-					.getValue("settingName"));
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			logger.info("========== FINAL MESSAGE :: Multiple Discount Test (Create & Edit) Executed Successfully ==========");
 

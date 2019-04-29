@@ -444,11 +444,13 @@ public class RateAShipment extends TestBase {
 		logger.info("MESSAGE :: User has clicked on 'RATE SHIPMENT' button");
 	}
 	
-	public void verifyChargeTotalValue() {
-		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Class' drop down value");
+	public String verifyIfChargeTotalValueIsDisplayed() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying the table display");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(chargeTotalText));
-		chargeTotalText.isDisplayed();
+		System.out.println(chargeTotalText.getAttribute("value"));
+		return chargeTotalText.getText();
+		
 	}
 }

@@ -7,21 +7,22 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 //import org.testng.Assert;
 
-
 /**
- * Stores all the commonly used functions to support TestCases. 
+ * Stores all the commonly used functions to support TestCases.
+ * 
  * @author nutan.p
  *
  */
 public class CommonFunctions {
 
 	WebDriver driver;
-
 
 	public CommonFunctions(WebDriver driver) {
 		this.driver = driver;
@@ -46,7 +47,7 @@ public class CommonFunctions {
 			return e.toString();
 		}
 	}
-	
+
 	public String previousDay() {
 		try {
 			String curDate = "", nextDate = "";
@@ -60,14 +61,13 @@ public class CommonFunctions {
 			return e.toString();
 		}
 	}
-	
+
 	public int add(int value1, int value2) {
 		return value1 + value2;
 	}
-	
-	public int multiply(int value1, int value2)
-	{
-		return value1*value2;
+
+	public int multiply(int value1, int value2) {
+		return value1 * value2;
 	}
 
 	public String splitFunction(String cityList, int index) {
@@ -94,8 +94,10 @@ public class CommonFunctions {
 	/**
 	 * To check by Element is displayed or not.
 	 * 
-	 * @param Expected accepts by element.
-	 * @param isTrue   boolean value, True to check is Displayed. False if not.
+	 * @param Expected
+	 *            accepts by element.
+	 * @param isTrue
+	 *            boolean value, True to check is Displayed. False if not.
 	 */
 	public void isDisplayedBy(By Expected, boolean isTrue) {
 		if (isTrue == true) {
@@ -128,5 +130,4 @@ public class CommonFunctions {
 			System.out.println(ex.getMessage());
 		}
 	}
-
 }

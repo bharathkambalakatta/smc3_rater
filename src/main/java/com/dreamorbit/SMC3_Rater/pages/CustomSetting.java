@@ -23,12 +23,12 @@ public class CustomSetting extends TestBase {
 			+ "/DataFile.properties");
 
 	WebDriver driver;
-	
+
 	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// When setting is opened - Data Module sub-section
 	@FindBy(xpath = "//div[@id='ajax-loader']/img")
 	private WebElement loadingImage;
-	
+
 	@FindBy(xpath = "//div[@class='data-module-container']//div[@class='form-group']")
 	private WebElement toggleForDataModule;
 
@@ -98,7 +98,7 @@ public class CustomSetting extends TestBase {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	// MANAGE SETTINGS page - Custom Setting - Data Module - Various functions
 	// which are used in the test cases
 	public void clickingOnTogglePresentForDataModule() {
@@ -151,14 +151,19 @@ public class CustomSetting extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Single Discount' details");
 	}
 
-	public void enteringMultipleDiscountsDetails(String l5c, String m5c,
-			String m1m, String m2m, String m5m, String m10m, String m20m,
-			String m30m, String m40m, String mc, String mcFloor) {
+	public void clickingOnMultipleDiscountOption() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(multipleOption));
 		multipleOption.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+	}
+
+	public void enteringMultipleDiscountsDetails(String l5c, String m5c,
+			String m1m, String m2m, String m5m, String m10m, String m20m,
+			String m30m, String m40m, String mc, String mcFloor) {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 
 		wait.until(ExpectedConditions.elementToBeClickable(l5cTextBox));
 		l5cTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
@@ -215,7 +220,7 @@ public class CustomSetting extends TestBase {
 		mcFloorMultipleTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		mcFloorMultipleTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcFloorMultipleTextBox.sendKeys(mcFloor);
-		
+
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Multiple Discount' details");
 	}
 

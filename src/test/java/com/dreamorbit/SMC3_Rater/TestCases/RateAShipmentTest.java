@@ -21,6 +21,8 @@ public class RateAShipmentTest extends TestBase {
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
+	PropertyFileUtility customSettingDetails = new PropertyFileUtility(
+			"./Files/" + "/RandomSetting.properties");
 
 	LoginPage loginToApplication;
 	RateAShipment rateAShipment;
@@ -34,7 +36,7 @@ public class RateAShipmentTest extends TestBase {
 		manageSettings = new ManageSettings(driver);
 	}
 
-	// 18. Procedure to Rate a LTL Shipment
+	// 17. Procedure to Rate a LTL Shipment
 	@Test
 	public void verifyProcedureToRateALTLShipment() throws Exception {
 		try {
@@ -44,32 +46,31 @@ public class RateAShipmentTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
 			manageSettings.addingACustomSetting(
-					propertyValue.getValue("settingName"),
-					propertyValue.getValue("customSettingDescription"));
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(propertyValue.getValue("settingName"));
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
 			rateAShipment.selectRateFamily(propertyValue
 					.getValue("rateFamily1"));
 			rateAShipment.selectAvailableTariffs(propertyValue
 					.getValue("availableTariffs1"));
-			rateAShipment.enterOrigin(propertyValue
-					.getValue("origin1"));
+			rateAShipment.enterOrigin(propertyValue.getValue("origin1"));
 			rateAShipment.enterDestination(propertyValue
 					.getValue("destination1"));
-			rateAShipment.selectClass(propertyValue
-					.getValue("class1"));
-			rateAShipment.enterWeight(propertyValue
-					.getValue("weight1"));
+			rateAShipment.selectClass(propertyValue.getValue("class1"));
+			rateAShipment.enterWeight(propertyValue.getValue("weight1"));
 			rateAShipment.clickingOnRateShipmentButton();
-			rateAShipment.verifyChargeTotalValue();
-			
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue
-					.getValue("settingName"));
+			rateAShipment.verifyIfChargeTotalValueIsDisplayed();
 
+//			manageSettings.clickingOnManageSettingsTab();
+//			manageSettings.clickingOnCustomSettingOption();
+//			manageSettings.deletingACustomSetting(customSettingDetails
+//					.getValue("customSettingID"));
+			
 			logger.info("========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========");
 
 		} catch (Exception e) {

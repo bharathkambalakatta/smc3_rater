@@ -55,11 +55,6 @@ public class ManageSettings extends TestBase {
 	@FindBy(xpath = "//tr[@id='trCust-1 ']//div[3]")
 	private WebElement saveButton;
 
-	// @FindBy(xpath = "//tr[1]/td[1]//img[@class='arrow-one']")
-	// private WebElement arrowPresentInFirstRow;
-
-	// @FindBy(xpath = "//tr[1]/td[5]//a[@class='delete-row custom']")
-	// private WebElement deleteButton;
 
 	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
 	// When setting is opened
@@ -106,11 +101,10 @@ public class ManageSettings extends TestBase {
 		Random randomGenerator = new Random(); 
 		int randomInt = randomGenerator.nextInt(999999);  
 		String randomString = "Custom Setting "+Integer.toString(randomInt);
-		logger.info("MESSAGE :: Random Setting ID generated is :: "+randomString);
 		customSettingDetails.addDataToTheFile("customSettingID", randomString);
 		customSettingDetails.addDataToTheFile("customSettingDescription", "Custom Setting Test Description");
 	}
-
+	
 	public void addingACustomSetting(String settingID, String description)
 			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -153,5 +147,4 @@ public class ManageSettings extends TestBase {
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting");
 	}
-
 }
