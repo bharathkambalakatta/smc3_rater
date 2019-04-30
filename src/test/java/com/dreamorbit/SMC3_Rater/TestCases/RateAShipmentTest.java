@@ -64,13 +64,17 @@ public class RateAShipmentTest extends TestBase {
 			rateAShipment.selectClass(propertyValue.getValue("class1"));
 			rateAShipment.enterWeight(propertyValue.getValue("weight1"));
 			rateAShipment.clickingOnRateShipmentButton();
-			rateAShipment.verifyIfChargeTotalValueIsDisplayed();
 
-//			manageSettings.clickingOnManageSettingsTab();
-//			manageSettings.clickingOnCustomSettingOption();
-//			manageSettings.deletingACustomSetting(customSettingDetails
-//					.getValue("customSettingID"));
-			
+			boolean valueDisplayed = rateAShipment
+					.verifyIfChargeTotalValueIsDisplayed();
+			Assert.assertTrue("RateAShipmentPage - 'chargeTotalText' ::",
+					valueDisplayed);
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
+
 			logger.info("========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========");
 
 		} catch (Exception e) {

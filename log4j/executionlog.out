@@ -1,0 +1,361 @@
+2019-04-30 11:08:53 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 11:08:58 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 11:09:00 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 11:09:06 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 11:09:16 INFO  RateAShipment:129 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 11:09:16 INFO  RateAShipment:149 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 11:09:17 INFO  RateAShipment:181 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 11:09:18 INFO  RateAShipment:202 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 11:09:18 INFO  RateAShipment:224 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 11:09:18 INFO  RateAShipment:241 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 11:09:18 INFO  RateAShipment:398 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 11:09:18 INFO  RateAShipment:436 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 11:09:18 INFO  RateAShipment:444 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 11:09:18 INFO  RateAShipment:448 - MESSAGE :: RATE A SHIPMENT Tab - Verifying the table display
+2019-04-30 11:09:45 INFO  RateAShipmentTest:74 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:17:44 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:17:48 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:17:49 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:17:56 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:18:06 INFO  RateAShipment:129 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:18:06 INFO  RateAShipment:149 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:18:07 INFO  RateAShipment:181 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:18:08 INFO  RateAShipment:202 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:18:08 INFO  RateAShipment:224 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:18:08 INFO  RateAShipment:241 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:18:08 INFO  RateAShipment:398 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:18:08 INFO  RateAShipment:436 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:18:08 INFO  RateAShipment:448 - MESSAGE :: RATE A SHIPMENT Tab - Verifying the table display
+2019-04-30 12:18:08 INFO  RateAShipmentTest:74 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:18:48 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:18:53 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:18:54 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:19:00 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:19:13 INFO  RateAShipment:129 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:19:13 INFO  RateAShipment:149 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:19:14 INFO  RateAShipment:181 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:19:15 INFO  RateAShipment:202 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:19:15 INFO  RateAShipment:224 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:19:15 INFO  RateAShipment:241 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:19:15 INFO  RateAShipment:398 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:19:15 INFO  RateAShipment:436 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:19:15 INFO  RateAShipment:444 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 12:19:15 INFO  RateAShipment:448 - MESSAGE :: RATE A SHIPMENT Tab - Verifying the table display
+2019-04-30 12:19:16 INFO  RateAShipmentTest:74 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:26:31 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:26:35 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:26:36 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:26:42 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:26:52 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:26:52 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:26:53 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:26:53 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:26:54 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:26:54 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:26:54 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:26:54 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:26:54 INFO  RateAShipment:446 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 12:26:54 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying the table display
+2019-04-30 12:26:54 INFO  RateAShipmentTest:74 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:28:15 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:28:19 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:28:21 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:28:26 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:28:35 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:28:35 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:28:37 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:28:37 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:28:37 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:28:37 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:28:37 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:28:37 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:28:37 INFO  RateAShipment:446 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 12:28:37 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying the table display
+2019-04-30 12:28:38 INFO  RateAShipmentTest:74 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:30:01 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:30:05 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:30:07 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:30:13 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:30:22 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:30:22 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:30:23 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:30:24 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:30:24 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:30:24 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:30:24 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:30:24 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:30:24 INFO  RateAShipment:446 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 12:30:24 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying the table display
+2019-04-30 12:30:26 INFO  RateAShipmentTest:74 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:38:38 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:38:42 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:38:44 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:38:50 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:38:59 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:38:59 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:39:00 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:39:01 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:39:01 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:39:01 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:39:01 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:39:01 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:39:01 INFO  RateAShipment:446 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 12:39:01 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 12:39:09 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:39:10 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:39:11 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 12:39:11 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:39:54 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:39:58 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:40:00 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:40:06 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:40:14 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:40:14 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:40:15 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:40:16 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:40:16 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:40:16 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:40:16 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:40:16 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:40:16 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 12:40:23 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:40:25 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:40:26 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 12:40:26 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:47:41 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:48:07 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:48:09 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:48:15 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:48:26 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:48:27 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:48:28 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:48:28 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:48:28 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:48:28 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:48:28 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:48:29 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:48:29 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 12:48:36 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:48:37 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:48:37 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 12:48:37 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:49:33 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:49:37 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:49:38 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:49:45 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:49:54 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:49:54 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:49:55 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:49:55 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:49:56 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:49:56 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:49:56 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:49:56 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:49:56 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 12:50:04 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:50:06 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:50:06 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 12:50:06 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 12:51:52 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:51:57 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:51:59 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:52:05 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:52:18 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:52:18 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:52:19 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:52:19 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:52:19 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:52:19 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:52:20 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:52:20 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:52:20 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 12:53:19 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:53:24 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:53:27 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:53:35 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:53:44 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:53:44 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:53:46 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:53:46 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:53:46 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:53:46 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:53:46 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:53:46 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:53:46 INFO  RateAShipment:446 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 12:53:46 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 12:54:36 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 12:54:40 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:54:42 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:54:48 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 12:54:58 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 12:54:58 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 12:55:00 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 12:55:00 INFO  RateAShipment:204 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 12:55:00 INFO  RateAShipment:226 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 12:55:00 INFO  RateAShipment:243 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 12:55:00 INFO  RateAShipment:400 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 12:55:00 INFO  RateAShipment:438 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 12:55:00 INFO  RateAShipment:446 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 12:55:00 INFO  RateAShipment:450 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 12:55:08 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 12:55:09 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 12:55:09 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 12:55:09 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 13:13:57 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:14:02 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:14:03 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:14:10 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:14:21 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:14:22 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:14:23 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:14:23 INFO  RateAShipment:206 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:14:23 INFO  RateAShipment:228 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:14:23 INFO  RateAShipment:245 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:14:23 INFO  RateAShipment:402 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:14:23 INFO  RateAShipment:440 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:14:24 INFO  RateAShipment:448 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:14:24 INFO  RateAShipment:452 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:18:22 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:18:27 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:18:28 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:18:34 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:18:43 INFO  RateAShipment:134 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:18:43 INFO  RateAShipment:154 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:18:45 INFO  RateAShipment:186 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:18:45 INFO  RateAShipment:209 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:18:45 INFO  RateAShipment:231 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:18:45 INFO  RateAShipment:248 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:18:45 INFO  RateAShipment:405 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:18:45 INFO  RateAShipment:443 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:18:46 INFO  RateAShipment:451 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:18:46 INFO  RateAShipment:455 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:19:57 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:20:02 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:20:04 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:20:10 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:20:20 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:20:20 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:20:21 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:20:21 INFO  RateAShipment:206 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:20:21 INFO  RateAShipment:228 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:20:21 INFO  RateAShipment:245 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:20:22 INFO  RateAShipment:402 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:20:22 INFO  RateAShipment:440 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:20:22 INFO  RateAShipment:448 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:20:22 INFO  RateAShipment:452 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:20:28 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:20:30 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:20:30 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 13:20:30 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 13:21:10 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:21:18 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:21:23 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:21:28 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:21:28 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:21:36 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:21:37 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:21:37 INFO  RateAShipment:206 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:21:37 INFO  RateAShipment:228 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:21:37 INFO  RateAShipment:245 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:21:37 INFO  RateAShipment:402 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:21:37 INFO  RateAShipment:440 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:21:37 INFO  RateAShipment:448 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:21:37 INFO  RateAShipment:452 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:21:38 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:21:45 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:21:46 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 13:21:46 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 13:23:03 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:23:08 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:23:10 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:23:16 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:23:26 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:23:27 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:23:28 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:23:28 INFO  RateAShipment:206 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:23:29 INFO  RateAShipment:228 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:23:29 INFO  RateAShipment:245 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:23:29 INFO  RateAShipment:402 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:23:29 INFO  RateAShipment:440 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:23:29 INFO  RateAShipment:448 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:23:29 INFO  RateAShipment:452 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:23:37 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:23:39 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:23:40 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 13:23:40 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 13:46:05 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:46:10 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:46:11 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:46:16 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:46:26 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:46:26 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:46:28 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:46:28 INFO  RateAShipment:206 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:46:28 INFO  RateAShipment:228 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:46:28 INFO  RateAShipment:245 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:46:28 INFO  RateAShipment:402 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:46:29 INFO  RateAShipment:440 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:46:29 INFO  RateAShipment:448 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:46:29 INFO  RateAShipment:452 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:46:35 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:46:37 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:46:38 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 13:46:38 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 13:47:48 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:47:53 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:47:55 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:47:59 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:50:52 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:51:17 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:51:19 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:51:25 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:51:36 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:51:36 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:51:36 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:51:37 INFO  RateAShipment:206 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:51:37 INFO  RateAShipment:228 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:51:37 INFO  RateAShipment:245 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:51:37 INFO  RateAShipment:402 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:51:37 INFO  RateAShipment:440 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:51:37 INFO  RateAShipment:448 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:51:37 INFO  RateAShipment:452 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:51:44 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:51:45 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:51:46 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 13:51:46 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 13:52:22 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:52:27 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:52:29 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:52:33 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:52:40 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:52:41 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:52:41 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:52:41 INFO  RateAShipment:206 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:52:41 INFO  RateAShipment:228 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:52:42 INFO  RateAShipment:245 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:52:42 INFO  RateAShipment:402 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:52:42 INFO  RateAShipment:440 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:52:42 INFO  RateAShipment:448 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:52:42 INFO  RateAShipment:452 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:52:49 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:52:51 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:52:51 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 13:52:51 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
+2019-04-30 13:53:19 INFO  LoginPage:54 - MESSAGE :: 'integration.rater.adminuser1@smc3.com' user has logged in to the application
+2019-04-30 13:53:25 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:53:30 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:53:35 INFO  ManageSettings:123 - MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting
+2019-04-30 13:53:35 INFO  RateAShipment:131 - MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab
+2019-04-30 13:53:40 INFO  RateAShipment:151 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Settings' drop down
+2019-04-30 13:53:40 INFO  RateAShipment:183 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down
+2019-04-30 13:53:40 INFO  RateAShipment:206 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down
+2019-04-30 13:53:40 INFO  RateAShipment:228 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box
+2019-04-30 13:53:40 INFO  RateAShipment:245 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box
+2019-04-30 13:53:40 INFO  RateAShipment:402 - MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down
+2019-04-30 13:53:41 INFO  RateAShipment:440 - MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box
+2019-04-30 13:53:41 INFO  RateAShipment:448 - MESSAGE :: User has clicked on 'RATE SHIPMENT' button
+2019-04-30 13:53:41 INFO  RateAShipment:452 - MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table
+2019-04-30 13:53:42 INFO  ManageSettings:75 - MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab
+2019-04-30 13:53:47 INFO  ManageSettings:95 - MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option
+2019-04-30 13:53:48 INFO  ManageSettings:148 - MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting
+2019-04-30 13:53:48 INFO  RateAShipmentTest:76 - ========== FINAL MESSAGE :: Procedure to Rate a LTL Shipment Test Executed Successfully ==========
