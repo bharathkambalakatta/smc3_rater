@@ -15,7 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.dreamorbit.SMC3_Rater.testbase.TestBase;
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
-import com.dreamorbit.SMC3_Rater.testutils.PropertyFileWriteUtility;
 import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
 public class RateAShipment extends TestBase {
@@ -25,16 +24,12 @@ public class RateAShipment extends TestBase {
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
-	PropertyFileWriteUtility propertyKeyValue = new PropertyFileWriteUtility(
-			"./Files/" + "/Test.properties");
-	PropertyFileUtility propertyValue1 = new PropertyFileUtility("./Files/"
-			+ "/Test.properties");
 
 	WebDriver driver;
 
 	// RATE A SHIPMENT page - Elements present in the header
 	@FindBy(id = "rateShipmentTab")
-	WebElement rateAShipmentTab;
+	private WebElement rateAShipmentTab;
 
 	@FindBy(xpath = "//a[@class='profile-pic profile-text-link']")
 	private WebElement profileBox;
@@ -110,6 +105,15 @@ public class RateAShipment extends TestBase {
 	@FindBy(xpath = "//select[@id='ltl-class-0']")
 	private WebElement classDropDown;
 
+	@FindBy(xpath = "//input[@id='weight-0']")
+	private WebElement weightTextBox;
+
+	@FindBy(xpath = "//input[@id='charge-totals']")
+	private WebElement chargeTotalText;
+
+	@FindBy(xpath = "//td[contains(text(),'US Dollars')]")
+	private WebElement usDollarsText;
+
 	@FindBy(xpath = "//input[@value='Rate Shipment']")
 	private WebElement rateShipmentButton;
 
@@ -169,38 +173,55 @@ public class RateAShipment extends TestBase {
 		return found;
 	}
 
-	public void selectRateFamily(String rateFamily) throws InterruptedException {
+	public void selectRateFamily(String rateFamily) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
 		Select select = new Select(rateFamilyDropDown);
 		select.selectByVisibleText(rateFamily);
-		Thread.sleep(1000);
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down");
 	}
 
-	public String verifySelectedValueInRateFamily() throws InterruptedException {
+	public String verifySelectedValueInRateFamily() {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Rate Family' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
-		Thread.sleep(1000);
 		Select select = new Select(rateFamilyDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
 	}
 
-	public String verifySelectedValueInAvailableTariffs()
+	public void selectAvailableTariffs(String availableTariffs)
 			throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(availableTariffsDropDown));
+		Select select = new Select(availableTariffsDropDown);
+		select.selectByVisibleText(availableTariffs);
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down");
+	}
+
+	public String verifySelectedValueInAvailableTariffs() {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Available Tariffs' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(availableTariffsDropDown));
-		Thread.sleep(1000);
+
 		Select select = new Select(availableTariffsDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
+	}
+
+	public void enterOrigin(String origin) {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(originTextBox));
+		originTextBox.clear();
+		originTextBox.sendKeys(origin);
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box");
 	}
 
 	public String verifyOriginTextBoxValue() {
@@ -209,6 +230,15 @@ public class RateAShipment extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(originTextBox));
 		return originTextBox.getAttribute("value");
+	}
+
+	public void enterDestination(String destination) {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(destinationTextBox));
+		destinationTextBox.clear();
+		destinationTextBox.sendKeys(destination);
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Destination' text box");
 	}
 
 	public String verifyDestinationTextBoxValue() {
@@ -359,6 +389,15 @@ public class RateAShipment extends TestBase {
 		return mcFloorMultipleTextBox.getAttribute("value");
 	}
 
+	public void selectClass(String classValue) {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(classDropDown));
+		Select select = new Select(classDropDown);
+		select.selectByVisibleText(classValue);
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down");
+	}
+
 	public String verifyClassDropDownValue() {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Class' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -386,5 +425,36 @@ public class RateAShipment extends TestBase {
 			logger.info("MESSAGE :: RATE A SHIPMENT Tab - No value is selected in 'Class' drop down");
 		}
 		return notSame;
+	}
+
+	public void enterWeight(String weight) {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(weightTextBox));
+		weightTextBox.clear();
+		weightTextBox.sendKeys(weight);
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box");
+	}
+
+	public void clickingOnRateShipmentButton() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(rateShipmentButton))
+				.click();
+		logger.info("MESSAGE :: User has clicked on 'RATE SHIPMENT' button");
+	}
+
+	public boolean verifyIfChargeTotalValueIsDisplayed()
+			throws InterruptedException {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(usDollarsText));
+		Thread.sleep(1000);// Required to wait till the table is loaded
+		boolean valueDisplayed = false;
+		if (!chargeTotalText.getAttribute("value").equals("")) {
+			valueDisplayed = true;
+		}
+		return valueDisplayed;
 	}
 }

@@ -1,2 +1,7 @@
 com\dreamorbit\SMC3_Rater\TestCases\TestForTesting.class
+com\dreamorbit\SMC3_Rater\TestCases\RateAShipmentTest.class
+com\dreamorbit\SMC3_Rater\TestCases\ZipDiscountTest.class
+com\dreamorbit\SMC3_Rater\TestCases\DefaultSettingTest.class
+com\dreamorbit\SMC3_Rater\TestCases\FuelSurchargeTest.class
+com\dreamorbit\SMC3_Rater\TestCases\CustomSettingTest.class
 com\dreamorbit\SMC3_Rater\TestCases\ManageSettingsTest.class

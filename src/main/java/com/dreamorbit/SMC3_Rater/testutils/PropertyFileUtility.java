@@ -10,8 +10,9 @@ import java.util.Properties;
 public class PropertyFileUtility {
 
 	File file;
-	FileInputStream fileInput;
 	Properties prop;
+	FileInputStream fileInput;
+	FileOutputStream fileOutput;
 
 	public PropertyFileUtility(String PropertiesPath) {
 		file = new File(PropertiesPath);
@@ -31,27 +32,21 @@ public class PropertyFileUtility {
 
 	}
 
-	/**
-	 * Method to write data into a property file 
-	 * @author nutan.p
-	 *
-	 */
-	
-		public void addData(String key, String val) 
-		{
-			try {
-			 File file = new File("./Properties/"+"/BidNameFile.properties");  
-			 Properties props = new Properties();
-			 props.load(new FileInputStream(file));
-			FileOutputStream obj = new FileOutputStream(file);
-			 props.setProperty(key, val);
-			props.store(obj, "Update data into file ");
+	public void addDataToTheFile(String key, String value) {
+		try {
+			fileOutput = new FileOutputStream(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-			 catch (IOException ex) {
-		         ex.printStackTrace();
+		prop.setProperty(key, value);
+		try {
+			prop.store(fileOutput, "Data added to the file");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		}
-
+	}
 
 	public String getValue(String value) {
 		return prop.getProperty(value);
