@@ -108,6 +108,9 @@ public class RateAShipment extends TestBase {
 	@FindBy(xpath = "//input[@id='weight-0']")
 	private WebElement weightTextBox;
 
+	@FindBy(xpath = "//input[@id='discount-Percentage']")
+	private WebElement discountValue;
+
 	@FindBy(xpath = "//input[@id='charge-totals']")
 	private WebElement chargeTotalText;
 
@@ -182,11 +185,12 @@ public class RateAShipment extends TestBase {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Rate Family' drop down");
 	}
 
-	public String verifySelectedValueInRateFamily() {
+	public String verifySelectedValueInRateFamily() throws InterruptedException {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Rate Family' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
+		Thread.sleep(1000);
 		Select select = new Select(rateFamilyDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
@@ -436,21 +440,28 @@ public class RateAShipment extends TestBase {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Weight' text box");
 	}
 
-	public void clickingOnRateShipmentButton() {
+	public void clickingOnRateShipmentButton() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateShipmentButton))
 				.click();
-		logger.info("MESSAGE :: User has clicked on 'RATE SHIPMENT' button");
+		Thread.sleep(1000);// Required to wait till the table is loaded
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - User has clicked on 'RATE SHIPMENT' button");
 	}
 
-	public boolean verifyIfChargeTotalValueIsDisplayed()
-			throws InterruptedException {
+	public String verifyDiscountValueInTheTable() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Discount' value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(discountValue));
+		return discountValue.getAttribute("value");
+	}
+
+	public boolean verifyIfChargeTotalValueIsDisplayed() {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying if 'Charge - Net' is displayed in the table");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(usDollarsText));
-		Thread.sleep(1000);// Required to wait till the table is loaded
 		boolean valueDisplayed = false;
 		if (!chargeTotalText.getAttribute("value").equals("")) {
 			valueDisplayed = true;

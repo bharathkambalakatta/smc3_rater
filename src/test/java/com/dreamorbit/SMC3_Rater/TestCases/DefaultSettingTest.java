@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 import com.dreamorbit.SMC3_Rater.pages.DefaultSetting;
 import com.dreamorbit.SMC3_Rater.pages.LoginPage;
@@ -47,9 +48,9 @@ public class DefaultSettingTest extends TestBase {
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnDefaultSettingOption();
 			defaultSetting.enteringDefaultDiscountsDetails(
-					propertyValue.getValue("discount1"),
-					propertyValue.getValue("mcDiscount1"),
-					propertyValue.getValue("mcFloor1"));
+					propertyValue.getValue("defaultDiscount1"),
+					propertyValue.getValue("defaultMCDiscount1"),
+					propertyValue.getValue("defaultMCFloor1"));
 			defaultSetting.enteringDefaultConstantClassDetails(propertyValue
 					.getValue("constantClass1"));
 			defaultSetting.enteringDefaultConstantZIPSDetails(
@@ -62,13 +63,13 @@ public class DefaultSettingTest extends TestBase {
 
 			String actual = rateAShipment.verifyDiscountTextBoxValue();
 			Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
-					propertyValue.getValue("discount1"), actual);
+					propertyValue.getValue("defaultDiscount1"), actual);
 			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
 			Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
-					propertyValue.getValue("mcDiscount1"), actual1);
+					propertyValue.getValue("defaultMCDiscount1"), actual1);
 			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
 			Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
-					propertyValue.getValue("mcFloor1"), actual2);
+					propertyValue.getValue("defaultMCFloor1"), actual2);
 			String actual3 = rateAShipment.verifyClassDropDownValue();
 			Assert.assertEquals("RateAShipmentPage - 'classDropDown' ::",
 					propertyValue.getValue("constantClass1"), actual3);
@@ -91,13 +92,13 @@ public class DefaultSettingTest extends TestBase {
 
 			String actual6 = rateAShipment.verifyDiscountTextBoxValue();
 			Assert.assertNotSame("RateAShipmentPage - 'discountTextBox' ::",
-					propertyValue.getValue("discount1"), actual6);
+					propertyValue.getValue("defaultDiscount1"), actual6);
 			String actual7 = rateAShipment.verifyMCDiscountTextBoxValue();
 			Assert.assertNotSame("RateAShipmentPage - 'mcDiscountTextBox' ::",
-					propertyValue.getValue("mcDiscount1"), actual7);
+					propertyValue.getValue("defaultMCDiscount1"), actual7);
 			String actual8 = rateAShipment.verifyMCFloorTextBoxValue();
 			Assert.assertNotSame("RateAShipmentPage - 'mcFloorTextBox' ::",
-					propertyValue.getValue("mcFloor1"), actual8);
+					propertyValue.getValue("defaultMCFloor1"), actual8);
 			boolean found = rateAShipment
 					.verifyIfClassDropDownHasAnyValueSelected();
 			Assert.assertTrue("RateAShipmentPage - 'classDropDown' ::", found);

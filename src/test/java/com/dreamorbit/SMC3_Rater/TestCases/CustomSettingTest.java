@@ -49,9 +49,10 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
 			manageSettings.addingACustomSetting(
-					propertyValue.getValue("settingName"),
-					propertyValue.getValue("customSettingDescription"));
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
 
 			customSetting.clickingOnTogglePresentForDataModule();
 			customSetting.settingUpDataModule(
@@ -59,7 +60,8 @@ public class CustomSettingTest extends TestBase {
 					propertyValue.getValue("availableTariffs1"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(propertyValue.getValue("settingName"));
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			String Actual = rateAShipment.verifySelectedValueInRateFamily();
 			Assert.assertEquals("RateAShipmentPage - 'rateFamilyDropDown' ::",
@@ -72,14 +74,16 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.clickingOnArrowPresentForASetting(propertyValue
-					.getValue("settingName"));
+			manageSettings
+					.clickingOnArrowPresentForASetting(customSettingDetails
+							.getValue("customSettingID"));
 			customSetting.settingUpDataModule(
 					propertyValue.getValue("rateFamily2"),
 					propertyValue.getValue("availableTariffs2"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(propertyValue.getValue("settingName"));
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			String Actual3 = rateAShipment.verifySelectedValueInRateFamily();
 			Assert.assertEquals("RateAShipmentPage - 'rateFamilyDropDown' ::",
@@ -92,8 +96,8 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue
-					.getValue("settingName"));
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			logger.info("========== FINAL MESSAGE :: Create a Setting with Data Module Test Executed Successfully ==========");
 
@@ -117,9 +121,10 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
 			manageSettings.addingACustomSetting(
-					propertyValue.getValue("settingName"),
-					propertyValue.getValue("customSettingDescription"));
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
 			customSetting.clickingOnTogglePresentForDiscounts();
 			customSetting.enteringSingleDiscountsDetails(
 					propertyValue.getValue("discount2"),
@@ -127,7 +132,8 @@ public class CustomSettingTest extends TestBase {
 					propertyValue.getValue("mcFloor2"));
 
 			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(propertyValue.getValue("settingName"));
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			boolean selected = rateAShipment
 					.verifyIfSingleDiscountRadioButtonIsSelected();
@@ -146,8 +152,8 @@ public class CustomSettingTest extends TestBase {
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(propertyValue
-					.getValue("settingName"));
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			logger.info("========== FINAL MESSAGE :: Create a Setting with Single Discount Test Executed Successfully ==========");
 
@@ -164,7 +170,7 @@ public class CustomSettingTest extends TestBase {
 
 	// 6. Create a Setting with Multiple Discount Test & 19. Procedure to Create
 	// a Multiple Discount
-	@Test
+	// @Test
 	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
