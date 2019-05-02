@@ -1,6 +1,0 @@
-Expected condition failed: waiting for element to be clickable: [[EdgeDriver: MicrosoftEdge on WINDOWS (AF9C3E0A-3D4F-42B9-8DEC-2CD004BFC0B2)] -> id: rateShipmentTab] (tried for 25 second(s) with 500 milliseconds interval)
-Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
-System info: host: 'DOSYSNET042', ip: '10.1.3.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_144'
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Capabilities {InPrivate: false, acceptSslCerts: true, applicationCacheEnabled: true, browserName: MicrosoftEdge, browserVersion: 42.17134.1.0, javascriptEnabled: true, locationContextEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10, takesElementScreenshot: true, takesScreenshot: true, webStorageEnabled: true}
-Session ID: AF9C3E0A-3D4F-42B9-8DEC-2CD004BFC0B2
