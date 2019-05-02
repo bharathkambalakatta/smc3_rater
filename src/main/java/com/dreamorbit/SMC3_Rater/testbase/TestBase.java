@@ -9,11 +9,14 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.After;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
@@ -76,6 +79,9 @@ public class TestBase {
 		getUrl(prop.getProperty("TestingURL"));
 	}
 
+	
+
+	
 	@After
 	public void endTest() {
 //		driver.quit();
