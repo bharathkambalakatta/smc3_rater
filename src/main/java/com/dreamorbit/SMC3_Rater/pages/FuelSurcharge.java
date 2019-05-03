@@ -1,7 +1,6 @@
 package com.dreamorbit.SMC3_Rater.pages;
 
 import org.apache.log4j.Logger;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,24 +10,25 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.dreamorbit.SMC3_Rater.testbase.TestBase;
-
 import com.dreamorbit.SMC3_Rater.testutils.PropertyFileUtility;
 import com.dreamorbit.SMC3_Rater.testutils.RaterTestUtils;
 
 public class FuelSurcharge extends TestBase {
 
-	public static final Logger logger = Logger.getLogger(FuelSurcharge.class.getName());
+	public static final Logger logger = Logger.getLogger(FuelSurcharge.class
+			.getName());
 
-	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/" + "/DataFile.properties");
+	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
+			+ "/DataFile.properties");
 
 	WebDriver driver;
-	WebDriverWait wait;
 
+	// MANAGE SETTINGS page - 'Global' section - Web Elements
 	@FindBy(xpath = "//a[@id='one']//span[contains(text(),'Global')]")
-	private WebElement globalSurchargeTab;
+	private WebElement globalSubTab;
 
 	@FindBy(xpath = "//a[@id='insert-more']//h6[@class='add-inner-title'][contains(text(),'+ Add New Row')]")
-	private WebElement addNewRowLink;
+	private WebElement addNewRowButton;
 
 	@FindBy(xpath = "//input[@id='lowRange-1']")
 	private WebElement lowRangeAtLeast;
@@ -49,201 +49,134 @@ public class FuelSurcharge extends TestBase {
 	private WebElement loadingImage;
 
 	@FindBy(xpath = "//h6[contains(text(),'View Custom Global Surcharge')]")
-	private WebElement viewGlobalsurcharge;
+	private WebElement viewCustomGlobalSurchargeoption;
 
 	public FuelSurcharge(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	// Method to click on Global Surcharge tab
-	public void clickGlobalSurchargeTab() throws Exception {
-		wait = new WebDriverWait(driver, RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(globalSurchargeTab)).click();
+	// MANAGE SETTINGS page - 'Global' section - Functions
+	public void clickingOnGlobalSubTab() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(globalSubTab))
+				.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		Thread.sleep(5000);
-		wait.until(ExpectedConditions.elementToBeClickable(addNewRowLink));
-		logger.info("MESSAGE :: User has clicked on 'GLOBAL' Tab");
+		Thread.sleep(3000);// Required as the table gets refreshed twice
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Global' sub tab");
 	}
 
-	// Method to click on +ADD NEW ROW
-	public void clickAddNewRow() throws Exception {
-		wait = new WebDriverWait(driver, RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(addNewRowLink)).click();
-		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		logger.info("MESSAGE :: User has clicked on '+ADD NEW ROW' link.");
+	public void clickAddNewRow() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(addNewRowButton))
+				.click();
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Global table - User has clicked on '+ ADD NEW ROW' button");
 	}
 
-	public void fillGlobalSurchargeFields(String lowRange, String highRange, String LTL, String TL) {
-		wait = new WebDriverWait(driver, RaterTestUtils.UP_TO_TEN_SECONDS);
+	public void fillGlobalSurchargeFields(String lowRange, String highRange,
+			String LTL, String TL) {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(lowRangeAtLeast));
 		lowRangeAtLeast.sendKeys(lowRange);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(highRangeButLessThan));
 		highRangeButLessThan.sendKeys(highRange);
+		wait.until(ExpectedConditions.elementToBeClickable(LTLField));
 		LTLField.sendKeys(LTL);
+		wait.until(ExpectedConditions.elementToBeClickable(TLField));
 		TLField.sendKeys(TL);
-		logger.info("MESSAGE :: User has entered the values in the fields.");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Global table - User has entered the values");
 	}
 
-	public void saveGlobalSurchargeFields() throws Exception {
-		wait = new WebDriverWait(driver, RaterTestUtils.UP_TO_TEN_SECONDS);
+	public void saveGlobalSurchargeFields() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(
+				ExpectedConditions
+						.elementToBeClickable(saveGlobalSurchargeButton))
+				.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		wait.until(ExpectedConditions.elementToBeClickable(saveGlobalSurchargeButton)).click();
+		Thread.sleep(3000);// Required as + ADD NEW ROW button is getting
+							// disabled when the execution is fast
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Global table - User has saved a row");
+	}
+
+	public void clickingOnViewGlobalGlobalSurchargeOption() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(viewCustomGlobalSurchargeoption));
+		viewCustomGlobalSurchargeoption.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		Thread.sleep(3000);
-		logger.info("MESSAGE :: The values are saved.");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has clicked on 'VIEW CUSTOM GLOBAL SURCHARGE' option");
 	}
 
-	public void viewGlobalsurchargeclick() {
-		wait = new WebDriverWait(driver, RaterTestUtils.UP_TO_60_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(viewGlobalsurcharge));
-		viewGlobalsurcharge.click();
-		logger.info("MESSAGE :: User has clicked on Custom Global surcharge section");
+	public boolean verifyGlobalSurchargeAtLeastValue(String atLeast) {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'At Least' value");
+		WebElement atLeastValue = driver
+				.findElement(By
+						.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
+								+ atLeast + "')]"));
+		boolean present = false;
+		if (atLeastValue.isDisplayed()) {
+			present = true;
+		}
+		return present;
 	}
 
-	public WebElement verifyGlobalsurchargeLowRange1() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
-				+ propertyValue.getValue("lowRange1") + "')]"));
+	public boolean verifyGlobalSurchargeButLessThanValue(String butLessThan) {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'But Less Than' value");
+		WebElement butLessThanValue = driver
+				.findElement(By
+						.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
+								+ butLessThan + "')]"));
+		boolean present = false;
+		if (butLessThanValue.isDisplayed()) {
+			present = true;
+		}
+		return present;
 	}
 
-	public WebElement verifyGlobalsurchargeLowRange2() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(),'"
-				+ propertyValue.getValue("lowRange2") + "')]"));
+	public boolean verifyGlobalSurchargeLTLValue(String ltl) {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'LTL' value");
+		WebElement ltlValue = driver
+				.findElement(By
+						.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
+								+ ltl + "')]"));
+		boolean present = false;
+		if (ltlValue.isDisplayed()) {
+			present = true;
+		}
+		return present;
 	}
 
-	public WebElement verifyGlobalsurchargeLowRange3() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(),'"
-				+ propertyValue.getValue("lowRange3") + "')]"));
+	public boolean verifyGlobalSurchargeTLValue(String tl) {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'TL' value");
+		WebElement tlValue = driver
+				.findElement(By
+						.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
+								+ tl + "')]"));
+		boolean present = false;
+		if (tlValue.isDisplayed()) {
+			present = true;
+		}
+		return present;
 	}
 
-	public WebElement verifyGlobalsurchargeLowRange4() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(),'"
-				+ propertyValue.getValue("lowRange4") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeLowRange5() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(),'"
-				+ propertyValue.getValue("lowRange5") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeHighRange1() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[2][contains(text(),'"
-				+ propertyValue.getValue("highRange1") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeHighRange2() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[2][contains(text(),'"
-				+ propertyValue.getValue("highRange2") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeHighRange3() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[2][contains(text(),'"
-				+ propertyValue.getValue("highRange3") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeHighRange4() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[2][contains(text(),'"
-				+ propertyValue.getValue("highRange4") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeHighRange5() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[2][contains(text(),'"
-				+ propertyValue.getValue("highRange5") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeLTL1() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[3][contains(text(),'"
-				+ propertyValue.getValue("LTL1") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeLTL2() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[3][contains(text(),'"
-				+ propertyValue.getValue("LTL2") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeLTL3() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[3][contains(text(),'"
-				+ propertyValue.getValue("LTL3") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeLTL4() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[3][contains(text(),'"
-				+ propertyValue.getValue("LTL4") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeLTL5() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[3][contains(text(),'"
-				+ propertyValue.getValue("LTL5") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeTL1() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[4][contains(text(),'"
-				+ propertyValue.getValue("TL1") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeTL2() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[4][contains(text(),'"
-				+ propertyValue.getValue("TL2") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeTL3() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[4][contains(text(),'"
-				+ propertyValue.getValue("TL3") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeTL4() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[4][contains(text(),'"
-				+ propertyValue.getValue("TL4") + "')]"));
-	}
-
-	public WebElement verifyGlobalsurchargeTL5() {
-		return driver.findElement(By.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[4][contains(text(),'"
-				+ propertyValue.getValue("TL5") + "')]"));
-	}
-
-	public void delete1stSetData() throws Exception {
-		driver.findElement(By.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
-				+ propertyValue.getValue("TL1") + "')]//following::a[@class='delete-row'][1]//img")).click();
-		wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.alertIsPresent());
+	public void deletingGlobalRows(String TL) throws InterruptedException {
+		By deleteButton = By
+				.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
+						+ TL + "')]//following::a[@class='delete-row'][1]//img");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
+				.click();
 		driver.switchTo().alert().accept();
-		Thread.sleep(6000);
-
-	}
-
-	public void delete2ndSetData() throws Exception {
-		driver.findElement(By.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
-				+ propertyValue.getValue("TL2") + "')]//following::a[@class='delete-row'][1]//img")).click();
-		wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.alertIsPresent());
-		driver.switchTo().alert().accept();
-		Thread.sleep(6000);
-	}
-
-	public void delete3rdSetData() throws Exception {
-		driver.findElement(By.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
-				+ propertyValue.getValue("TL3") + "')]//following::a[@class='delete-row'][1]//img")).click();
-		wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.alertIsPresent());
-		driver.switchTo().alert().accept();
-		Thread.sleep(6000);
-	}
-
-	public void delete4thSetData() throws Exception {
-		driver.findElement(By.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
-				+ propertyValue.getValue("TL4") + "')]//following::a[@class='delete-row'][1]//img")).click();
-		wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.alertIsPresent());
-		driver.switchTo().alert().accept();
-		Thread.sleep(6000);
-	}
-
-	public void delete5thSetData() throws Exception {
-		driver.findElement(By.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
-				+ propertyValue.getValue("TL5") + "')]//following::a[@class='delete-row'][1]//img")).click();
-		wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.alertIsPresent());
-		driver.switchTo().alert().accept();
-		Thread.sleep(6000);
-
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		Thread.sleep(2000);//Required for Firefox browser
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Global table - User has deleted a row");
 	}
 }

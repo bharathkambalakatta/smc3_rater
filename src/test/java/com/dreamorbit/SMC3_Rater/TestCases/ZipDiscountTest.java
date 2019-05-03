@@ -266,7 +266,7 @@ public class ZipDiscountTest extends TestBase {
 	}
 
 	// 9. Zip Discount Range Overlap Test
-	@Test
+	// @Test
 	public void verifyZipDiscountRangeOverlapTest() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
