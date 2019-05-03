@@ -81,10 +81,10 @@ public class ZipDiscount extends TestBase {
 
 	@FindBy(xpath = "//select[@id='createCountrySelect']")
 	private WebElement originCountryDropDown;
-	
+
 	@FindBy(xpath = "//select[@id='new-origin-Select']")
 	private WebElement originStateDropDown;
-	
+
 	@FindBy(xpath = "//input[@id='originL']")
 	private WebElement originLTextBox;
 
@@ -96,7 +96,7 @@ public class ZipDiscount extends TestBase {
 
 	@FindBy(xpath = "//select[@id='createCountryList']")
 	private WebElement destinationCountryDropDown;
-	
+
 	@FindBy(xpath = "//select[@id='new-destination-Select']")
 	private WebElement destinationStateDropDown;
 
@@ -111,9 +111,12 @@ public class ZipDiscount extends TestBase {
 
 	@FindBy(xpath = "//button[@class='btn btn-responsive submit-btn zip-range-btn create-range']")
 	private WebElement saveRangeButton;
-	
+
 	@FindBy(xpath = "//button[@class='btn btn-responsive submit-btn common-enable cancel-range-btn cancel']")
 	private WebElement cancelRangeButton;
+
+	@FindBy(xpath = "//p[@class='errorBlock']")
+	private WebElement errorBlock;
 
 	WebDriver driver;
 
@@ -239,8 +242,8 @@ public class ZipDiscount extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has clicked on 'Create' Range button");
 	}
 
-	public void enteringOriginZipDetailsForPostalCodeType(String type, String country,
-			String zip1, String zip2) {
+	public void enteringOriginZipDetailsForPostalCodeType(String type,
+			String country, String zip1, String zip2) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(originTypeDropDown));
@@ -257,9 +260,9 @@ public class ZipDiscount extends TestBase {
 		originHTextBox.sendKeys(zip2);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Origin ZIP' details for Postal Code type");
 	}
-	
-	public void enteringOriginZipDetailsForStateType(String type, String country,
-			String state) {
+
+	public void enteringOriginZipDetailsForStateType(String type,
+			String country, String state) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(originTypeDropDown));
@@ -270,15 +273,14 @@ public class ZipDiscount extends TestBase {
 		Select select1 = new Select(originCountryDropDown);
 		select1.selectByVisibleText(country);
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		wait.until(ExpectedConditions
-				.elementToBeClickable(originStateDropDown));
+		wait.until(ExpectedConditions.elementToBeClickable(originStateDropDown));
 		Select select2 = new Select(originStateDropDown);
-		select2.selectByVisibleText(state);	
+		select2.selectByVisibleText(state);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Origin ZIP' details for State type");
 	}
 
-	public void enteringDestinationZipDetailsForPostalCodeType(String type, String country,
-			String zip1, String zip2) {
+	public void enteringDestinationZipDetailsForPostalCodeType(String type,
+			String country, String zip1, String zip2) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -297,11 +299,12 @@ public class ZipDiscount extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Destination ZIP' details for Postal Code type");
 	}
 
-	public void enteringDestinationZipDetailsForStateType(String type, String country,
-			String state) {
+	public void enteringDestinationZipDetailsForStateType(String type,
+			String country, String state) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(destinationTypeDropDown));
+		wait.until(ExpectedConditions
+				.elementToBeClickable(destinationTypeDropDown));
 		Select select = new Select(destinationTypeDropDown);
 		select.selectByVisibleText(type);
 		wait.until(ExpectedConditions
@@ -312,10 +315,10 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(destinationStateDropDown));
 		Select select2 = new Select(destinationStateDropDown);
-		select2.selectByVisibleText(state);	
+		select2.selectByVisibleText(state);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Destination ZIP' details for State type");
 	}
-	
+
 	public void selectDiscountID(String discountID) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -333,7 +336,7 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has saved 'Discount ID' details");
 	}
-	
+
 	public void clickingOnCancelRangeButton() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -342,4 +345,11 @@ public class ZipDiscount extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has clicked on 'Cancel' Range button");
 	}
 
+	public String verifyErrorDisplayedForZipRange() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Custom Setting - Zip Discount - Verifying the error displayed for Zip Range");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(errorBlock));
+		return errorBlock.getText();
+	}
 }

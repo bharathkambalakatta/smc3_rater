@@ -132,7 +132,7 @@ public class ZipDiscountTest extends TestBase {
 			rateAShipment.selectClass(propertyValue.getValue("class1"));
 			rateAShipment.enterWeight(propertyValue.getValue("weight2"));
 			rateAShipment.clickingOnRateShipmentButton();
-			
+
 			String actual = rateAShipment.verifyDiscountValueInTheTable();
 			Assert.assertEquals("RateAShipmentPage - 'discountValue' ::",
 					propertyValue.getValue("discount%"), actual);
@@ -343,37 +343,28 @@ public class ZipDiscountTest extends TestBase {
 			zipDiscount.selectDiscountID(propertyValue.getValue("discountID1"));
 			zipDiscount.clickingOnSaveRangeButton();
 			zipDiscount.clickingOnCancelRangeButton();
+			zipDiscount.clickingOnCreateRangeButton();
 			zipDiscount.enteringOriginZipDetailsForStateType(
-					propertyValue.getValue("type"),
+					propertyValue.getValue("type2"),
 					propertyValue.getValue("country"),
-					propertyValue.getValue("state"));
+					propertyValue.getValue("state1"));
 			zipDiscount.enteringDestinationZipDetailsForStateType(
-					propertyValue.getValue("type"),
+					propertyValue.getValue("type2"),
 					propertyValue.getValue("country"),
-					propertyValue.getValue("state"));
+					propertyValue.getValue("state2"));
 			zipDiscount.selectDiscountID(propertyValue.getValue("discountID1"));
 			zipDiscount.clickingOnSaveRangeButton();
 
-			// rateAShipment.clickingOnRateAShipmentTab();
-			// rateAShipment.selectSetting(customSettingDetails
-			// .getValue("customSettingID"));
-			// rateAShipment.selectRateFamily(propertyValue
-			// .getValue("rateFamily1"));
-			// rateAShipment.selectAvailableTariffs(propertyValue
-			// .getValue("availableTariffs1"));
-			// rateAShipment.enterOrigin(propertyValue.getValue("zip1"));
-			// rateAShipment.enterDestination(propertyValue.getValue("zip3"));
-			// rateAShipment.selectClass(propertyValue.getValue("class1"));
-			// rateAShipment.enterWeight(propertyValue.getValue("weight2"));
-			// rateAShipment.clickingOnRateShipmentButton();
-			// String actual = rateAShipment.verifyDiscountValueInTheTable();
-			// Assert.assertEquals("RateAShipmentPage - 'discountValue' ::",
-			// propertyValue.getValue("discount%"), actual);
-			//
-			// manageSettings.clickingOnManageSettingsTab();
-			// manageSettings.clickingOnCustomSettingOption();
-			// manageSettings.deletingACustomSetting(customSettingDetails
-			// .getValue("customSettingID"));
+			String actual = zipDiscount.verifyErrorDisplayedForZipRange();
+			Assert.assertEquals("ZipDiscount - 'errorBlock' ::",
+					propertyValue.getValue("zipRangeError1"), actual);
+
+			rateAShipment.clickingOnRateAShipmentTab();
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			logger.info("========== FINAL MESSAGE :: Zip Discount Range Overlap Test Executed Successfully ==========");
 
