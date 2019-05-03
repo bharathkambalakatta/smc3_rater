@@ -96,13 +96,13 @@ public class FuelSurchargeTest extends TestBase {
 									.getValue("lowRange1")));
 			Assert.assertTrue("FuelSurcharge - 'butLessThanValue' ::",
 					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
 									.getValue("highRange1")));
 			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeLTLValue(propertyValue
 							.getValue("LTL1")));
 			Assert.assertTrue("FuelSurcharge - 'tlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeTLValue(propertyValue
 							.getValue("TL1")));
 
 			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
@@ -111,13 +111,13 @@ public class FuelSurchargeTest extends TestBase {
 									.getValue("lowRange2")));
 			Assert.assertTrue("FuelSurcharge - 'butLessThanValue' ::",
 					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
 									.getValue("highRange2")));
 			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeLTLValue(propertyValue
 							.getValue("LTL2")));
 			Assert.assertTrue("FuelSurcharge - 'tlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeTLValue(propertyValue
 							.getValue("TL2")));
 
 			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
@@ -126,13 +126,13 @@ public class FuelSurchargeTest extends TestBase {
 									.getValue("lowRange3")));
 			Assert.assertTrue("FuelSurcharge - 'butLessThanValue' ::",
 					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
 									.getValue("highRange3")));
 			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeLTLValue(propertyValue
 							.getValue("LTL3")));
 			Assert.assertTrue("FuelSurcharge - 'tlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeTLValue(propertyValue
 							.getValue("TL3")));
 
 			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
@@ -141,13 +141,13 @@ public class FuelSurchargeTest extends TestBase {
 									.getValue("lowRange4")));
 			Assert.assertTrue("FuelSurcharge - 'butLessThanValue' ::",
 					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
 									.getValue("highRange4")));
 			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeLTLValue(propertyValue
 							.getValue("LTL4")));
 			Assert.assertTrue("FuelSurcharge - 'tlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeTLValue(propertyValue
 							.getValue("TL4")));
 
 			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
@@ -156,13 +156,13 @@ public class FuelSurchargeTest extends TestBase {
 									.getValue("lowRange5")));
 			Assert.assertTrue("FuelSurcharge - 'butLessThanValue' ::",
 					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
 									.getValue("highRange5")));
 			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeLTLValue(propertyValue
 							.getValue("LTL5")));
 			Assert.assertTrue("FuelSurcharge - 'tlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeAtLeastValue(propertyValue
+					.verifyGlobalSurchargeTLValue(propertyValue
 							.getValue("TL5")));
 
 			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL1"));
