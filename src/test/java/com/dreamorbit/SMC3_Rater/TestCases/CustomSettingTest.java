@@ -170,7 +170,7 @@ public class CustomSettingTest extends TestBase {
 
 	// 6. Create a Setting with Multiple Discount Test & 19. Procedure to Create
 	// a Multiple Discount
-	// @Test
+	 @Test
 	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(

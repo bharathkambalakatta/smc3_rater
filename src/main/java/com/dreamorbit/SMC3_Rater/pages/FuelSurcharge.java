@@ -116,10 +116,14 @@ public class FuelSurcharge extends TestBase {
 
 	public boolean verifyGlobalSurchargeAtLeastValue(String atLeast) {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'At Least' value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement atLeastValue = driver
 				.findElement(By
 						.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
 								+ atLeast + "')]"));
+		wait.until(ExpectedConditions
+				.visibilityOf(atLeastValue));
 		boolean present = false;
 		if (atLeastValue.isDisplayed()) {
 			present = true;
@@ -129,10 +133,14 @@ public class FuelSurcharge extends TestBase {
 
 	public boolean verifyGlobalSurchargeButLessThanValue(String butLessThan) {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'But Less Than' value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement butLessThanValue = driver
 				.findElement(By
 						.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
 								+ butLessThan + "')]"));
+		wait.until(ExpectedConditions
+				.visibilityOf(butLessThanValue));
 		boolean present = false;
 		if (butLessThanValue.isDisplayed()) {
 			present = true;
@@ -142,10 +150,14 @@ public class FuelSurcharge extends TestBase {
 
 	public boolean verifyGlobalSurchargeLTLValue(String ltl) {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'LTL' value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement ltlValue = driver
 				.findElement(By
 						.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
 								+ ltl + "')]"));
+		wait.until(ExpectedConditions
+				.visibilityOf(ltlValue));
 		boolean present = false;
 		if (ltlValue.isDisplayed()) {
 			present = true;
@@ -155,10 +167,14 @@ public class FuelSurcharge extends TestBase {
 
 	public boolean verifyGlobalSurchargeTLValue(String tl) {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'TL' value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement tlValue = driver
 				.findElement(By
 						.xpath("//table[@id='default-surcharge-table']//tbody//tr//td[contains(text(), '"
 								+ tl + "')]"));
+		wait.until(ExpectedConditions
+				.visibilityOf(tlValue));
 		boolean present = false;
 		if (tlValue.isDisplayed()) {
 			present = true;

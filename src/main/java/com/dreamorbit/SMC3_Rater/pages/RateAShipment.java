@@ -28,13 +28,10 @@ public class RateAShipment extends TestBase {
 	WebDriver driver;
 
 	// RATE A SHIPMENT page - Elements present in the header
-	@FindBy(id = "rateShipmentTab")
+	@FindBy(xpath = "//div[@id='rateShipmentTab']//a")
 	private WebElement rateAShipmentTab;
 
-	@FindBy(xpath = "//a[@class='profile-pic profile-text-link']")
-	private WebElement profileBox;
-
-	@FindBy(xpath = "//a[@class='logout-link']")
+	@FindBy(xpath = "//a[contains(text(),'Log Out')]")
 	private WebElement logoutOption;
 
 	// RATE A SHIPMENT page - Elements present in the left side section
@@ -137,9 +134,6 @@ public class RateAShipment extends TestBase {
 	public void loggingOutFromTheApplication() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(profileBox));
-		Actions action = new Actions(driver);
-		action.moveToElement(profileBox).build().perform();
 		wait.until(ExpectedConditions.elementToBeClickable(logoutOption));
 		logoutOption.click();
 		logger.info("MESSAGE :: User has been logged out from the application");
@@ -445,7 +439,7 @@ public class RateAShipment extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(rateShipmentButton))
 				.click();
-		Thread.sleep(1000);// Required to wait till the table is loaded
+		Thread.sleep(2000);// Required to wait till the table is loaded
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - User has clicked on 'RATE SHIPMENT' button");
 	}
 

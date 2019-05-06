@@ -23,7 +23,7 @@ public class DefaultSetting extends TestBase {
 			+ "/DataFile.properties");
 
 	WebDriver driver;
-	
+
 	// MANAGE SETTINGS page - Elements present in 'Default Setting' section
 	@FindBy(xpath = "//div[@id='ajax-loader']/img")
 	private WebElement loadingImage;
@@ -59,74 +59,81 @@ public class DefaultSetting extends TestBase {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	// MANAGE SETTINGS page - Default Setting - Various functions which are used
 	// in the test cases
-		public void enteringDefaultDiscountsDetails(String discount,
+	public void makingDefaultDiscountsToggleON() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultDiscounts));
+		Thread.sleep(1000);
+		if (defaultDiscountTextBox.isDisplayed()) {
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Discount' section toggle is already ON");
+		} else {
+			toggleForDefaultDiscounts.click();
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Discount' section toggle has been set to ON");
+		}
+	}
+
+	public void enteringDefaultDiscountsDetails(String discount,
 			String mcDiscount, String mcFloor) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
-				.elementToBeClickable(toggleForDefaultDiscounts));
+				.elementToBeClickable(defaultDiscountTextBox));
+		defaultDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		Thread.sleep(1000);
-		if (defaultDiscountTextBox.isDisplayed()) {
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultDiscountTextBox));
-			defaultDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-			Thread.sleep(1000);
-			defaultDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
-			defaultDiscountTextBox.sendKeys(discount);
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultMCDiscountTextBox));
-			defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-			Thread.sleep(1000);
-			defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
-			defaultMCDiscountTextBox.sendKeys(mcDiscount);
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultMCFloorTextBox));
-			defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-			Thread.sleep(1000);
-			defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
-			defaultMCFloorTextBox.sendKeys(mcFloor);
-		} else {
-			toggleForDefaultDiscounts.click();
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultDiscountTextBox));
-			defaultDiscountTextBox.sendKeys(discount);
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultMCDiscountTextBox));
-			defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-			Thread.sleep(1000);
-			defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
-			defaultMCDiscountTextBox.sendKeys(mcDiscount);
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultMCFloorTextBox));
-			defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-			Thread.sleep(1000);
-			defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
-			defaultMCFloorTextBox.sendKeys(mcFloor);
-		}
+		defaultDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		defaultDiscountTextBox.sendKeys(discount);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(defaultMCDiscountTextBox));
+		defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		Thread.sleep(1000);
+		defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		defaultMCDiscountTextBox.sendKeys(mcDiscount);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(defaultMCFloorTextBox));
+		defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		Thread.sleep(1000);
+		defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
+		defaultMCFloorTextBox.sendKeys(mcFloor);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Discount' details");
+	}
+
+	public void makingDefaultConstantClassToggleON() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.visibilityOf(toggleForDefaultConstantClass));
+		if (defaultClassDropDown.isDisplayed()) {
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant Class' section toggle is already ON");
+		} else {
+			toggleForDefaultConstantClass.click();
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant Class' section toggle has been set to ON");
+		}
 	}
 
 	public void enteringDefaultConstantClassDetails(String constantClass)
 			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions
-				.visibilityOf(toggleForDefaultConstantClass));
-		if (defaultClassDropDown.isDisplayed()) {
-			Select select = new Select(defaultClassDropDown);
-			select.selectByVisibleText(constantClass);
-			Thread.sleep(1000);
-		} else {
-			toggleForDefaultConstantClass.click();
-			wait.until(ExpectedConditions.visibilityOf(defaultClassDropDown));
-			Select select = new Select(defaultClassDropDown);
-			select.selectByVisibleText(constantClass);
-			Thread.sleep(1000);
-		}
+		wait.until(ExpectedConditions.visibilityOf(defaultClassDropDown));
+		Select select = new Select(defaultClassDropDown);
+		select.selectByVisibleText(constantClass);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant Class' details");
+	}
+
+	public void makingDefaultConstantZIPSToggleON() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.visibilityOf(toggleForDefaultConstantZIPs));
+		if (defaultOriginZIPTextBox.isDisplayed()) {
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant ZIPS' section toggle is already ON");
+		} else {
+			toggleForDefaultConstantZIPs.click();
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant Class' section toggle has been set to ON");
+		}
 	}
 
 	public void enteringDefaultConstantZIPSDetails(String originZIP,
@@ -134,29 +141,16 @@ public class DefaultSetting extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
-				.visibilityOf(toggleForDefaultConstantZIPs));
-		if (defaultOriginZIPTextBox.isDisplayed()) {
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultOriginZIPTextBox));
-			defaultOriginZIPTextBox.clear();
-			defaultOriginZIPTextBox.sendKeys(originZIP);
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultDestinationZIPTextBox));
-			defaultDestinationZIPTextBox.clear();
-			Thread.sleep(2000);
-			defaultDestinationZIPTextBox.sendKeys(destinationZIP);
-		} else {
-			toggleForDefaultConstantZIPs.click();
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultOriginZIPTextBox));
-			defaultDestinationZIPTextBox.click();
-			defaultOriginZIPTextBox.sendKeys(originZIP);
-			wait.until(ExpectedConditions
-					.elementToBeClickable(defaultDestinationZIPTextBox));
-			defaultDestinationZIPTextBox.click();
-			Thread.sleep(2000);
-			defaultDestinationZIPTextBox.sendKeys(destinationZIP);
-		}
+				.elementToBeClickable(defaultOriginZIPTextBox));
+		defaultOriginZIPTextBox.clear();
+		defaultOriginZIPTextBox.click();
+		defaultOriginZIPTextBox.sendKeys(originZIP);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(defaultDestinationZIPTextBox));
+		defaultDestinationZIPTextBox.clear();
+		defaultDestinationZIPTextBox.click();
+		Thread.sleep(2000);
+		defaultDestinationZIPTextBox.sendKeys(destinationZIP);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant ZIPS' details");
 	}
 
