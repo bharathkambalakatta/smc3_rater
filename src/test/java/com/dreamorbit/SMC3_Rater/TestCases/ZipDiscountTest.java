@@ -155,7 +155,7 @@ public class ZipDiscountTest extends TestBase {
 	}
 
 	// 8. Edit a Setting with Zip Discount Test
-	// @Test
+	@Test
 	public void verifyEditASettingWithZipDiscountTest() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -233,25 +233,27 @@ public class ZipDiscountTest extends TestBase {
 			zipDiscount.clickingOnSaveRangeButton();
 
 			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(customSettingDetails
-					.getValue("customSettingID"));
-			rateAShipment.selectRateFamily(propertyValue
-					.getValue("rateFamily1"));
-			rateAShipment.selectAvailableTariffs(propertyValue
-					.getValue("availableTariffs1"));
-			rateAShipment.enterOrigin(propertyValue.getValue("zip1"));
-			rateAShipment.enterDestination(propertyValue.getValue("zip3"));
-			rateAShipment.selectClass(propertyValue.getValue("class1"));
-			rateAShipment.enterWeight(propertyValue.getValue("weight2"));
-			rateAShipment.clickingOnRateShipmentButton();
-			String actual = rateAShipment.verifyDiscountValueInTheTable();
-			Assert.assertEquals("RateAShipmentPage - 'discountValue' ::",
-					propertyValue.getValue("discount%"), actual);
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(customSettingDetails
-					.getValue("customSettingID"));
+			manageSettings
+					.clickingOnArrowPresentForASetting(customSettingDetails
+							.getValue("customSettingID"));
+
+			zipDiscount.clickingOnZipDiscountButton();
+			zipDiscount.verifyZipRangeOriginValue(propertyValue
+					.getValue("originZipRange"));
+			zipDiscount.verifyZipRangeDestinationValue(propertyValue
+					.getValue("destinationZipRange"));
+			zipDiscount.verifyZipRangeDiscountIDValueValue(propertyValue
+					.getValue("discountID1"));
+			zipDiscount.clickingOnEditZipRangeButton(propertyValue
+					.getValue("originZipRange"));
+
+			// manageSettings.clickingOnManageSettingsTab();
+			// manageSettings.clickingOnCustomSettingOption();
+			// manageSettings.deletingACustomSetting(customSettingDetails
+			// .getValue("customSettingID"));
 
 			logger.info("========== FINAL MESSAGE :: Edit a Setting with Zip Discount Test Executed Successfully ==========");
 

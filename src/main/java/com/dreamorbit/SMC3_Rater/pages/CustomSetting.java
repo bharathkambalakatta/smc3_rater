@@ -113,14 +113,12 @@ public class CustomSetting extends TestBase {
 			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(RateFamilyDropDown));
 		Thread.sleep(1000);
+		wait.until(ExpectedConditions.visibilityOf(RateFamilyDropDown));
 		Select select = new Select(RateFamilyDropDown);
 		select.selectByVisibleText(rateFamily);
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(availableTariffsDropDown));
-		// wait.until(ExpectedConditions.attributeContains(By.xpath("//select[@id='rater-tariff']/option[text()='LITECZ02 20140915']"),
-		// "LITECZ02 20140915", "value"));
-		// Thread.sleep(1000);
 		Select select1 = new Select(availableTariffsDropDown);
 		select1.selectByVisibleText(availableTariffs);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Data Module' details");
@@ -138,17 +136,25 @@ public class CustomSetting extends TestBase {
 	}
 
 	public void enteringSingleDiscountsDetails(String discount,
-			String mcDiscount, String mcFloor) {
+			String mcDiscount, String mcFloor) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(discountTextBox));
+		discountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		Thread.sleep(1000);
+		discountTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		discountTextBox.sendKeys(discount);
 		wait.until(ExpectedConditions.elementToBeClickable(mcDiscountTextBox));
-		mcDiscountTextBox.clear();
+		mcDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		Thread.sleep(1000);
+		mcDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcDiscountTextBox.sendKeys(mcDiscount);
 		wait.until(ExpectedConditions.elementToBeClickable(mcFloorTextBox));
-		mcFloorTextBox.clear();
+		mcFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		Thread.sleep(1000);
+		mcFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcFloorTextBox.sendKeys(mcFloor);
+
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Single Discount' details");
 	}
 

@@ -66,8 +66,8 @@ public class DefaultSetting extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultDiscounts));
-		Thread.sleep(1000);
-		if (defaultDiscountTextBox.isDisplayed()) {
+		Thread.sleep(1000);// Required as selenium execution is fast
+		if (defaultMCFloorTextBox.isDisplayed()) {
 			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Discount' section toggle is already ON");
 		} else {
 			toggleForDefaultDiscounts.click();
@@ -120,14 +120,15 @@ public class DefaultSetting extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(defaultClassDropDown));
 		Select select = new Select(defaultClassDropDown);
 		select.selectByVisibleText(constantClass);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant Class' details");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has selected a 'Constant Class'");
 	}
 
-	public void makingDefaultConstantZIPSToggleON() {
+	public void makingDefaultConstantZIPSToggleON() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
 				.visibilityOf(toggleForDefaultConstantZIPs));
+		Thread.sleep(1000);
 		if (defaultOriginZIPTextBox.isDisplayed()) {
 			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant ZIPS' section toggle is already ON");
 		} else {
@@ -149,7 +150,7 @@ public class DefaultSetting extends TestBase {
 				.elementToBeClickable(defaultDestinationZIPTextBox));
 		defaultDestinationZIPTextBox.clear();
 		defaultDestinationZIPTextBox.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		defaultDestinationZIPTextBox.sendKeys(destinationZIP);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant ZIPS' details");
 	}
@@ -159,9 +160,11 @@ public class DefaultSetting extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultDiscounts));
-		toggleForDefaultDiscounts.click();
-		driver.switchTo().alert().accept();
 		Thread.sleep(1000);
+		toggleForDefaultDiscounts.click();
+		wait.until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Discount' section toggle has been set to OFF");
 	}
 
@@ -171,9 +174,11 @@ public class DefaultSetting extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
 				.visibilityOf(toggleForDefaultConstantClass));
-		toggleForDefaultConstantClass.click();
-		driver.switchTo().alert().accept();
 		Thread.sleep(1000);
+		toggleForDefaultConstantClass.click();
+		wait.until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant Class' section toggle has been set to OFF");
 	}
 
@@ -183,9 +188,11 @@ public class DefaultSetting extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
 				.visibilityOf(toggleForDefaultConstantZIPs));
-		toggleForDefaultConstantZIPs.click();
-		driver.switchTo().alert().accept();
 		Thread.sleep(1000);
+		toggleForDefaultConstantZIPs.click();
+		wait.until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant ZIPS' section toggle has been set to OFF");
 	}
 }

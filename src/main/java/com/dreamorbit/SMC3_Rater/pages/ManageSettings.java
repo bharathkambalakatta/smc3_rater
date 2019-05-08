@@ -131,6 +131,7 @@ public class ManageSettings extends TestBase {
 		wait.until(
 				ExpectedConditions.elementToBeClickable(arrowPresentForSetting))
 				.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has opened the custom setting");
 	}
 

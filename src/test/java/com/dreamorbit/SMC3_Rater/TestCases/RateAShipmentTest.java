@@ -37,7 +37,7 @@ public class RateAShipmentTest extends TestBase {
 	}
 
 	// 17. Procedure to Rate a LTL Shipment
-	 @Test
+	@Test
 	public void verifyProcedureToRateALTLShipment() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(

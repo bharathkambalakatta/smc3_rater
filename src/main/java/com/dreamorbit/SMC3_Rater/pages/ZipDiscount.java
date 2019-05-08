@@ -1,6 +1,7 @@
 package com.dreamorbit.SMC3_Rater.pages;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -155,6 +156,7 @@ public class ZipDiscount extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(discountIDTextBox));
+		discountIDTextBox.clear();
 		discountIDTextBox.sendKeys(discountID);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Discount ID'");
 	}
@@ -255,19 +257,22 @@ public class ZipDiscount extends TestBase {
 		select1.selectByVisibleText(country);
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		wait.until(ExpectedConditions.elementToBeClickable(originLTextBox));
+		originLTextBox.clear();
 		originLTextBox.sendKeys(zip1);
 		wait.until(ExpectedConditions.elementToBeClickable(originHTextBox));
+		originHTextBox.clear();
 		originHTextBox.sendKeys(zip2);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Origin ZIP' details for Postal Code type");
 	}
 
 	public void enteringOriginZipDetailsForStateType(String type,
-			String country, String state) {
+			String country, String state) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(originTypeDropDown));
 		Select select = new Select(originTypeDropDown);
 		select.selectByVisibleText(type);
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(originCountryDropDown));
 		Select select1 = new Select(originCountryDropDown);
@@ -293,8 +298,10 @@ public class ZipDiscount extends TestBase {
 		select1.selectByVisibleText(country);
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		wait.until(ExpectedConditions.elementToBeClickable(destinationLTextBox));
+		destinationLTextBox.clear();
 		destinationLTextBox.sendKeys(zip1);
 		wait.until(ExpectedConditions.elementToBeClickable(destinationHTextBox));
+		destinationHTextBox.clear();
 		destinationHTextBox.sendKeys(zip2);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Destination ZIP' details for Postal Code type");
 	}
@@ -351,5 +358,60 @@ public class ZipDiscount extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(errorBlock));
 		return errorBlock.getText();
+	}
+
+	public boolean verifyZipRangeOriginValue(String origin) {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin' value in the table");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		WebElement originValue = driver
+				.findElement(By.xpath("//table/tbody/tr/td[contains(text(),'"
+						+ origin + "')]"));
+		wait.until(ExpectedConditions.visibilityOf(originValue));
+		boolean present = false;
+		if (originValue.isDisplayed()) {
+			present = true;
+		}
+		return present;
+	}
+
+	public boolean verifyZipRangeDestinationValue(String destination) {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin' value in the table");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		WebElement destinationValue = driver.findElement(By
+				.xpath("//table/tbody/tr/td[contains(text(),'" + destination
+						+ "')]"));
+		wait.until(ExpectedConditions.visibilityOf(destinationValue));
+		boolean present = false;
+		if (destinationValue.isDisplayed()) {
+			present = true;
+		}
+		return present;
+	}
+
+	public boolean verifyZipRangeDiscountIDValueValue(String discountID) {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin' value in the table");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		WebElement discountIDValue = driver.findElement(By
+				.xpath("//table/tbody/tr/td[contains(text(),'" + discountID
+						+ "')]"));
+		wait.until(ExpectedConditions.visibilityOf(discountIDValue));
+		boolean present = false;
+		if (discountIDValue.isDisplayed()) {
+			present = true;
+		}
+		return present;
+	}
+
+	public void clickingOnEditZipRangeButton(String origin) {
+		By editButton = By.xpath("//td[contains(text(),'" + origin
+				+ "')]/parent::tr/td[4]//img");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has clicked on 'Edit' Zip Range button");
 	}
 }

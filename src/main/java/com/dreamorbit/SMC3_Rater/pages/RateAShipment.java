@@ -3,10 +3,10 @@ package com.dreamorbit.SMC3_Rater.pages;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -49,6 +49,9 @@ public class RateAShipment extends TestBase {
 
 	@FindBy(xpath = "//input[@id='deliveryZip']")
 	private WebElement destinationTextBox;
+
+	@FindBy(xpath = "//input[@id='discountTypeNone']")
+	private WebElement noneDiscountRadioButton;
 
 	@FindBy(xpath = "//input[@id='discountTypeSingle']")
 	private WebElement singleDiscountRadioButton;
@@ -126,6 +129,8 @@ public class RateAShipment extends TestBase {
 	public void clickingOnRateAShipmentTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", rateAShipmentTab);
 		wait.until(ExpectedConditions.elementToBeClickable(rateAShipmentTab))
 				.click();
 		logger.info("MESSAGE :: User has clicked on 'RATE A SHIPMENT' tab");
@@ -183,15 +188,14 @@ public class RateAShipment extends TestBase {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Rate Family' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
 		Thread.sleep(1000);
-		Select select = new Select(rateFamilyDropDown);
+		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
+				Select select = new Select(rateFamilyDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
 	}
 
-	public void selectAvailableTariffs(String availableTariffs)
-			throws InterruptedException {
+	public void selectAvailableTariffs(String availableTariffs) {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -201,13 +205,13 @@ public class RateAShipment extends TestBase {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down");
 	}
 
-	public String verifySelectedValueInAvailableTariffs() {
+	public String verifySelectedValueInAvailableTariffs() throws InterruptedException {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Available Tariffs' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(availableTariffsDropDown));
-
 		Select select = new Select(availableTariffsDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
@@ -245,6 +249,19 @@ public class RateAShipment extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(destinationTextBox));
 		return destinationTextBox.getAttribute("value");
+	}
+
+	public void clickingOnSingleDiscountRadioButton() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(singleDiscountRadioButton));
+		if (singleDiscountRadioButton.isSelected()) {
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Single' discount radio button is already selected");
+		} else {
+			singleDiscountRadioButton.click();
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - User has selected 'Single' discount radio button");
+		}
 	}
 
 	public boolean verifyIfSingleDiscountRadioButtonIsSelected() {
@@ -407,22 +424,22 @@ public class RateAShipment extends TestBase {
 
 	public boolean verifyIfClassDropDownHasAnyValueSelected() {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Class' drop down value");
-		boolean notSame = true;
+		boolean option = false;
 		try {
 			String text = propertyValue.getValue("constantClass1");
 			WebDriverWait wait = new WebDriverWait(driver,
 					RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 			wait.until(ExpectedConditions.visibilityOf(classDropDown));
-
 			Select select = new Select(classDropDown);
 			String value = select.getFirstSelectedOption().getText();
-			if (text.equals(value)) {
-				notSame = false;
+			if (!text.equals(value)) {
+				option = true;
 			}
 		} catch (NoSuchElementException e) {
 			logger.info("MESSAGE :: RATE A SHIPMENT Tab - No value is selected in 'Class' drop down");
+			option = true;
 		}
-		return notSame;
+		return option;
 	}
 
 	public void enterWeight(String weight) {
