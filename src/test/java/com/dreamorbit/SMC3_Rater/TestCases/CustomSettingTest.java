@@ -41,7 +41,7 @@ public class CustomSettingTest extends TestBase {
 
 	// 6. Create a Setting with Multiple Discount Test
 	// 19. Procedure to Create a Multiple Discount
-	@Test
+	// @Test
 	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -202,7 +202,7 @@ public class CustomSettingTest extends TestBase {
 	}
 
 	// 4. Create a Setting with Data Module Test
-	@Test
+	// @Test
 	public void verifyCreateASettingWithDataModule() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -274,7 +274,7 @@ public class CustomSettingTest extends TestBase {
 	}
 
 	// 5. Create a Setting with Single Discount Test
-	@Test
+	// @Test
 	public void verifyCreateASettingWithSingleDiscount() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(

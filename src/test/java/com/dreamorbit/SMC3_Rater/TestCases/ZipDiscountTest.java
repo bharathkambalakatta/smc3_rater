@@ -155,7 +155,7 @@ public class ZipDiscountTest extends TestBase {
 	}
 
 	// 8. Edit a Setting with Zip Discount Test
-	@Test
+	// @Test
 	public void verifyEditASettingWithZipDiscountTest() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(
@@ -250,10 +250,45 @@ public class ZipDiscountTest extends TestBase {
 			zipDiscount.clickingOnEditZipRangeButton(propertyValue
 					.getValue("originZipRange"));
 
-			// manageSettings.clickingOnManageSettingsTab();
-			// manageSettings.clickingOnCustomSettingOption();
-			// manageSettings.deletingACustomSetting(customSettingDetails
-			// .getValue("customSettingID"));
+			String actual = zipDiscount.verifyOriginTypeDropDownValue();
+			Assert.assertEquals("ZipDiscount - 'editOriginTypeDropDown' ::",
+					propertyValue.getValue("type3"), actual);
+			String actual1 = zipDiscount.verifyOriginCountryDropDownValue();
+			Assert.assertEquals("ZipDiscount - 'editOriginCountryDropDown' ::",
+					propertyValue.getValue("country"), actual1);
+			String actual2 = zipDiscount.verifyOriginZip1TextBoxValue();
+			Assert.assertEquals("ZipDiscount - 'editOriginLTextBox' ::",
+					propertyValue.getValue("zip1"), actual2);
+			String actual3 = zipDiscount.verifyOriginZip2TextBoxValue();
+			Assert.assertEquals("ZipDiscount - 'editOriginHTextBox' ::",
+					propertyValue.getValue("zip2"), actual3);
+
+			String actual4 = zipDiscount.verifyDestinationTypeDropDownValue();
+			Assert.assertEquals(
+					"ZipDiscount - 'editDestinationTypeDropDown' ::",
+					propertyValue.getValue("type3"), actual4);
+			String actual5 = zipDiscount
+					.verifyDestinationCountryDropDownValue();
+			Assert.assertEquals(
+					"ZipDiscount - 'editDestinationCountryDropDown' ::",
+					propertyValue.getValue("country"), actual5);
+			String actual6 = zipDiscount.verifyDestinationZip1TextBoxValue();
+			Assert.assertEquals("ZipDiscount - 'editDestinationLTextBox' ::",
+					propertyValue.getValue("zip3"), actual6);
+			String actual7 = zipDiscount.verifyDestinationZip2TextBoxValue();
+			Assert.assertEquals("ZipDiscount - 'editDestinationHTextBox' ::",
+					propertyValue.getValue("zip4"), actual7);
+
+			String actual8 = zipDiscount.verifyDiscountIDDropDownValue();
+			Assert.assertEquals("ZipDiscount - 'editDiscountIDDropDown' ::",
+					propertyValue.getValue("discountID1"), actual8);
+
+			rateAShipment.clickingOnRateAShipmentTab();
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
 
 			logger.info("========== FINAL MESSAGE :: Edit a Setting with Zip Discount Test Executed Successfully ==========");
 

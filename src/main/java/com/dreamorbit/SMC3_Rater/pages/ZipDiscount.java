@@ -119,6 +119,33 @@ public class ZipDiscount extends TestBase {
 	@FindBy(xpath = "//p[@class='errorBlock']")
 	private WebElement errorBlock;
 
+	@FindBy(xpath = "//select[@id='editOriginType']")
+	private WebElement editOriginTypeDropDown;
+
+	@FindBy(xpath = "//select[@id='editOriginCountry']")
+	private WebElement editOriginCountryDropDown;
+
+	@FindBy(xpath = "//input[@id='zipOrgL']")
+	private WebElement editOriginLTextBox;
+
+	@FindBy(xpath = "//input[@id='zipOrgH']")
+	private WebElement editOriginHTextBox;
+
+	@FindBy(xpath = "//select[@id='editDestiType']")
+	private WebElement editDestinationTypeDropDown;
+
+	@FindBy(xpath = "//select[@id='editDestiCountry']")
+	private WebElement editDestinationCountryDropDown;
+
+	@FindBy(xpath = "//input[@id='stateDestL']")
+	private WebElement editDestinationLTextBox;
+
+	@FindBy(xpath = "//input[@id='stateDestH']")
+	private WebElement editDestinationHTextBox;
+
+	@FindBy(xpath = "//select[@id='editDisSelect']")
+	private WebElement editDiscountIDDropDown;
+
 	WebDriver driver;
 
 	public ZipDiscount(WebDriver driver) {
@@ -265,6 +292,42 @@ public class ZipDiscount extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Origin ZIP' details for Postal Code type");
 	}
 
+	public String verifyOriginTypeDropDownValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin - Type' drop down value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(editOriginTypeDropDown));
+		Select select = new Select(editOriginTypeDropDown);
+		return select.getFirstSelectedOption().getText();
+	}
+
+	public String verifyOriginCountryDropDownValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin - Country' drop down value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(editOriginCountryDropDown));
+		Select select = new Select(editOriginCountryDropDown);
+		return select.getFirstSelectedOption().getText();
+	}
+
+	public String verifyOriginZip1TextBoxValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin - Zip 1' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(editOriginLTextBox));
+		return editOriginLTextBox.getAttribute("value");
+	}
+
+	public String verifyOriginZip2TextBoxValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin - Zip 2' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(editOriginHTextBox));
+		return editOriginHTextBox.getAttribute("value");
+	}
+
 	public void enteringOriginZipDetailsForStateType(String type,
 			String country, String state) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -306,6 +369,44 @@ public class ZipDiscount extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Destination ZIP' details for Postal Code type");
 	}
 
+	public String verifyDestinationTypeDropDownValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Destination - Type' drop down value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(editDestinationTypeDropDown));
+		Select select = new Select(editDestinationTypeDropDown);
+		return select.getFirstSelectedOption().getText();
+	}
+
+	public String verifyDestinationCountryDropDownValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Destination - Country' drop down value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(editDestinationCountryDropDown));
+		Select select = new Select(editDestinationCountryDropDown);
+		return select.getFirstSelectedOption().getText();
+	}
+
+	public String verifyDestinationZip1TextBoxValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Destination - Zip 1' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(editDestinationLTextBox));
+		return editDestinationLTextBox.getAttribute("value");
+	}
+
+	public String verifyDestinationZip2TextBoxValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Destination - Zip 2' text box value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(editDestinationHTextBox));
+		return editDestinationHTextBox.getAttribute("value");
+	}
+
 	public void enteringDestinationZipDetailsForStateType(String type,
 			String country, String state) {
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -333,6 +434,16 @@ public class ZipDiscount extends TestBase {
 		Select select = new Select(discountIDDropDown);
 		select.selectByVisibleText(discountID);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has selected a value from 'DISCOUNT ID' drop down");
+	}
+
+	public String verifyDiscountIDDropDownValue() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Discount ID' drop down value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(editDiscountIDDropDown));
+		Select select = new Select(editDiscountIDDropDown);
+		return select.getFirstSelectedOption().getText();
 	}
 
 	public void clickingOnSaveRangeButton() {

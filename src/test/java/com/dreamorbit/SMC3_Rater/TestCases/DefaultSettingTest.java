@@ -38,7 +38,7 @@ public class DefaultSettingTest extends TestBase {
 	}
 
 	// 1. Create Default Setting Test
-	@Test
+	// @Test
 	public void verifyCreateDefaultSettingTest() throws Exception {
 		try {
 			loginToApplication.LoginToApplication(

@@ -110,13 +110,16 @@ public class RateAShipment extends TestBase {
 
 	@FindBy(xpath = "//input[@id='discount-Percentage']")
 	private WebElement discountValue;
+	
+	@FindBy(xpath = "//input[@id='surcharge-percent']")
+	private WebElement surchargeValue;
 
 	@FindBy(xpath = "//input[@id='charge-totals']")
 	private WebElement chargeTotalText;
 
 	@FindBy(xpath = "//td[contains(text(),'US Dollars')]")
 	private WebElement usDollarsText;
-
+	
 	@FindBy(xpath = "//input[@value='Rate Shipment']")
 	private WebElement rateShipmentButton;
 
@@ -466,6 +469,14 @@ public class RateAShipment extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(discountValue));
 		return discountValue.getAttribute("value");
+	}
+	
+	public String verifySurchargeValueInTheTable() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Surcharge' value");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(surchargeValue));
+		return surchargeValue.getAttribute("value");
 	}
 
 	public boolean verifyIfChargeTotalValueIsDisplayed() {
