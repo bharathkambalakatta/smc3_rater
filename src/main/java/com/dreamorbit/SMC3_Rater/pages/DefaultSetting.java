@@ -144,14 +144,12 @@ public class DefaultSetting extends TestBase {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(defaultOriginZIPTextBox));
 		defaultOriginZIPTextBox.clear();
-		defaultOriginZIPTextBox.click();
 		defaultOriginZIPTextBox.sendKeys(originZIP);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(defaultDestinationZIPTextBox));
 		defaultDestinationZIPTextBox.clear();
-		defaultDestinationZIPTextBox.click();
-		Thread.sleep(1000);
 		defaultDestinationZIPTextBox.sendKeys(destinationZIP);
+		Thread.sleep(1000);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant ZIPS' details");
 	}
 

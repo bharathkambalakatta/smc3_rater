@@ -119,7 +119,7 @@ public class ManageSettings extends TestBase {
 		saveButton.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		wait.until(ExpectedConditions.visibilityOf(settingName));
-		Thread.sleep(2000);// Required for Firefox browser
+		Thread.sleep(3000);// Required for Firefox browser
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has added a new custom setting");
 	}
 

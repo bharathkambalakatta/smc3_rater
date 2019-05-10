@@ -94,6 +94,21 @@ public class CustomSetting extends TestBase {
 	@FindBy(xpath = "//div[@class='card-header add-header cust-multiple-disc show-table']//img[@class='img img-responsive']")
 	private WebElement editMultipleDiscountButton;
 
+	@FindBy(xpath = "//div[@id='custom-constant-box']//div[@class='checkbox discount-link']//label")
+	private WebElement toggleForConstantClass;
+
+	@FindBy(xpath = "//select[@id='constantSelect1']")
+	private WebElement constantClassDropDown;
+
+	@FindBy(xpath = "//div[@id='custom-zip-box']//div[@class='checkbox discount-link']//label")
+	private WebElement toggleForConstantZIPS;
+
+	@FindBy(xpath = "//input[@id='originZip']")
+	private WebElement originZIPTextBox;
+
+	@FindBy(xpath = "//input[@id='destinationZip']")
+	private WebElement destinationZIPTextBox;
+
 	public CustomSetting(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -249,5 +264,50 @@ public class CustomSetting extends TestBase {
 				.elementToBeClickable(editMultipleDiscountButton));
 		editMultipleDiscountButton.click();
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Edit' multiple discount");
+	}
+
+	public void clickingOnTogglePresentForConstantClass() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(
+				ExpectedConditions.elementToBeClickable(toggleForConstantClass))
+				.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on toggle present for 'Constant Class'");
+	}
+
+	public void enteringConstantClassDetails(String constantClass)
+			throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(constantClassDropDown));
+		Select select = new Select(constantClassDropDown);
+		select.selectByVisibleText(constantClass);
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has selected a 'Constant Class'");
+	}
+
+	public void clickingOnTogglePresentForConstantZIPS() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(
+				ExpectedConditions.elementToBeClickable(toggleForConstantZIPS))
+				.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on toggle present for 'Constant ZIPS'");
+	}
+
+	public void enteringConstantZIPSDetails(String originZIP,
+			String destinationZIP) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(originZIPTextBox));
+		originZIPTextBox.clear();
+		originZIPTextBox.sendKeys(originZIP);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(destinationZIPTextBox));
+		destinationZIPTextBox.clear();
+		destinationZIPTextBox.sendKeys(destinationZIP);
+		Thread.sleep(2000);
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Constant ZIPS' details");
 	}
 }

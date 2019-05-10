@@ -73,6 +73,15 @@ public class FuelSurcharge extends TestBase {
 	@FindBy(xpath = "//a[@class='save-link surcharge']/img")
 	private WebElement saveCustomSurchargeButton;
 
+	@FindBy(xpath = "//div[@id='surcharge_note']/span[@class='note-text']/span")
+	private WebElement incompleteRangeText;
+
+	@FindBy(xpath = "//span[@title='It is recommended that the range of fuel prices covered is 0 to $5  per gallon. Your range is from 0.0 to $3.401']/img")
+	private WebElement errorImage;
+
+	@FindBy(xpath = "//span[contains(text(),'Allow Override FSC Effective Date')]")
+	private WebElement allowOverrideFSCEffectiveDateCheckBox;
+
 	public FuelSurcharge(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -304,5 +313,35 @@ public class FuelSurcharge extends TestBase {
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		Thread.sleep(3000);// Required for Firefox browser
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - User has saved a row");
+	}
+
+	public String verifyErrorMessageText() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - Verifying error message displayed");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(incompleteRangeText));
+		return incompleteRangeText.getText();
+	}
+
+	public boolean verifyErrorImage() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - Verifying error image displayed");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(errorImage));
+		boolean found = false;
+		if (errorImage.isDisplayed()) {
+			found = true;
+		}
+		return found;
+	}
+
+	public void clickingOnAllowOverrideFSCEffectiveDateCheckBox() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(
+				ExpectedConditions
+						.elementToBeClickable(allowOverrideFSCEffectiveDateCheckBox))
+				.click();
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - User has selected 'Allow Override FSC Effective Date' check box");
 	}
 }

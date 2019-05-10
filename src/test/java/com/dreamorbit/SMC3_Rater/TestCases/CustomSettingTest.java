@@ -327,6 +327,132 @@ public class CustomSettingTest extends TestBase {
 					.currentThread().getStackTrace()[1].getMethodName());
 			Assert.fail();
 		}
+	}
 
+	// 14. Create a Setting with Constant Class Test
+	// @Test
+	public void verifyCreateASettingWithConstantClassTest() throws Exception {
+		try {
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
+			manageSettings.addingACustomSetting(
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
+
+			customSetting.clickingOnTogglePresentForConstantClass();
+			customSetting.enteringConstantClassDetails(propertyValue
+					.getValue("class2"));
+
+			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
+			rateAShipment.selectRateFamily(propertyValue
+					.getValue("rateFamily1"));
+
+			String actual = rateAShipment.verifyClassDropDownValue();
+			Assert.assertEquals("RateAShipmentPage - 'classDropDown' ::",
+					propertyValue.getValue("class2"), actual);
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			logger.info("========== FINAL MESSAGE :: Create a Setting with Constant Class Test Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
+	}
+
+	// 15. Create a Setting with Constant Zips Test
+	// @Test
+	public void verifyCreateASettingWithConstantZipsTest() throws Exception {
+		try {
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
+			manageSettings.addingACustomSetting(
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
+			customSetting.clickingOnTogglePresentForConstantZIPS();
+			customSetting.enteringConstantZIPSDetails(
+					propertyValue.getValue("origin2"),
+					propertyValue.getValue("destination2"));
+
+			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			String actual = rateAShipment.verifyOriginTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'originTextBox' ::",
+					propertyValue.getValue("origin2"), actual);
+			String actual1 = rateAShipment.verifyDestinationTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'destinationTextBox' ::",
+					propertyValue.getValue("destination2"), actual1);
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			logger.info("========== FINAL MESSAGE :: Create a Setting with Constant Zips Test Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
+	}
+
+	// 15. Create a Setting with FAK Test
+	@Test
+	public void verifyCreateASettingWithFAKTest() throws Exception {
+		try {
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
+			manageSettings.addingACustomSetting(
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
+
+			rateAShipment.clickingOnRateAShipmentTab();
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			logger.info("========== FINAL MESSAGE :: Create a Setting with FAK Test Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
 	}
 }

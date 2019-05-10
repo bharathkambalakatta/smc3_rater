@@ -253,7 +253,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 11. Create a Setting with National Surcharge Test - Complete Range
-	@Test
+	// @Test
 	public void verifyCreateASettingWithNationalSurchargeTestCompleteRange()
 			throws Exception {
 		try {
@@ -335,14 +335,14 @@ public class FuelSurchargeTest extends TestBase {
 			rateAShipment.selectClass(propertyValue.getValue("class1"));
 			rateAShipment.enterWeight(propertyValue.getValue("weight3"));
 			rateAShipment.clickingOnRateShipmentButton();
-			
+
 			String actual = rateAShipment.verifySurchargeValueInTheTable();
 			Assert.assertEquals("RateAShipmentPage - 'surchargeValue' ::",
 					propertyValue.getValue("ltl9%"), actual);
-			
+
 			rateAShipment.enterWeight(propertyValue.getValue("weight1"));
 			rateAShipment.clickingOnRateShipmentButton();
-			
+
 			String actual1 = rateAShipment.verifySurchargeValueInTheTable();
 			Assert.assertEquals("RateAShipmentPage - 'surchargeValue' ::",
 					propertyValue.getValue("tl9%"), actual1);
@@ -363,87 +363,187 @@ public class FuelSurchargeTest extends TestBase {
 			Assert.fail();
 		}
 	}
-	
+
 	// 11. Create a Setting with National Surcharge Test - Incomplete Range
-		@Test
-		public void verifyCreateASettingWithNationalSurchargeTestIncompleteRange()
-				throws Exception {
-			try {
-				loginToApplication.LoginToApplication(
-						propertyValue.getValue("loginUserName"),
-						propertyValue.getValue("loginPassword"));
+	// @Test
+	public void verifyCreateASettingWithNationalSurchargeTestIncompleteRange()
+			throws Exception {
+		try {
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
 
-				manageSettings.clickingOnManageSettingsTab();
-				manageSettings.clickingOnCustomSettingOption();
-				manageSettings.generatingAndStoringARandomSettingName();
-				manageSettings.addingACustomSetting(
-						customSettingDetails.getValue("customSettingID"),
-						customSettingDetails.getValue("customSettingDescription"));
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
+			manageSettings.addingACustomSetting(
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
 
-				fuelSurcharge.clickingOnTogglePresentForSurcharge();
-				fuelSurcharge.clickingOnNationalAverageSubTab();
-				fuelSurcharge.clickingOnExpandOptionPresentInCustomSurchargeTable();
+			fuelSurcharge.clickingOnTogglePresentForSurcharge();
+			fuelSurcharge.clickingOnNationalAverageSubTab();
+			fuelSurcharge.clickingOnExpandOptionPresentInCustomSurchargeTable();
 
-				fuelSurcharge
-						.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
-				fuelSurcharge.enteringCustomSurchargeDetails(
-						propertyValue.getValue("row1"),
-						propertyValue.getValue("lowRange1"),
-						propertyValue.getValue("highRange1"),
-						propertyValue.getValue("ltl7"),
-						propertyValue.getValue("tl7"));
-				fuelSurcharge.savingCustomSurchargeDetails();
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row1"),
+					propertyValue.getValue("lowRange1"),
+					propertyValue.getValue("highRange1"),
+					propertyValue.getValue("ltl7"),
+					propertyValue.getValue("tl7"));
+			fuelSurcharge.savingCustomSurchargeDetails();
 
-				fuelSurcharge
-						.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
-				fuelSurcharge.enteringCustomSurchargeDetails(
-						propertyValue.getValue("row2"),
-						propertyValue.getValue("lowRange2"),
-						propertyValue.getValue("highRange2"),
-						propertyValue.getValue("ltl8"),
-						propertyValue.getValue("tl8"));
-				fuelSurcharge.savingCustomSurchargeDetails();
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row2"),
+					propertyValue.getValue("lowRange2"),
+					propertyValue.getValue("highRange2"),
+					propertyValue.getValue("ltl8"),
+					propertyValue.getValue("tl8"));
+			fuelSurcharge.savingCustomSurchargeDetails();
 
-				fuelSurcharge
-						.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
-				fuelSurcharge.enteringCustomSurchargeDetails(
-						propertyValue.getValue("row3"),
-						propertyValue.getValue("lowRange3"),
-						propertyValue.getValue("highRange3"),
-						propertyValue.getValue("ltl9"),
-						propertyValue.getValue("tl9"));
-				fuelSurcharge.savingCustomSurchargeDetails();
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row3"),
+					propertyValue.getValue("lowRange3"),
+					propertyValue.getValue("highRange3"),
+					propertyValue.getValue("ltl9"),
+					propertyValue.getValue("tl9"));
+			fuelSurcharge.savingCustomSurchargeDetails();
 
-				fuelSurcharge
-						.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
-				fuelSurcharge.enteringCustomSurchargeDetails(
-						propertyValue.getValue("row4"),
-						propertyValue.getValue("lowRange4"),
-						propertyValue.getValue("highRange4"),
-						propertyValue.getValue("ltl10"),
-						propertyValue.getValue("tl10"));
-				fuelSurcharge.savingCustomSurchargeDetails();
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row4"),
+					propertyValue.getValue("lowRange4"),
+					propertyValue.getValue("highRange4"),
+					propertyValue.getValue("ltl10"),
+					propertyValue.getValue("tl10"));
+			fuelSurcharge.savingCustomSurchargeDetails();
 
-				
+			String actual = fuelSurcharge.verifyErrorMessageText();
+			Assert.assertEquals("FuelSurcharge - 'incompleteRangeText' ::",
+					propertyValue.getValue("incompleteRangeText"), actual);
+			boolean found = fuelSurcharge.verifyErrorImage();
+			Assert.assertTrue("FuelSurcharge - 'errorImage' ::", found);
 
-				
-				
-//				rateAShipment.clickingOnRateAShipmentTab();
-//				
-//				manageSettings.clickingOnManageSettingsTab();
-//				manageSettings.clickingOnCustomSettingOption();
-//				manageSettings.deletingACustomSetting(customSettingDetails
-//						.getValue("customSettingID"));
+			rateAShipment.clickingOnRateAShipmentTab();
 
-				logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Incomplete Range Executed Successfully ==========");
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
 
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
-						.currentThread().getStackTrace()[1].getMethodName());
-				ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
-						.currentThread().getStackTrace()[1].getMethodName());
-				Assert.fail();
-			}
+			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Incomplete Range Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
 		}
+	}
+
+	// 11. Create a Setting with National Surcharge Test - Allow Override FSC
+	// Effective Date
+	// @Test
+	public void verifyCreateASettingWithNationalSurchargeTestAllowOverrideFSCEffectiveDate()
+			throws Exception {
+		try {
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
+			manageSettings.addingACustomSetting(
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
+
+			fuelSurcharge.clickingOnTogglePresentForSurcharge();
+			fuelSurcharge.clickingOnNationalAverageSubTab();
+			fuelSurcharge.clickingOnExpandOptionPresentInCustomSurchargeTable();
+
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row1"),
+					propertyValue.getValue("lowRange1"),
+					propertyValue.getValue("highRange1"),
+					propertyValue.getValue("ltl7"),
+					propertyValue.getValue("tl7"));
+			fuelSurcharge.savingCustomSurchargeDetails();
+
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row2"),
+					propertyValue.getValue("lowRange2"),
+					propertyValue.getValue("highRange2"),
+					propertyValue.getValue("ltl8"),
+					propertyValue.getValue("tl8"));
+			fuelSurcharge.savingCustomSurchargeDetails();
+
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row3"),
+					propertyValue.getValue("lowRange3"),
+					propertyValue.getValue("highRange3"),
+					propertyValue.getValue("ltl9"),
+					propertyValue.getValue("tl9"));
+			fuelSurcharge.savingCustomSurchargeDetails();
+
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row4"),
+					propertyValue.getValue("lowRange4"),
+					propertyValue.getValue("highRange4"),
+					propertyValue.getValue("ltl10"),
+					propertyValue.getValue("tl10"));
+			fuelSurcharge.savingCustomSurchargeDetails();
+
+			fuelSurcharge
+					.clickingOnAddNewRowButtonPresentInCustomSurchargeTable();
+			fuelSurcharge.enteringCustomSurchargeDetails(
+					propertyValue.getValue("row5"),
+					propertyValue.getValue("lowRange5"),
+					propertyValue.getValue("highRange5"),
+					propertyValue.getValue("ltl11"),
+					propertyValue.getValue("tl11"));
+			fuelSurcharge.savingCustomSurchargeDetails();
+			fuelSurcharge.clickingOnAllowOverrideFSCEffectiveDateCheckBox();
+
+			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			boolean found = rateAShipment
+					.verifyIfValuesPresentInFSCEffectiveDateDropDown();
+			Assert.assertTrue("RateAShipment - 'fscEffectiveDateDropDown' ::",
+					found);
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
+	}
 }

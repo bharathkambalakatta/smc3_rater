@@ -50,6 +50,9 @@ public class RateAShipment extends TestBase {
 	@FindBy(xpath = "//input[@id='deliveryZip']")
 	private WebElement destinationTextBox;
 
+	@FindBy(xpath = "//select[@id='dateId']")
+	private WebElement fscEffectiveDateDropDown;
+
 	@FindBy(xpath = "//input[@id='discountTypeNone']")
 	private WebElement noneDiscountRadioButton;
 
@@ -110,7 +113,7 @@ public class RateAShipment extends TestBase {
 
 	@FindBy(xpath = "//input[@id='discount-Percentage']")
 	private WebElement discountValue;
-	
+
 	@FindBy(xpath = "//input[@id='surcharge-percent']")
 	private WebElement surchargeValue;
 
@@ -119,7 +122,7 @@ public class RateAShipment extends TestBase {
 
 	@FindBy(xpath = "//td[contains(text(),'US Dollars')]")
 	private WebElement usDollarsText;
-	
+
 	@FindBy(xpath = "//input[@value='Rate Shipment']")
 	private WebElement rateShipmentButton;
 
@@ -193,7 +196,7 @@ public class RateAShipment extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(rateFamilyDropDown));
-				Select select = new Select(rateFamilyDropDown);
+		Select select = new Select(rateFamilyDropDown);
 		String valueSelected = select.getFirstSelectedOption().getText();
 		return valueSelected;
 	}
@@ -208,7 +211,8 @@ public class RateAShipment extends TestBase {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Available Tariffs' drop down");
 	}
 
-	public String verifySelectedValueInAvailableTariffs() throws InterruptedException {
+	public String verifySelectedValueInAvailableTariffs()
+			throws InterruptedException {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Available Tariffs' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -229,11 +233,12 @@ public class RateAShipment extends TestBase {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been entered in 'Origin' text box");
 	}
 
-	public String verifyOriginTextBoxValue() {
+	public String verifyOriginTextBoxValue() throws InterruptedException {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Origin' text box value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(originTextBox));
+		Thread.sleep(1000);;
 		return originTextBox.getAttribute("value");
 	}
 
@@ -416,11 +421,12 @@ public class RateAShipment extends TestBase {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Value has been selected in 'Class' drop down");
 	}
 
-	public String verifyClassDropDownValue() {
+	public String verifyClassDropDownValue() throws InterruptedException {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Class' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(classDropDown));
+		Thread.sleep(1000);//Required for edge browser
 		Select select = new Select(classDropDown);
 		return select.getFirstSelectedOption().getAttribute("value");
 	}
@@ -470,7 +476,7 @@ public class RateAShipment extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(discountValue));
 		return discountValue.getAttribute("value");
 	}
-	
+
 	public String verifySurchargeValueInTheTable() {
 		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'Surcharge' value");
 		WebDriverWait wait = new WebDriverWait(driver,
@@ -489,5 +495,19 @@ public class RateAShipment extends TestBase {
 			valueDisplayed = true;
 		}
 		return valueDisplayed;
+	}
+
+	public boolean verifyIfValuesPresentInFSCEffectiveDateDropDown() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying 'FSC Effective Date' drop down values");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(fscEffectiveDateDropDown));
+		boolean found = false;
+		Select select = new Select(fscEffectiveDateDropDown);
+		List<WebElement> allOptions = select.getOptions();
+		if (allOptions.size() > 1) {
+			found = true;
+		}
+		return found;
 	}
 }
