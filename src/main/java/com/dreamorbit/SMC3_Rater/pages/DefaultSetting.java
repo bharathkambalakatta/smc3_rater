@@ -211,6 +211,7 @@ public class DefaultSetting extends TestBase {
 		wait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().accept();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		Thread.sleep(2000);// Required as Selenium execution is fast
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant ZIPS' section toggle has been set to OFF");
 	}
 }

@@ -59,7 +59,7 @@ public class ManageSettingsTest extends TestBase {
 			boolean available = rateAShipment
 					.verifyIfSettingIsAvailable(customSettingDetails
 							.getValue("customSettingID"));
-			Assert.assertTrue("RateAShipmentPage - 'settingsDropDown' ::",
+			Assert.assertTrue("RateAShipment - 'settingsDropDown' ::",
 					available);
 
 			manageSettings.clickingOnManageSettingsTab();
@@ -72,7 +72,7 @@ public class ManageSettingsTest extends TestBase {
 			boolean notAvailable = rateAShipment
 					.verifyIfSettingIsAvailable(customSettingDetails
 							.getValue("customSettingID"));
-			Assert.assertFalse("RateAShipmentPage - 'settingsDropDown' ::",
+			Assert.assertFalse("RateAShipment - 'settingsDropDown' ::",
 					notAvailable);
 
 			logger.info("========== FINAL MESSAGE :: Create a Custom Setting Test & Procedure to Delete a Setting Test Executed Successfully ==========");

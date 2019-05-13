@@ -136,7 +136,7 @@ public class ZipDiscountTest extends TestBase {
 			rateAShipment.clickingOnRateShipmentButton();
 
 			String actual = rateAShipment.verifyDiscountValueInTheTable();
-			Assert.assertEquals("RateAShipmentPage - 'discountValue' ::",
+			Assert.assertEquals("RateAShipment - 'discountValue' ::",
 					propertyValue.getValue("discount%"), actual);
 
 			manageSettings.clickingOnManageSettingsTab();

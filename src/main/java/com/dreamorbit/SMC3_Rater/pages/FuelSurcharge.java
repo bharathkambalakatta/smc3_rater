@@ -2,6 +2,7 @@ package com.dreamorbit.SMC3_Rater.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -243,18 +244,20 @@ public class FuelSurcharge extends TestBase {
 		}
 		return present;
 	}
-	
-	public void makingDefaultSurchargeToggleOFF()
-			throws InterruptedException {
+
+	public void makingDefaultSurchargeToggleOFF() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions
-				.visibilityOf(toggleForDefaultSurcharge));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();",
+				toggleForDefaultSurcharge);
+		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultSurcharge));
 		Thread.sleep(2000);// Required as Selenium execution is fast
 		toggleForDefaultSurcharge.click();
 		wait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().accept();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		Thread.sleep(2000);// Required as Selenium execution is fast
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Surcharge' section toggle has been set to OFF");
 	}
 

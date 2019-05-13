@@ -66,12 +66,12 @@ public class CustomSettingTest extends TestBase {
 					.getValue("customSettingID"));
 
 			String Actual = rateAShipment.verifySelectedValueInRateFamily();
-			Assert.assertEquals("RateAShipmentPage - 'rateFamilyDropDown' ::",
+			Assert.assertEquals("RateAShipment - 'rateFamilyDropDown' ::",
 					propertyValue.getValue("rateFamily1"), Actual);
 			String Actual1 = rateAShipment
 					.verifySelectedValueInAvailableTariffs();
 			Assert.assertEquals(
-					"RateAShipmentPage - 'availableTariffsDropDown' ::",
+					"RateAShipment - 'availableTariffsDropDown' ::",
 					propertyValue.getValue("availableTariffs1"), Actual1);
 
 			manageSettings.clickingOnManageSettingsTab();
@@ -88,12 +88,12 @@ public class CustomSettingTest extends TestBase {
 					.getValue("customSettingID"));
 
 			String Actual3 = rateAShipment.verifySelectedValueInRateFamily();
-			Assert.assertEquals("RateAShipmentPage - 'rateFamilyDropDown' ::",
+			Assert.assertEquals("RateAShipment - 'rateFamilyDropDown' ::",
 					propertyValue.getValue("rateFamily2"), Actual3);
 			String Actual4 = rateAShipment
 					.verifySelectedValueInAvailableTariffs();
 			Assert.assertEquals(
-					"RateAShipmentPage - 'availableTariffsDropDown' ::",
+					"RateAShipment - 'availableTariffsDropDown' ::",
 					propertyValue.getValue("availableTariffs2"), Actual4);
 
 			manageSettings.clickingOnManageSettingsTab();
@@ -141,17 +141,16 @@ public class CustomSettingTest extends TestBase {
 
 			boolean selected = rateAShipment
 					.verifyIfSingleDiscountRadioButtonIsSelected();
-			Assert.assertTrue(
-					"RateAShipmentPage - 'singleDiscountRadioButton' ::",
+			Assert.assertTrue("RateAShipment - 'singleDiscountRadioButton' ::",
 					selected);
 			String actual = rateAShipment.verifyDiscountTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'discountTextBox' ::",
 					propertyValue.getValue("discount4"), actual);
 			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'mcDiscountTextBox' ::",
 					propertyValue.getValue("mcDiscount4"), actual1);
 			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'mcFloorTextBox' ::",
 					propertyValue.getValue("mcFloor4"), actual2);
 
 			manageSettings.clickingOnManageSettingsTab();
@@ -212,43 +211,42 @@ public class CustomSettingTest extends TestBase {
 			boolean selected = rateAShipment
 					.verifyIfMultipleDiscountRadioButtonIsSelected();
 			Assert.assertTrue(
-					"RateAShipmentPage - 'multipleDiscountRadioButton' ::",
+					"RateAShipment - 'multipleDiscountRadioButton' ::",
 					selected);
 			String actual = rateAShipment.verifyL5CTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'l5cTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'l5cTextBox' ::",
 					propertyValue.getValue("l5c1"), actual);
 			String actual1 = rateAShipment.verifyM5CTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm5cTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm5cTextBox' ::",
 					propertyValue.getValue("m5c1"), actual1);
 			String actual2 = rateAShipment.verifyM1MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm1mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm1mTextBox' ::",
 					propertyValue.getValue("m1m1"), actual2);
 			String actual3 = rateAShipment.verifyM2MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm2mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm2mTextBox' ::",
 					propertyValue.getValue("m2m1"), actual3);
 			String actual4 = rateAShipment.verifyM5MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm5mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm5mTextBox' ::",
 					propertyValue.getValue("m5m1"), actual4);
 			String actual5 = rateAShipment.verifyM10MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm10mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm10mTextBox' ::",
 					propertyValue.getValue("m10m1"), actual5);
 			String actual6 = rateAShipment.verifyM20MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm20mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm20mTextBox' ::",
 					propertyValue.getValue("m20m1"), actual6);
 			String actual7 = rateAShipment.verifyM30MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm30mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm30mTextBox' ::",
 					propertyValue.getValue("m30m1"), actual7);
 			String actual8 = rateAShipment.verifyM40MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm40mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm40mTextBox' ::",
 					propertyValue.getValue("m40m1"), actual8);
 			String actual9 = rateAShipment
 					.verifyMCDiscountMultipleTextBoxValue();
 			Assert.assertEquals(
-					"RateAShipmentPage - 'mcDiscountMultipleTextBox' ::",
+					"RateAShipment - 'mcDiscountMultipleTextBox' ::",
 					propertyValue.getValue("mc1"), actual9);
 			String actual10 = rateAShipment.verifyMCFloorMultipleTextBoxValue();
-			Assert.assertEquals(
-					"RateAShipmentPage - 'mcFloorMultipleTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'mcFloorMultipleTextBox' ::",
 					propertyValue.getValue("mcFloor1"), actual10);
 
 			manageSettings.clickingOnManageSettingsTab();
@@ -279,43 +277,42 @@ public class CustomSettingTest extends TestBase {
 			boolean selected1 = rateAShipment
 					.verifyIfMultipleDiscountRadioButtonIsSelected();
 			Assert.assertTrue(
-					"RateAShipmentPage - 'multipleDiscountRadioButton' ::",
+					"RateAShipment - 'multipleDiscountRadioButton' ::",
 					selected1);
 			String actual11 = rateAShipment.verifyL5CTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'l5cTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'l5cTextBox' ::",
 					propertyValue.getValue("l5c2"), actual11);
 			String actual12 = rateAShipment.verifyM5CTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm5cTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm5cTextBox' ::",
 					propertyValue.getValue("m5c2"), actual12);
 			String actual13 = rateAShipment.verifyM1MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm1mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm1mTextBox' ::",
 					propertyValue.getValue("m1m2"), actual13);
 			String actual14 = rateAShipment.verifyM2MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm2mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm2mTextBox' ::",
 					propertyValue.getValue("m2m2"), actual14);
 			String actual15 = rateAShipment.verifyM5MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm5mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm5mTextBox' ::",
 					propertyValue.getValue("m5m2"), actual15);
 			String actual16 = rateAShipment.verifyM10MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm10mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm10mTextBox' ::",
 					propertyValue.getValue("m10m2"), actual16);
 			String actual17 = rateAShipment.verifyM20MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm20mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm20mTextBox' ::",
 					propertyValue.getValue("m20m2"), actual17);
 			String actual18 = rateAShipment.verifyM30MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm30mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm30mTextBox' ::",
 					propertyValue.getValue("m30m2"), actual18);
 			String actual19 = rateAShipment.verifyM40MTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'm40mTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'm40mTextBox' ::",
 					propertyValue.getValue("m40m2"), actual19);
 			String actual20 = rateAShipment
 					.verifyMCDiscountMultipleTextBoxValue();
 			Assert.assertEquals(
-					"RateAShipmentPage - 'mcDiscountMultipleTextBox' ::",
+					"RateAShipment - 'mcDiscountMultipleTextBox' ::",
 					propertyValue.getValue("mc2"), actual20);
 			String actual21 = rateAShipment.verifyMCFloorMultipleTextBoxValue();
-			Assert.assertEquals(
-					"RateAShipmentPage - 'mcFloorMultipleTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'mcFloorMultipleTextBox' ::",
 					propertyValue.getValue("mcFloor2"), actual21);
 
 			manageSettings.clickingOnManageSettingsTab();
@@ -363,7 +360,7 @@ public class CustomSettingTest extends TestBase {
 					.getValue("rateFamily1"));
 
 			String actual = rateAShipment.verifyClassDropDownValue();
-			Assert.assertEquals("RateAShipmentPage - 'classDropDown' ::",
+			Assert.assertEquals("RateAShipment - 'classDropDown' ::",
 					propertyValue.getValue("class2"), actual);
 
 			manageSettings.clickingOnManageSettingsTab();
@@ -410,10 +407,10 @@ public class CustomSettingTest extends TestBase {
 					.getValue("customSettingID"));
 
 			String actual = rateAShipment.verifyOriginTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'originTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'originTextBox' ::",
 					propertyValue.getValue("origin2"), actual);
 			String actual1 = rateAShipment.verifyDestinationTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'destinationTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'destinationTextBox' ::",
 					propertyValue.getValue("destination2"), actual1);
 
 			manageSettings.clickingOnManageSettingsTab();
@@ -438,7 +435,7 @@ public class CustomSettingTest extends TestBase {
 	public void verifyCreateASettingWithFAKTest() throws Exception {
 		try {
 			logger.info("========== INITIAL MESSAGE :: Create a Setting with FAK Test Execution Started ==========");
-			
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -472,15 +469,14 @@ public class CustomSettingTest extends TestBase {
 
 			// boolean found =
 			// rateAShipment.verifyIfAsteriskSymbolIsDisplayed();
-			// Assert.assertTrue("RateAShipmentPage - 'asteriskSymbol' ::",
+			// Assert.assertTrue("RateAShipment - 'asteriskSymbol' ::",
 			// found);
 
 			rateAShipment.selectClass(propertyValue.getValue("class4"));
 			rateAShipment.clickingOnRateShipmentButton();
 
 			boolean found1 = rateAShipment.verifyIfAsteriskSymbolIsDisplayed();
-			Assert.assertFalse("RateAShipmentPage - 'asteriskSymbol' ::",
-					found1);
+			Assert.assertFalse("RateAShipment - 'asteriskSymbol' ::", found1);
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();

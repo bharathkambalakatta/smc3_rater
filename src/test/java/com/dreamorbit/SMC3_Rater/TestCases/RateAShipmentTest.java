@@ -41,7 +41,7 @@ public class RateAShipmentTest extends TestBase {
 	public void verifyProcedureToRateALTLShipment() throws Exception {
 		try {
 			logger.info("========== INITIAL MESSAGE :: Procedure to Rate a LTL Shipment Test Execution Started ==========");
-			
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -69,7 +69,7 @@ public class RateAShipmentTest extends TestBase {
 
 			boolean valueDisplayed = rateAShipment
 					.verifyIfChargeTotalValueIsDisplayed();
-			Assert.assertTrue("RateAShipmentPage - 'chargeTotalText' ::",
+			Assert.assertTrue("RateAShipment - 'chargeTotalText' ::",
 					valueDisplayed);
 
 			manageSettings.clickingOnManageSettingsTab();

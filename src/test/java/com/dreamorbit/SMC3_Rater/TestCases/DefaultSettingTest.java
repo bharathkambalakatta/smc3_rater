@@ -42,7 +42,7 @@ public class DefaultSettingTest extends TestBase {
 	public void verifyCreateDefaultSettingTest() throws Exception {
 		try {
 			logger.info("========== INITIAL MESSAGE :: Create Default Setting Test Execution Started ==========");
-			
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -68,22 +68,22 @@ public class DefaultSettingTest extends TestBase {
 					.getValue("rateFamily1"));
 
 			String actual = rateAShipment.verifyDiscountTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'discountTextBox' ::",
 					propertyValue.getValue("defaultDiscount1"), actual);
 			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'mcDiscountTextBox' ::",
 					propertyValue.getValue("defaultMCDiscount1"), actual1);
 			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'mcFloorTextBox' ::",
 					propertyValue.getValue("defaultMCFloor1"), actual2);
 			String actual3 = rateAShipment.verifyClassDropDownValue();
-			Assert.assertEquals("RateAShipmentPage - 'classDropDown' ::",
+			Assert.assertEquals("RateAShipment - 'classDropDown' ::",
 					propertyValue.getValue("constantClass1"), actual3);
 			String actual4 = rateAShipment.verifyOriginTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'originTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'originTextBox' ::",
 					propertyValue.getValue("constantZIPSOriginZIP"), actual4);
 			String actual5 = rateAShipment.verifyDestinationTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'destinationTextBox' ::",
+			Assert.assertEquals("RateAShipment - 'destinationTextBox' ::",
 					propertyValue.getValue("constantZIPSDestinationZIP"),
 					actual5);
 
@@ -98,22 +98,22 @@ public class DefaultSettingTest extends TestBase {
 			rateAShipment.clickingOnSingleDiscountRadioButton();
 
 			String actual6 = rateAShipment.verifyDiscountTextBoxValue();
-			Assert.assertNotSame("RateAShipmentPage - 'discountTextBox' ::",
+			Assert.assertNotSame("RateAShipment - 'discountTextBox' ::",
 					propertyValue.getValue("defaultDiscount1"), actual6);
 			String actual7 = rateAShipment.verifyMCDiscountTextBoxValue();
-			Assert.assertNotSame("RateAShipmentPage - 'mcDiscountTextBox' ::",
+			Assert.assertNotSame("RateAShipment - 'mcDiscountTextBox' ::",
 					propertyValue.getValue("defaultMCDiscount1"), actual7);
 			String actual8 = rateAShipment.verifyMCFloorTextBoxValue();
-			Assert.assertNotSame("RateAShipmentPage - 'mcFloorTextBox' ::",
+			Assert.assertNotSame("RateAShipment - 'mcFloorTextBox' ::",
 					propertyValue.getValue("defaultMCFloor1"), actual8);
 			boolean notSame = rateAShipment
 					.verifyIfClassDropDownHasAnyValueSelected();
-			Assert.assertTrue("RateAShipmentPage - 'classDropDown' ::", notSame);
+			Assert.assertTrue("RateAShipment - 'classDropDown' ::", notSame);
 			String actual10 = rateAShipment.verifyOriginTextBoxValue();
-			Assert.assertNotSame("RateAShipmentPage - 'originTextBox' ::",
+			Assert.assertNotSame("RateAShipment - 'originTextBox' ::",
 					propertyValue.getValue("constantZIPSOriginZIP"), actual10);
 			String actual11 = rateAShipment.verifyDestinationTextBoxValue();
-			Assert.assertNotSame("RateAShipmentPage - 'destinationTextBox' ::",
+			Assert.assertNotSame("RateAShipment - 'destinationTextBox' ::",
 					propertyValue.getValue("constantZIPSDestinationZIP"),
 					actual11);
 

@@ -480,9 +480,9 @@ public class RateAShipment extends TestBase {
 		boolean found = false;
 		if (asteriskSymbol.isDisplayed()) {
 			found = true;
-			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Asterisk' is displayed next to 'Class' drop down");
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - '*' symbol is displayed next to 'Class' drop down");
 		} else {
-			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Asterisk' is not displayed next to 'Class' drop down");
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - '*' symbol is not displayed next to 'Class' drop down");
 		}
 		return found;
 	}
