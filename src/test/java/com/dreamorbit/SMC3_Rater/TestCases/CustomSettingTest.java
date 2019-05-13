@@ -389,6 +389,7 @@ public class CustomSettingTest extends TestBase {
 			manageSettings.addingACustomSetting(
 					customSettingDetails.getValue("customSettingID"),
 					customSettingDetails.getValue("customSettingDescription"));
+
 			customSetting.clickingOnTogglePresentForConstantZIPS();
 			customSetting.enteringConstantZIPSDetails(
 					propertyValue.getValue("origin2"),
@@ -437,7 +438,37 @@ public class CustomSettingTest extends TestBase {
 					customSettingDetails.getValue("customSettingID"),
 					customSettingDetails.getValue("customSettingDescription"));
 
+			customSetting.clickingOnTogglePresentForFAK();
+			customSetting.enteringFAKDetails(propertyValue.getValue("class3"),
+					propertyValue.getValue("class3"),
+					propertyValue.getValue("class3"),
+					propertyValue.getValue("class3"));
+
 			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
+			rateAShipment.selectRateFamily(propertyValue
+					.getValue("rateFamily1"));
+			rateAShipment.selectAvailableTariffs(propertyValue
+					.getValue("availableTariffs1"));
+			rateAShipment.enterOrigin(propertyValue.getValue("origin1"));
+			rateAShipment.enterDestination(propertyValue
+					.getValue("destination1"));
+			rateAShipment.selectClass(propertyValue.getValue("class1"));
+			rateAShipment.enterWeight(propertyValue.getValue("weight3"));
+			rateAShipment.clickingOnRateShipmentButton();
+
+			// boolean found =
+			// rateAShipment.verifyIfAsteriskSymbolIsDisplayed();
+			// Assert.assertTrue("RateAShipmentPage - 'asteriskSymbol' ::",
+			// found);
+
+			rateAShipment.selectClass(propertyValue.getValue("class4"));
+			rateAShipment.clickingOnRateShipmentButton();
+
+			boolean found1 = rateAShipment.verifyIfAsteriskSymbolIsDisplayed();
+			Assert.assertFalse("RateAShipmentPage - 'asteriskSymbol' ::",
+					found1);
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();

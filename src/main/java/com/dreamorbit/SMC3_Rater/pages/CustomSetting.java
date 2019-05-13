@@ -109,6 +109,21 @@ public class CustomSetting extends TestBase {
 	@FindBy(xpath = "//input[@id='destinationZip']")
 	private WebElement destinationZIPTextBox;
 
+	@FindBy(xpath = "//div[@id='fakbox']//div[@class='checkbox discount-link']//label")
+	private WebElement toggleForFAK;
+
+	@FindBy(xpath = "//select[@id='c50']")
+	private WebElement class50DropDown;
+
+	@FindBy(xpath = "//select[@id='c55']")
+	private WebElement class55DropDown;
+
+	@FindBy(xpath = "//select[@id='c60']")
+	private WebElement class60DropDown;
+
+	@FindBy(xpath = "//select[@id='c65']")
+	private WebElement class65DropDown;
+
 	public CustomSetting(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -309,5 +324,34 @@ public class CustomSetting extends TestBase {
 		destinationZIPTextBox.sendKeys(destinationZIP);
 		Thread.sleep(2000);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Constant ZIPS' details");
+	}
+
+	public void clickingOnTogglePresentForFAK() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(toggleForFAK))
+				.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on toggle present for 'FAK'");
+	}
+
+	public void enteringFAKDetails(String class50, String class55,
+			String class60, String class65) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(class50DropDown));
+		Thread.sleep(1000);
+		Select select = new Select(class50DropDown);
+		select.selectByVisibleText(class50);
+		wait.until(ExpectedConditions.elementToBeClickable(class55DropDown));
+		Select select1 = new Select(class55DropDown);
+		select1.selectByVisibleText(class55);
+		wait.until(ExpectedConditions.elementToBeClickable(class60DropDown));
+		Select select2 = new Select(class60DropDown);
+		select2.selectByVisibleText(class60);
+		wait.until(ExpectedConditions.elementToBeClickable(class65DropDown));
+		Select select3 = new Select(class65DropDown);
+		select3.selectByVisibleText(class65);
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'FAK' details");
 	}
 }

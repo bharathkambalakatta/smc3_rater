@@ -108,6 +108,9 @@ public class RateAShipment extends TestBase {
 	@FindBy(xpath = "//select[@id='ltl-class-0']")
 	private WebElement classDropDown;
 
+	@FindBy(xpath = "//span[@id='fakApplied-0']")
+	private WebElement asteriskSymbol;
+
 	@FindBy(xpath = "//input[@id='weight-0']")
 	private WebElement weightTextBox;
 
@@ -238,7 +241,8 @@ public class RateAShipment extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(originTextBox));
-		Thread.sleep(1000);;
+		Thread.sleep(1000);
+		;
 		return originTextBox.getAttribute("value");
 	}
 
@@ -426,7 +430,7 @@ public class RateAShipment extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(classDropDown));
-		Thread.sleep(1000);//Required for edge browser
+		Thread.sleep(1000);// Required for edge browser
 		Select select = new Select(classDropDown);
 		return select.getFirstSelectedOption().getAttribute("value");
 	}
@@ -507,6 +511,20 @@ public class RateAShipment extends TestBase {
 		List<WebElement> allOptions = select.getOptions();
 		if (allOptions.size() > 1) {
 			found = true;
+		}
+		return found;
+	}
+
+	public boolean verifyIfAsteriskSymbolIsDisplayed() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(classDropDown));
+		boolean found = false;
+		if (asteriskSymbol.isDisplayed()) {
+			found = true;
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Asterisk' is displayed next to 'Class' drop down");
+		} else {
+			logger.info("MESSAGE :: RATE A SHIPMENT Tab - 'Asterisk' is not displayed next to 'Class' drop down");
 		}
 		return found;
 	}
