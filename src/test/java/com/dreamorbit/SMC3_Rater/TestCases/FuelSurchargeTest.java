@@ -47,7 +47,7 @@ public class FuelSurchargeTest extends TestBase {
 	public void verifyCreateASettingWithConstantSurchargeTest()
 			throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with Constant Surcharge Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with Constant Surcharge Test Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -112,7 +112,7 @@ public class FuelSurchargeTest extends TestBase {
 	public void verifyCreateASettingWithNationalSurchargeTestCompleteRange()
 			throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with National Surcharge Test - Complete Range  - Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with National Surcharge Test - Complete Range  - Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -226,7 +226,7 @@ public class FuelSurchargeTest extends TestBase {
 	public void verifyCreateASettingWithNationalSurchargeTestIncompleteRange()
 			throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with National Surcharge Test - Incomplete Range - Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with National Surcharge Test - Incomplete Range - Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -314,7 +314,7 @@ public class FuelSurchargeTest extends TestBase {
 	public void verifyCreateASettingWithNationalSurchargeTestAllowOverrideFSCEffectiveDate()
 			throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date - Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date - Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -412,7 +412,7 @@ public class FuelSurchargeTest extends TestBase {
 	@Test
 	public void verifyCreateGlobalFuelSurchargeTest() throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Procedure to Create Global Fuel Surcharge Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Procedure to Create Global Fuel Surcharge Test Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -548,6 +548,7 @@ public class FuelSurchargeTest extends TestBase {
 			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL3"));
 			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL4"));
 			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL5"));
+			fuelSurcharge.makingDefaultSurchargeToggleOFF();
 
 			logger.info("========== FINAL MESSAGE :: Procedure to Create Global Fuel Surcharge Test Executed Successfully ==========");
 

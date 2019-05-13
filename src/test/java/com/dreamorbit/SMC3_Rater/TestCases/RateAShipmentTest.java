@@ -40,7 +40,7 @@ public class RateAShipmentTest extends TestBase {
 	@Test
 	public void verifyProcedureToRateALTLShipment() throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Procedure to Rate a LTL Shipment Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Procedure to Rate a LTL Shipment Test Execution Started ==========");
 			
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),

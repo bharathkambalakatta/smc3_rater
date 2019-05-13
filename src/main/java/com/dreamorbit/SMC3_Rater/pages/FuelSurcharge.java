@@ -243,6 +243,20 @@ public class FuelSurcharge extends TestBase {
 		}
 		return present;
 	}
+	
+	public void makingDefaultSurchargeToggleOFF()
+			throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.visibilityOf(toggleForDefaultSurcharge));
+		Thread.sleep(2000);// Required as Selenium execution is fast
+		toggleForDefaultSurcharge.click();
+		wait.until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Surcharge' section toggle has been set to OFF");
+	}
 
 	// MANAGE SETTINGS page - Custom Setting - Surcharge section - Functions
 	public void clickingOnTogglePresentForSurcharge() {

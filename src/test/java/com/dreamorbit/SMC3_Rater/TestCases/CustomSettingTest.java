@@ -43,7 +43,7 @@ public class CustomSettingTest extends TestBase {
 	@Test
 	public void verifyCreateASettingWithDataModule() throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with Data Module Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with Data Module Test Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -117,7 +117,7 @@ public class CustomSettingTest extends TestBase {
 	@Test
 	public void verifyCreateASettingWithSingleDiscount() throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with Single Discount Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with Single Discount Test Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -176,7 +176,7 @@ public class CustomSettingTest extends TestBase {
 	@Test
 	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with Multiple Discount Test & Procedure to Create a Multiple Discount Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with Multiple Discount Test & Procedure to Create a Multiple Discount Test Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -339,7 +339,7 @@ public class CustomSettingTest extends TestBase {
 	@Test
 	public void verifyCreateASettingWithConstantClassTest() throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with Constant Class Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with Constant Class Test Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -387,7 +387,7 @@ public class CustomSettingTest extends TestBase {
 	@Test
 	public void verifyCreateASettingWithConstantZipsTest() throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with Constant Zips Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with Constant Zips Test Execution Started ==========");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -437,7 +437,7 @@ public class CustomSettingTest extends TestBase {
 	@Test
 	public void verifyCreateASettingWithFAKTest() throws Exception {
 		try {
-			logger.info("========== STARTING MESSAGE :: Create a Setting with FAK Test Execution Started ==========");
+			logger.info("========== INITIAL MESSAGE :: Create a Setting with FAK Test Execution Started ==========");
 			
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),

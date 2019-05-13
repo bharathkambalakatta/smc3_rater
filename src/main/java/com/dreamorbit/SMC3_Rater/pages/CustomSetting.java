@@ -307,6 +307,7 @@ public class CustomSetting extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(constantClassDropDown));
 		Select select = new Select(constantClassDropDown);
 		select.selectByVisibleText(constantClass);
+		Thread.sleep(2000);// Required as Selenium execution is fast
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has selected a 'Constant Class'");
 	}
 
