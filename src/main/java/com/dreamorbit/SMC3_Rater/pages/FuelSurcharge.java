@@ -24,7 +24,10 @@ public class FuelSurcharge extends TestBase {
 
 	WebDriver driver;
 
-	// MANAGE SETTINGS page - 'Global' section - Web Elements
+	@FindBy(xpath = "//div[@id='ajax-loader']/img")
+	private WebElement loadingImage;
+
+	// MANAGE SETTINGS page - Custom Setting - 'Global' section - Web Elements
 	@FindBy(xpath = "//a[@id='one']//span[contains(text(),'Global')]")
 	private WebElement globalSubTab;
 
@@ -46,12 +49,16 @@ public class FuelSurcharge extends TestBase {
 	@FindBy(xpath = "//div[@class='save-icons']//a[@id='record-1']//img")
 	private WebElement saveGlobalSurchargeButton;
 
-	@FindBy(xpath = "//div[@id='ajax-loader']/img")
-	private WebElement loadingImage;
+	// MANAGE SETTINGS page - Default Setting - Surcharge section - Web
+	// Elements
+	@FindBy(xpath = "//div[@id='demo']//div[@class='discount-box surcharge-box']//div[@class='checkbox discount-link']//label")
+	private WebElement toggleForDefaultSurcharge;
 
 	@FindBy(xpath = "//h6[contains(text(),'View Custom Global Surcharge')]")
 	private WebElement viewCustomGlobalSurchargeoption;
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Surcharge section - Web Elements
 	@FindBy(xpath = "//div[@id='carrier']//div[@class='discount-box surcharge-box']//div[@class='checkbox discount-link']//label")
 	private WebElement toggleForSurcharge;
 
@@ -87,7 +94,7 @@ public class FuelSurcharge extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	// MANAGE SETTINGS page - 'Global' section - Functions
+	// MANAGE SETTINGS page - Custom Setting - 'Global' section - Functions
 	public void clickingOnGlobalSubTab() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -95,7 +102,7 @@ public class FuelSurcharge extends TestBase {
 				.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		Thread.sleep(3000);// Required as the table gets refreshed twice
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Global' sub tab");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Global' sub tab");
 	}
 
 	public void clickAddNewRow() {
@@ -103,7 +110,7 @@ public class FuelSurcharge extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(addNewRowButton))
 				.click();
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Global table - User has clicked on '+ ADD NEW ROW' button");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has clicked on '+ ADD NEW ROW' button");
 	}
 
 	public void fillGlobalSurchargeFields(String lowRange, String highRange,
@@ -119,7 +126,7 @@ public class FuelSurcharge extends TestBase {
 		LTLField.sendKeys(LTL);
 		wait.until(ExpectedConditions.elementToBeClickable(TLField));
 		TLField.sendKeys(TL);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Global table - User has entered the values");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has entered the values");
 	}
 
 	public void saveGlobalSurchargeFields() throws InterruptedException {
@@ -132,7 +139,35 @@ public class FuelSurcharge extends TestBase {
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		Thread.sleep(3000);// Required as + ADD NEW ROW button is getting
 							// disabled when the execution is fast
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Global table - User has saved a row");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has saved a row");
+	}
+
+	public void deletingGlobalRows(String TL) throws InterruptedException {
+		By deleteButton = By
+				.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
+						+ TL + "')]//following::a[@class='delete-row'][1]//img");
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
+				.click();
+		driver.switchTo().alert().accept();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		Thread.sleep(2000);// Required for Firefox browser
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has deleted a row");
+	}
+
+	// MANAGE SETTINGS page - Default Setting - Surcharge section - Functions
+	public void makingDefaultSurchargeToggleON() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(toggleForDefaultSurcharge));
+		Thread.sleep(2000);// Required as selenium execution is fast
+		if (viewCustomGlobalSurchargeoption.isDisplayed()) {
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Surcharge' section toggle is already ON");
+		} else {
+			toggleForDefaultSurcharge.click();
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Surcharge' section toggle has been set to ON");
+		}
 	}
 
 	public void clickingOnViewGlobalGlobalSurchargeOption() {
@@ -142,11 +177,11 @@ public class FuelSurcharge extends TestBase {
 				.elementToBeClickable(viewCustomGlobalSurchargeoption));
 		viewCustomGlobalSurchargeoption.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has clicked on 'VIEW CUSTOM GLOBAL SURCHARGE' option");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - Surcharge Section - User has clicked on 'VIEW CUSTOM GLOBAL SURCHARGE' option");
 	}
 
 	public boolean verifyGlobalSurchargeAtLeastValue(String atLeast) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'At Least' value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - Surcharge Section - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'At Least' value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement atLeastValue = driver
@@ -162,7 +197,7 @@ public class FuelSurcharge extends TestBase {
 	}
 
 	public boolean verifyGlobalSurchargeButLessThanValue(String butLessThan) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'But Less Than' value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - Surcharge Section - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'But Less Than' value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement butLessThanValue = driver
@@ -178,7 +213,7 @@ public class FuelSurcharge extends TestBase {
 	}
 
 	public boolean verifyGlobalSurchargeLTLValue(String ltl) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'LTL' value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - Surcharge Section - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'LTL' value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement ltlValue = driver
@@ -194,7 +229,7 @@ public class FuelSurcharge extends TestBase {
 	}
 
 	public boolean verifyGlobalSurchargeTLValue(String tl) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'TL' value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - Surcharge - VIEW CUSTOM GLOBAL SURCHARGE table - Verifying 'TL' value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement tlValue = driver
@@ -209,20 +244,7 @@ public class FuelSurcharge extends TestBase {
 		return present;
 	}
 
-	public void deletingGlobalRows(String TL) throws InterruptedException {
-		By deleteButton = By
-				.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
-						+ TL + "')]//following::a[@class='delete-row'][1]//img");
-		WebDriverWait wait = new WebDriverWait(driver,
-				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
-				.click();
-		driver.switchTo().alert().accept();
-		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		Thread.sleep(2000);// Required for Firefox browser
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Global table - User has deleted a row");
-	}
-
+	// MANAGE SETTINGS page - Custom Setting - Surcharge section - Functions
 	public void clickingOnTogglePresentForSurcharge() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -238,12 +260,12 @@ public class FuelSurcharge extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(ltlTextBox));
 		ltlTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);// Value is setting back to 0.00 without wait
 		ltlTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		ltlTextBox.sendKeys(ltl);
 		wait.until(ExpectedConditions.elementToBeClickable(tlTextBox));
 		tlTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);// Value is setting back to 0.00 without wait
 		tlTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		tlTextBox.sendKeys(tl);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - User has entered 'Surcharge' details");
@@ -256,7 +278,7 @@ public class FuelSurcharge extends TestBase {
 				.elementToBeClickable(nationalAverageSubtab));
 		nationalAverageSubtab.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		Thread.sleep(2000);// Required for Firefox browser
+		Thread.sleep(3000);// Required for Firefox browser
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - User has clicked on 'National Average' sub tab");
 	}
 

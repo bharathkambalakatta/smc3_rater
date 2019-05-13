@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.dreamorbit.SMC3_Rater.pages.DefaultSetting;
 import com.dreamorbit.SMC3_Rater.pages.FuelSurcharge;
 import com.dreamorbit.SMC3_Rater.pages.LoginPage;
 import com.dreamorbit.SMC3_Rater.pages.ManageSettings;
@@ -28,6 +29,7 @@ public class FuelSurchargeTest extends TestBase {
 	LoginPage loginToApplication;
 	RateAShipment rateAShipment;
 	ManageSettings manageSettings;
+	DefaultSetting defaultSetting;
 	FuelSurcharge fuelSurcharge;
 
 	@Before
@@ -36,164 +38,17 @@ public class FuelSurchargeTest extends TestBase {
 		loginToApplication = new LoginPage(driver);
 		rateAShipment = new RateAShipment(driver);
 		manageSettings = new ManageSettings(driver);
+		defaultSetting = new DefaultSetting(driver);
 		fuelSurcharge = new FuelSurcharge(driver);
 	}
 
-	// 19. Procedure to Create Global Fuel Surcharge
-	// @Test
-	public void verifyCreateGlobalFuelSurchargeTest() throws Exception {
-		try {
-			loginToApplication.LoginToApplication(
-					propertyValue.getValue("loginUserName"),
-					propertyValue.getValue("loginPassword"));
-
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
-
-			fuelSurcharge.clickingOnGlobalSubTab();
-			fuelSurcharge.clickAddNewRow();
-			fuelSurcharge.fillGlobalSurchargeFields(
-					propertyValue.getValue("lowRange1"),
-					propertyValue.getValue("highRange1"),
-					propertyValue.getValue("LTL1"),
-					propertyValue.getValue("TL1"));
-			fuelSurcharge.saveGlobalSurchargeFields();
-			fuelSurcharge.clickAddNewRow();
-			fuelSurcharge.fillGlobalSurchargeFields(
-					propertyValue.getValue("lowRange2"),
-					propertyValue.getValue("highRange2"),
-					propertyValue.getValue("LTL2"),
-					propertyValue.getValue("TL2"));
-			fuelSurcharge.saveGlobalSurchargeFields();
-			fuelSurcharge.clickAddNewRow();
-			fuelSurcharge.fillGlobalSurchargeFields(
-					propertyValue.getValue("lowRange3"),
-					propertyValue.getValue("highRange3"),
-					propertyValue.getValue("LTL3"),
-					propertyValue.getValue("TL3"));
-			fuelSurcharge.saveGlobalSurchargeFields();
-			fuelSurcharge.clickAddNewRow();
-			fuelSurcharge.fillGlobalSurchargeFields(
-					propertyValue.getValue("lowRange4"),
-					propertyValue.getValue("highRange4"),
-					propertyValue.getValue("LTL4"),
-					propertyValue.getValue("TL4"));
-			fuelSurcharge.saveGlobalSurchargeFields();
-			fuelSurcharge.clickAddNewRow();
-			fuelSurcharge.fillGlobalSurchargeFields(
-					propertyValue.getValue("lowRange5"),
-					propertyValue.getValue("highRange5"),
-					propertyValue.getValue("LTL5"),
-					propertyValue.getValue("TL5"));
-			fuelSurcharge.saveGlobalSurchargeFields();
-
-			manageSettings.clickingOnDefaultSettingOption();
-
-			fuelSurcharge.clickingOnViewGlobalGlobalSurchargeOption();
-
-			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
-									.getValue("lowRange1")));
-			Assert.assertTrue(
-					"FuelSurcharge - 'butLessThanValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeButLessThanValue(propertyValue
-									.getValue("highRange1")));
-			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeLTLValue(propertyValue
-							.getValue("LTL1")));
-			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
-					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
-							.getValue("TL1")));
-
-			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
-									.getValue("lowRange2")));
-			Assert.assertTrue(
-					"FuelSurcharge - 'butLessThanValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeButLessThanValue(propertyValue
-									.getValue("highRange2")));
-			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeLTLValue(propertyValue
-							.getValue("LTL2")));
-			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
-					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
-							.getValue("TL2")));
-
-			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
-									.getValue("lowRange3")));
-			Assert.assertTrue(
-					"FuelSurcharge - 'butLessThanValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeButLessThanValue(propertyValue
-									.getValue("highRange3")));
-			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeLTLValue(propertyValue
-							.getValue("LTL3")));
-			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
-					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
-							.getValue("TL3")));
-
-			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
-									.getValue("lowRange4")));
-			Assert.assertTrue(
-					"FuelSurcharge - 'butLessThanValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeButLessThanValue(propertyValue
-									.getValue("highRange4")));
-			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeLTLValue(propertyValue
-							.getValue("LTL4")));
-			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
-					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
-							.getValue("TL4")));
-
-			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeAtLeastValue(propertyValue
-									.getValue("lowRange5")));
-			Assert.assertTrue(
-					"FuelSurcharge - 'butLessThanValue' ::",
-					fuelSurcharge
-							.verifyGlobalSurchargeButLessThanValue(propertyValue
-									.getValue("highRange5")));
-			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
-					.verifyGlobalSurchargeLTLValue(propertyValue
-							.getValue("LTL5")));
-			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
-					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
-							.getValue("TL5")));
-
-			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL1"));
-			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL2"));
-			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL3"));
-			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL4"));
-			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL5"));
-
-			logger.info("========== FINAL MESSAGE :: Procedure to Create Global Fuel Surcharge Test Executed Successfully ==========");
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
-					.currentThread().getStackTrace()[1].getMethodName());
-			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
-					.currentThread().getStackTrace()[1].getMethodName());
-			Assert.fail();
-		}
-	}
-
 	// 10. Create a Setting with Constant Surcharge Test
-	// @Test
+	@Test
 	public void verifyCreateASettingWithConstantSurchargeTest()
 			throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with Constant Surcharge Test Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -253,10 +108,12 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 11. Create a Setting with National Surcharge Test - Complete Range
-	// @Test
+	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestCompleteRange()
 			throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with National Surcharge Test - Complete Range  - Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -352,7 +209,7 @@ public class FuelSurchargeTest extends TestBase {
 			manageSettings.deletingACustomSetting(customSettingDetails
 					.getValue("customSettingID"));
 
-			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Complete Range Executed Successfully ==========");
+			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Complete Range - Executed Successfully ==========");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -364,11 +221,13 @@ public class FuelSurchargeTest extends TestBase {
 		}
 	}
 
-	// 11. Create a Setting with National Surcharge Test - Incomplete Range
-	// @Test
+	// 12. Create a Setting with National Surcharge Test - Incomplete Range
+	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestIncompleteRange()
 			throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with National Surcharge Test - Incomplete Range - Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -437,7 +296,7 @@ public class FuelSurchargeTest extends TestBase {
 			manageSettings.deletingACustomSetting(customSettingDetails
 					.getValue("customSettingID"));
 
-			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Incomplete Range Executed Successfully ==========");
+			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Incomplete Range - Executed Successfully ==========");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -449,12 +308,14 @@ public class FuelSurchargeTest extends TestBase {
 		}
 	}
 
-	// 11. Create a Setting with National Surcharge Test - Allow Override FSC
+	// 13. Create a Setting with National Surcharge Test - Allow Override FSC
 	// Effective Date
-	// @Test
+	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestAllowOverrideFSCEffectiveDate()
 			throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date - Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -535,7 +396,160 @@ public class FuelSurchargeTest extends TestBase {
 			manageSettings.deletingACustomSetting(customSettingDetails
 					.getValue("customSettingID"));
 
-			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date Executed Successfully ==========");
+			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date - Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
+	}
+
+	// 18. Procedure to Create Global Fuel Surcharge
+	@Test
+	public void verifyCreateGlobalFuelSurchargeTest() throws Exception {
+		try {
+			logger.info("========== STARTING MESSAGE :: Procedure to Create Global Fuel Surcharge Test Execution Started ==========");
+
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+
+			fuelSurcharge.clickingOnGlobalSubTab();
+			fuelSurcharge.clickAddNewRow();
+			fuelSurcharge.fillGlobalSurchargeFields(
+					propertyValue.getValue("lowRange1"),
+					propertyValue.getValue("highRange1"),
+					propertyValue.getValue("LTL1"),
+					propertyValue.getValue("TL1"));
+			fuelSurcharge.saveGlobalSurchargeFields();
+			fuelSurcharge.clickAddNewRow();
+			fuelSurcharge.fillGlobalSurchargeFields(
+					propertyValue.getValue("lowRange2"),
+					propertyValue.getValue("highRange2"),
+					propertyValue.getValue("LTL2"),
+					propertyValue.getValue("TL2"));
+			fuelSurcharge.saveGlobalSurchargeFields();
+			fuelSurcharge.clickAddNewRow();
+			fuelSurcharge.fillGlobalSurchargeFields(
+					propertyValue.getValue("lowRange3"),
+					propertyValue.getValue("highRange3"),
+					propertyValue.getValue("LTL3"),
+					propertyValue.getValue("TL3"));
+			fuelSurcharge.saveGlobalSurchargeFields();
+			fuelSurcharge.clickAddNewRow();
+			fuelSurcharge.fillGlobalSurchargeFields(
+					propertyValue.getValue("lowRange4"),
+					propertyValue.getValue("highRange4"),
+					propertyValue.getValue("LTL4"),
+					propertyValue.getValue("TL4"));
+			fuelSurcharge.saveGlobalSurchargeFields();
+			fuelSurcharge.clickAddNewRow();
+			fuelSurcharge.fillGlobalSurchargeFields(
+					propertyValue.getValue("lowRange5"),
+					propertyValue.getValue("highRange5"),
+					propertyValue.getValue("LTL5"),
+					propertyValue.getValue("TL5"));
+			fuelSurcharge.saveGlobalSurchargeFields();
+
+			defaultSetting.clickingOnDefaultSettingOption();
+
+			fuelSurcharge.makingDefaultSurchargeToggleON();
+			fuelSurcharge.clickingOnViewGlobalGlobalSurchargeOption();
+
+			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeAtLeastValue(propertyValue
+									.getValue("lowRange1")));
+			Assert.assertTrue(
+					"FuelSurcharge - 'butLessThanValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
+									.getValue("highRange1")));
+			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
+					.verifyGlobalSurchargeLTLValue(propertyValue
+							.getValue("LTL1")));
+			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
+					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
+							.getValue("TL1")));
+
+			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeAtLeastValue(propertyValue
+									.getValue("lowRange2")));
+			Assert.assertTrue(
+					"FuelSurcharge - 'butLessThanValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
+									.getValue("highRange2")));
+			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
+					.verifyGlobalSurchargeLTLValue(propertyValue
+							.getValue("LTL2")));
+			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
+					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
+							.getValue("TL2")));
+
+			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeAtLeastValue(propertyValue
+									.getValue("lowRange3")));
+			Assert.assertTrue(
+					"FuelSurcharge - 'butLessThanValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
+									.getValue("highRange3")));
+			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
+					.verifyGlobalSurchargeLTLValue(propertyValue
+							.getValue("LTL3")));
+			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
+					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
+							.getValue("TL3")));
+
+			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeAtLeastValue(propertyValue
+									.getValue("lowRange4")));
+			Assert.assertTrue(
+					"FuelSurcharge - 'butLessThanValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
+									.getValue("highRange4")));
+			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
+					.verifyGlobalSurchargeLTLValue(propertyValue
+							.getValue("LTL4")));
+			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
+					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
+							.getValue("TL4")));
+
+			Assert.assertTrue("FuelSurcharge - 'atLeastValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeAtLeastValue(propertyValue
+									.getValue("lowRange5")));
+			Assert.assertTrue(
+					"FuelSurcharge - 'butLessThanValue' ::",
+					fuelSurcharge
+							.verifyGlobalSurchargeButLessThanValue(propertyValue
+									.getValue("highRange5")));
+			Assert.assertTrue("FuelSurcharge - 'ltlValue' ::", fuelSurcharge
+					.verifyGlobalSurchargeLTLValue(propertyValue
+							.getValue("LTL5")));
+			Assert.assertTrue("FuelSurcharge - 'tlValue' ::",
+					fuelSurcharge.verifyGlobalSurchargeTLValue(propertyValue
+							.getValue("TL5")));
+
+			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL1"));
+			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL2"));
+			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL3"));
+			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL4"));
+			fuelSurcharge.deletingGlobalRows(propertyValue.getValue("TL5"));
+
+			logger.info("========== FINAL MESSAGE :: Procedure to Create Global Fuel Surcharge Test Executed Successfully ==========");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

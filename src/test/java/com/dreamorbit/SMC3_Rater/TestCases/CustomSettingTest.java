@@ -39,11 +39,145 @@ public class CustomSettingTest extends TestBase {
 		customSetting = new CustomSetting(driver);
 	}
 
+	// 4. Create a Setting with Data Module Test
+	@Test
+	public void verifyCreateASettingWithDataModule() throws Exception {
+		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with Data Module Test Execution Started ==========");
+
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
+			manageSettings.addingACustomSetting(
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
+
+			customSetting.clickingOnTogglePresentForDataModule();
+			customSetting.settingUpDataModule(
+					propertyValue.getValue("rateFamily1"),
+					propertyValue.getValue("availableTariffs1"));
+
+			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			String Actual = rateAShipment.verifySelectedValueInRateFamily();
+			Assert.assertEquals("RateAShipmentPage - 'rateFamilyDropDown' ::",
+					propertyValue.getValue("rateFamily1"), Actual);
+			String Actual1 = rateAShipment
+					.verifySelectedValueInAvailableTariffs();
+			Assert.assertEquals(
+					"RateAShipmentPage - 'availableTariffsDropDown' ::",
+					propertyValue.getValue("availableTariffs1"), Actual1);
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings
+					.clickingOnArrowPresentForASetting(customSettingDetails
+							.getValue("customSettingID"));
+			customSetting.settingUpDataModule(
+					propertyValue.getValue("rateFamily2"),
+					propertyValue.getValue("availableTariffs2"));
+
+			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			String Actual3 = rateAShipment.verifySelectedValueInRateFamily();
+			Assert.assertEquals("RateAShipmentPage - 'rateFamilyDropDown' ::",
+					propertyValue.getValue("rateFamily2"), Actual3);
+			String Actual4 = rateAShipment
+					.verifySelectedValueInAvailableTariffs();
+			Assert.assertEquals(
+					"RateAShipmentPage - 'availableTariffsDropDown' ::",
+					propertyValue.getValue("availableTariffs2"), Actual4);
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			logger.info("========== FINAL MESSAGE :: Create a Setting with Data Module Test Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
+	}
+
+	// 5. Create a Setting with Single Discount Test
+	@Test
+	public void verifyCreateASettingWithSingleDiscount() throws Exception {
+		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with Single Discount Test Execution Started ==========");
+
+			loginToApplication.LoginToApplication(
+					propertyValue.getValue("loginUserName"),
+					propertyValue.getValue("loginPassword"));
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.generatingAndStoringARandomSettingName();
+			manageSettings.addingACustomSetting(
+					customSettingDetails.getValue("customSettingID"),
+					customSettingDetails.getValue("customSettingDescription"));
+			customSetting.clickingOnTogglePresentForDiscounts();
+			customSetting.enteringSingleDiscountsDetails(
+					propertyValue.getValue("discount4"),
+					propertyValue.getValue("mcDiscount4"),
+					propertyValue.getValue("mcFloor4"));
+
+			rateAShipment.clickingOnRateAShipmentTab();
+			rateAShipment.selectSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			boolean selected = rateAShipment
+					.verifyIfSingleDiscountRadioButtonIsSelected();
+			Assert.assertTrue(
+					"RateAShipmentPage - 'singleDiscountRadioButton' ::",
+					selected);
+			String actual = rateAShipment.verifyDiscountTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
+					propertyValue.getValue("discount4"), actual);
+			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
+					propertyValue.getValue("mcDiscount4"), actual1);
+			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
+			Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
+					propertyValue.getValue("mcFloor4"), actual2);
+
+			manageSettings.clickingOnManageSettingsTab();
+			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.deletingACustomSetting(customSettingDetails
+					.getValue("customSettingID"));
+
+			logger.info("========== FINAL MESSAGE :: Create a Setting with Single Discount Test Executed Successfully ==========");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
+					.currentThread().getStackTrace()[1].getMethodName());
+			Assert.fail();
+		}
+	}
+
 	// 6. Create a Setting with Multiple Discount Test
 	// 19. Procedure to Create a Multiple Discount
-	// @Test
+	@Test
 	public void verifyCreateASettingWithMultipleDiscount() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with Multiple Discount Test & Procedure to Create a Multiple Discount Test Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -189,135 +323,7 @@ public class CustomSettingTest extends TestBase {
 			manageSettings.deletingACustomSetting(customSettingDetails
 					.getValue("customSettingID"));
 
-			logger.info("========== FINAL MESSAGE :: Multiple Discount Test (Create & Edit) Executed Successfully ==========");
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
-					.currentThread().getStackTrace()[1].getMethodName());
-			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
-					.currentThread().getStackTrace()[1].getMethodName());
-			Assert.fail();
-		}
-	}
-
-	// 4. Create a Setting with Data Module Test
-	// @Test
-	public void verifyCreateASettingWithDataModule() throws Exception {
-		try {
-			loginToApplication.LoginToApplication(
-					propertyValue.getValue("loginUserName"),
-					propertyValue.getValue("loginPassword"));
-
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.generatingAndStoringARandomSettingName();
-			manageSettings.addingACustomSetting(
-					customSettingDetails.getValue("customSettingID"),
-					customSettingDetails.getValue("customSettingDescription"));
-
-			customSetting.clickingOnTogglePresentForDataModule();
-			customSetting.settingUpDataModule(
-					propertyValue.getValue("rateFamily1"),
-					propertyValue.getValue("availableTariffs1"));
-
-			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(customSettingDetails
-					.getValue("customSettingID"));
-
-			String Actual = rateAShipment.verifySelectedValueInRateFamily();
-			Assert.assertEquals("RateAShipmentPage - 'rateFamilyDropDown' ::",
-					propertyValue.getValue("rateFamily1"), Actual);
-			String Actual1 = rateAShipment
-					.verifySelectedValueInAvailableTariffs();
-			Assert.assertEquals(
-					"RateAShipmentPage - 'availableTariffsDropDown' ::",
-					propertyValue.getValue("availableTariffs1"), Actual1);
-
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
-			manageSettings
-					.clickingOnArrowPresentForASetting(customSettingDetails
-							.getValue("customSettingID"));
-			customSetting.settingUpDataModule(
-					propertyValue.getValue("rateFamily2"),
-					propertyValue.getValue("availableTariffs2"));
-
-			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(customSettingDetails
-					.getValue("customSettingID"));
-
-			String Actual3 = rateAShipment.verifySelectedValueInRateFamily();
-			Assert.assertEquals("RateAShipmentPage - 'rateFamilyDropDown' ::",
-					propertyValue.getValue("rateFamily2"), Actual3);
-			String Actual4 = rateAShipment
-					.verifySelectedValueInAvailableTariffs();
-			Assert.assertEquals(
-					"RateAShipmentPage - 'availableTariffsDropDown' ::",
-					propertyValue.getValue("availableTariffs2"), Actual4);
-
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(customSettingDetails
-					.getValue("customSettingID"));
-
-			logger.info("========== FINAL MESSAGE :: Create a Setting with Data Module Test Executed Successfully ==========");
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			ExceptionalHandlingFunctions.captureScreenShot(driver, Thread
-					.currentThread().getStackTrace()[1].getMethodName());
-			ExceptionalHandlingFunctions.writeTOLog(e.getMessage(), Thread
-					.currentThread().getStackTrace()[1].getMethodName());
-			Assert.fail();
-		}
-	}
-
-	// 5. Create a Setting with Single Discount Test
-	// @Test
-	public void verifyCreateASettingWithSingleDiscount() throws Exception {
-		try {
-			loginToApplication.LoginToApplication(
-					propertyValue.getValue("loginUserName"),
-					propertyValue.getValue("loginPassword"));
-
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.generatingAndStoringARandomSettingName();
-			manageSettings.addingACustomSetting(
-					customSettingDetails.getValue("customSettingID"),
-					customSettingDetails.getValue("customSettingDescription"));
-			customSetting.clickingOnTogglePresentForDiscounts();
-			customSetting.enteringSingleDiscountsDetails(
-					propertyValue.getValue("discount4"),
-					propertyValue.getValue("mcDiscount4"),
-					propertyValue.getValue("mcFloor4"));
-
-			rateAShipment.clickingOnRateAShipmentTab();
-			rateAShipment.selectSetting(customSettingDetails
-					.getValue("customSettingID"));
-
-			boolean selected = rateAShipment
-					.verifyIfSingleDiscountRadioButtonIsSelected();
-			Assert.assertTrue(
-					"RateAShipmentPage - 'singleDiscountRadioButton' ::",
-					selected);
-			String actual = rateAShipment.verifyDiscountTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'discountTextBox' ::",
-					propertyValue.getValue("discount4"), actual);
-			String actual1 = rateAShipment.verifyMCDiscountTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'mcDiscountTextBox' ::",
-					propertyValue.getValue("mcDiscount4"), actual1);
-			String actual2 = rateAShipment.verifyMCFloorTextBoxValue();
-			Assert.assertEquals("RateAShipmentPage - 'mcFloorTextBox' ::",
-					propertyValue.getValue("mcFloor4"), actual2);
-
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
-			manageSettings.deletingACustomSetting(customSettingDetails
-					.getValue("customSettingID"));
-
-			logger.info("========== FINAL MESSAGE :: Create a Setting with Single Discount Test Executed Successfully ==========");
+			logger.info("========== FINAL MESSAGE :: Create a Setting with Multiple Discount Test & Procedure to Create a Multiple Discount Test Executed Successfully ==========");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -330,9 +336,11 @@ public class CustomSettingTest extends TestBase {
 	}
 
 	// 14. Create a Setting with Constant Class Test
-	// @Test
+	@Test
 	public void verifyCreateASettingWithConstantClassTest() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with Constant Class Test Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -376,9 +384,11 @@ public class CustomSettingTest extends TestBase {
 	}
 
 	// 15. Create a Setting with Constant Zips Test
-	// @Test
+	@Test
 	public void verifyCreateASettingWithConstantZipsTest() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with Constant Zips Test Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -423,10 +433,12 @@ public class CustomSettingTest extends TestBase {
 		}
 	}
 
-	// 15. Create a Setting with FAK Test
+	// 16. Create a Setting with FAK Test
 	@Test
 	public void verifyCreateASettingWithFAKTest() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with FAK Test Execution Started ==========");
+			
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));

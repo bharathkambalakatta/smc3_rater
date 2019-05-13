@@ -43,9 +43,11 @@ public class ZipDiscountTest extends TestBase {
 	}
 
 	// 7. Create a Setting with Zip Discount Test
-	// @Test
+	@Test
 	public void verifyCreateASettingWithZipDiscountTest() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Setting with Zip Discount Test Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -155,9 +157,11 @@ public class ZipDiscountTest extends TestBase {
 	}
 
 	// 8. Edit a Setting with Zip Discount Test
-	// @Test
+	@Test
 	public void verifyEditASettingWithZipDiscountTest() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Edit a Setting with Zip Discount Test Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -303,9 +307,11 @@ public class ZipDiscountTest extends TestBase {
 	}
 
 	// 9. Zip Discount Range Overlap Test
-	// @Test
+	@Test
 	public void verifyZipDiscountRangeOverlapTest() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Zip Discount Range Overlap Test Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));

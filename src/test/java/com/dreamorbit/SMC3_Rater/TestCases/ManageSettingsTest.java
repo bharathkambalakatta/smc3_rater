@@ -36,10 +36,13 @@ public class ManageSettingsTest extends TestBase {
 		manageSettings = new ManageSettings(driver);
 	}
 
-	// 2. Create a Custom Setting Test & 3. Procedure to Delete a Setting
-	// @Test
+	// 2. Create a Custom Setting Test
+	// 3. Procedure to Delete a Setting
+	@Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create a Custom Setting Test & Procedure to Delete a Setting Test Execution Started ==========");
+
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
@@ -72,7 +75,7 @@ public class ManageSettingsTest extends TestBase {
 			Assert.assertFalse("RateAShipmentPage - 'settingsDropDown' ::",
 					notAvailable);
 
-			logger.info("========== FINAL MESSAGE :: Custom Setting Created and Deleted Successfully ==========");
+			logger.info("========== FINAL MESSAGE :: Create a Custom Setting Test & Procedure to Delete a Setting Test Executed Successfully ==========");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -77,6 +77,6 @@ public class TestBase {
 
 	@After
 	public void endTest() {
-//		driver.quit();
+		driver.quit();
 	}
 }

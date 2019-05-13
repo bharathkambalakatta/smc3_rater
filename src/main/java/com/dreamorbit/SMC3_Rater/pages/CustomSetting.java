@@ -24,12 +24,12 @@ public class CustomSetting extends TestBase {
 
 	WebDriver driver;
 
-	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
-	// When setting is opened - Data Module sub-section
 	@FindBy(xpath = "//div[@id='ajax-loader']/img")
 	private WebElement loadingImage;
 
-	@FindBy(xpath = "//div[@class='data-module-container']//div[@class='form-group']")
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Data Module section - Web Elements
+	@FindBy(xpath = "//div[@class='data-module-container']//div[@class='checkbox discount-link']//label")
 	private WebElement toggleForDataModule;
 
 	@FindBy(xpath = "//select[@id='rater-family']")
@@ -38,9 +38,9 @@ public class CustomSetting extends TestBase {
 	@FindBy(xpath = "//select[@id='rater-tariff']")
 	private WebElement availableTariffsDropDown;
 
-	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
-	// When setting is opened - Discounts sub-section
-	@FindBy(xpath = "//div[@id='carrier']//div[@class='discount-box']//div[@class='form-group']")
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Discounts section - Web Elements
+	@FindBy(xpath = "//div[@id='carrier']//div[@class='discount-box']//div[@class='checkbox discount-link']//label")
 	private WebElement toggleForDiscounts;
 
 	@FindBy(xpath = "//input[@id='custdiscount']")
@@ -94,12 +94,16 @@ public class CustomSetting extends TestBase {
 	@FindBy(xpath = "//div[@class='card-header add-header cust-multiple-disc show-table']//img[@class='img img-responsive']")
 	private WebElement editMultipleDiscountButton;
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Constant Class section - Web Elements
 	@FindBy(xpath = "//div[@id='custom-constant-box']//div[@class='checkbox discount-link']//label")
 	private WebElement toggleForConstantClass;
 
 	@FindBy(xpath = "//select[@id='constantSelect1']")
 	private WebElement constantClassDropDown;
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Constant ZIPS section - Web Elements
 	@FindBy(xpath = "//div[@id='custom-zip-box']//div[@class='checkbox discount-link']//label")
 	private WebElement toggleForConstantZIPS;
 
@@ -109,6 +113,8 @@ public class CustomSetting extends TestBase {
 	@FindBy(xpath = "//input[@id='destinationZip']")
 	private WebElement destinationZIPTextBox;
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - FAK section - Web Elements
 	@FindBy(xpath = "//div[@id='fakbox']//div[@class='checkbox discount-link']//label")
 	private WebElement toggleForFAK;
 
@@ -129,8 +135,8 @@ public class CustomSetting extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	// MANAGE SETTINGS page - Custom Setting - Data Module - Various functions
-	// which are used in the test cases
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Data Module section - Functions
 	public void clickingOnTogglePresentForDataModule() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -143,19 +149,19 @@ public class CustomSetting extends TestBase {
 			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOf(RateFamilyDropDown));
 		Select select = new Select(RateFamilyDropDown);
 		select.selectByVisibleText(rateFamily);
-		Thread.sleep(1000);
+		Thread.sleep(2000);// Wait is required till next drop down is loaded
 		wait.until(ExpectedConditions.visibilityOf(availableTariffsDropDown));
 		Select select1 = new Select(availableTariffsDropDown);
 		select1.selectByVisibleText(availableTariffs);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Data Module' details");
 	}
 
-	// MANAGE SETTINGS page - Custom Setting - Discounts - Various functions
-	// which are used in the test cases
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Discounts section - Functions
 	public void clickingOnTogglePresentForDiscounts() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -171,17 +177,17 @@ public class CustomSetting extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(discountTextBox));
 		discountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);// Value is setting back to 0.00 without wait
 		discountTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		discountTextBox.sendKeys(discount);
 		wait.until(ExpectedConditions.elementToBeClickable(mcDiscountTextBox));
 		mcDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);// Value is setting back to 0.00 without wait
 		mcDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcDiscountTextBox.sendKeys(mcDiscount);
 		wait.until(ExpectedConditions.elementToBeClickable(mcFloorTextBox));
 		mcFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);// Value is setting back to 0.00 without wait
 		mcFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcFloorTextBox.sendKeys(mcFloor);
 
@@ -194,6 +200,7 @@ public class CustomSetting extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(multipleOption));
 		multipleOption.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Multiple' option");
 	}
 
 	public void enteringMultipleDiscountsDetails(String l5c, String m5c,
@@ -278,9 +285,11 @@ public class CustomSetting extends TestBase {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(editMultipleDiscountButton));
 		editMultipleDiscountButton.click();
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Edit' multiple discount");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Edit' multiple discount details");
 	}
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Constant Class section - Functions
 	public void clickingOnTogglePresentForConstantClass() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -301,6 +310,8 @@ public class CustomSetting extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has selected a 'Constant Class'");
 	}
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Constant ZIPS section - Functions
 	public void clickingOnTogglePresentForConstantZIPS() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -322,10 +333,12 @@ public class CustomSetting extends TestBase {
 				.elementToBeClickable(destinationZIPTextBox));
 		destinationZIPTextBox.clear();
 		destinationZIPTextBox.sendKeys(destinationZIP);
-		Thread.sleep(2000);
+		Thread.sleep(3000);// Value is not getting set without wait in Firefox
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Constant ZIPS' details");
 	}
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - FAK section - Functions
 	public void clickingOnTogglePresentForFAK() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -340,7 +353,7 @@ public class CustomSetting extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(class50DropDown));
-		Thread.sleep(1000);
+		Thread.sleep(2000);// Value is not getting set without wait
 		Select select = new Select(class50DropDown);
 		select.selectByVisibleText(class50);
 		wait.until(ExpectedConditions.elementToBeClickable(class55DropDown));

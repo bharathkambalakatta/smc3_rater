@@ -23,12 +23,17 @@ public class ZipDiscount extends TestBase {
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
 
-	@FindBy(xpath = "//button[contains(text(),'Zip Discount')]")
-	private WebElement zipDiscountButton;
-
 	@FindBy(xpath = "//div[@id='ajax-loader']/img")
 	private WebElement loadingImage;
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a setting is
+	// opened - Discounts section - Zip Discount - Web Elements
+	@FindBy(xpath = "//button[contains(text(),'Zip Discount')]")
+	private WebElement zipDiscountButton;
+
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a setting is
+	// opened - Discounts section - Zip Discount - Discount ID (ZIP) - Web
+	// Elements
 	@FindBy(xpath = "//h6[contains(text(),'Discount ID (ZIP)')]/parent::a")
 	private WebElement discountIDButton;
 
@@ -74,6 +79,9 @@ public class ZipDiscount extends TestBase {
 	@FindBy(xpath = "//a[@title='Save/Add']")
 	private WebElement saveDiscountIDButton;
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a setting is
+	// opened - Discounts section - Zip Discount - Range Settings - Web
+	// Elements
 	@FindBy(xpath = "//button[@class='btn btn-responsive submit-btn create-range-btn cancel']")
 	private WebElement createRangeButton;
 
@@ -153,6 +161,8 @@ public class ZipDiscount extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Discounts section - Zip Discount - Functions
 	public void clickingOnZipDiscountButton() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -162,6 +172,8 @@ public class ZipDiscount extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Zip Discount' button");
 	}
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a setting is
+	// opened - Discounts section - Zip Discount - Discount ID (ZIP) - Functions
 	public void clickingOnDiscountIDOption() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -185,7 +197,7 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(discountIDTextBox));
 		discountIDTextBox.clear();
 		discountIDTextBox.sendKeys(discountID);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Discount ID'");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered a 'Discount ID'");
 	}
 
 	public void enteringDiscountIDDetails(String l5c, String m5c, String m1m,
@@ -262,6 +274,8 @@ public class ZipDiscount extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has saved 'Discount ID' details");
 	}
 
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a setting is
+	// opened - Discounts section - Zip Discount - Range Settings - Functions
 	public void clickingOnCreateRangeButton() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -289,11 +303,11 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(originHTextBox));
 		originHTextBox.clear();
 		originHTextBox.sendKeys(zip2);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Origin ZIP' details for Postal Code type");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has entered 'Origin ZIP' details for Postal Code type");
 	}
 
 	public String verifyOriginTypeDropDownValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin - Type' drop down value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin - Type' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -303,7 +317,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public String verifyOriginCountryDropDownValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin - Country' drop down value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin - Country' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -313,7 +327,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public String verifyOriginZip1TextBoxValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin - Zip 1' text box value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin - Zip 1' text box value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(editOriginLTextBox));
@@ -321,7 +335,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public String verifyOriginZip2TextBoxValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin - Zip 2' text box value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin - Zip 2' text box value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(editOriginHTextBox));
@@ -335,7 +349,7 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(originTypeDropDown));
 		Select select = new Select(originTypeDropDown);
 		select.selectByVisibleText(type);
-		Thread.sleep(1000);
+		Thread.sleep(2000);// Required as Selenium execution is fast
 		wait.until(ExpectedConditions
 				.elementToBeClickable(originCountryDropDown));
 		Select select1 = new Select(originCountryDropDown);
@@ -344,17 +358,19 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(originStateDropDown));
 		Select select2 = new Select(originStateDropDown);
 		select2.selectByVisibleText(state);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Origin ZIP' details for State type");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has entered 'Origin ZIP' details for State type");
 	}
 
 	public void enteringDestinationZipDetailsForPostalCodeType(String type,
-			String country, String zip1, String zip2) {
+			String country, String zip1, String zip2)
+			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(destinationTypeDropDown));
 		Select select = new Select(destinationTypeDropDown);
 		select.selectByVisibleText(type);
+		Thread.sleep(2000);// Required as Selenium execution is fast
 		wait.until(ExpectedConditions
 				.elementToBeClickable(destinationCountryDropDown));
 		Select select1 = new Select(destinationCountryDropDown);
@@ -366,11 +382,11 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(destinationHTextBox));
 		destinationHTextBox.clear();
 		destinationHTextBox.sendKeys(zip2);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Destination ZIP' details for Postal Code type");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has entered 'Destination ZIP' details for Postal Code type");
 	}
 
 	public String verifyDestinationTypeDropDownValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Destination - Type' drop down value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Destination - Type' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -380,7 +396,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public String verifyDestinationCountryDropDownValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Destination - Country' drop down value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Destination - Country' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -390,7 +406,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public String verifyDestinationZip1TextBoxValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Destination - Zip 1' text box value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Destination - Zip 1' text box value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -399,7 +415,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public String verifyDestinationZip2TextBoxValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Destination - Zip 2' text box value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Destination - Zip 2' text box value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -424,7 +440,7 @@ public class ZipDiscount extends TestBase {
 				.elementToBeClickable(destinationStateDropDown));
 		Select select2 = new Select(destinationStateDropDown);
 		select2.selectByVisibleText(state);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has entered 'Destination ZIP' details for State type");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has entered 'Destination ZIP' details for State type");
 	}
 
 	public void selectDiscountID(String discountID) {
@@ -433,11 +449,11 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(discountIDDropDown));
 		Select select = new Select(discountIDDropDown);
 		select.selectByVisibleText(discountID);
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has selected a value from 'DISCOUNT ID' drop down");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has selected a value from 'DISCOUNT ID' drop down");
 	}
 
 	public String verifyDiscountIDDropDownValue() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Discount ID' drop down value");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Discount ID' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
@@ -452,7 +468,7 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(saveRangeButton));
 		saveRangeButton.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has saved 'Discount ID' details");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has saved 'Discount ID' details");
 	}
 
 	public void clickingOnCancelRangeButton() {
@@ -460,11 +476,11 @@ public class ZipDiscount extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(cancelRangeButton));
 		cancelRangeButton.click();
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has clicked on 'Cancel' Range button");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has clicked on 'Cancel' Range button");
 	}
 
 	public String verifyErrorDisplayedForZipRange() {
-		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Custom Setting - Zip Discount - Verifying the error displayed for Zip Range");
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Custom Setting - Zip Discount - Range Settings - Verifying the error displayed for Zip Range");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(errorBlock));
@@ -472,7 +488,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public boolean verifyZipRangeOriginValue(String origin) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin' value in the table");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin' value in the table");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement originValue = driver
@@ -487,7 +503,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public boolean verifyZipRangeDestinationValue(String destination) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin' value in the table");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin' value in the table");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement destinationValue = driver.findElement(By
@@ -502,7 +518,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public boolean verifyZipRangeDiscountIDValueValue(String discountID) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Verifying 'Origin' value in the table");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin' value in the table");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement discountIDValue = driver.findElement(By
@@ -523,6 +539,6 @@ public class ZipDiscount extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has clicked on 'Edit' Zip Range button");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has clicked on 'Edit' Zip Range button");
 	}
 }

@@ -23,26 +23,23 @@ public class ManageSettings extends TestBase {
 
 	PropertyFileUtility propertyValue = new PropertyFileUtility("./Files/"
 			+ "/DataFile.properties");
-	PropertyFileUtility customSettingDetails = new PropertyFileUtility("./Files/"
-			+ "/RandomSetting.properties");
+	PropertyFileUtility customSettingDetails = new PropertyFileUtility(
+			"./Files/" + "/RandomSetting.properties");
 
 	WebDriver driver;
-
-	// MANAGE SETTINGS page - Elements present in the header
-	@FindBy(xpath = "//a[contains(text(),'Manage Settings')]")
-	private WebElement manageSettingsTab;
-
-	@FindBy(xpath = "//a[@id='defaultPanel']")
-	private WebElement defaultSettingOption;
-
-	@FindBy(xpath = "//a[@id='custom-set-button']")
-	private WebElement customSettingOption;
 
 	@FindBy(xpath = "//div[@id='ajax-loader']/img")
 	private WebElement loadingImage;
 
-	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
-	// Setting table
+	// MANAGE SETTINGS page - Header - Web Elements
+	@FindBy(xpath = "//a[contains(text(),'Manage Settings')]")
+	private WebElement manageSettingsTab;
+
+	// MANAGE SETTINGS page - Custom Setting - Web Elements
+	@FindBy(xpath = "//a[@id='custom-set-button']")
+	private WebElement customSettingOption;
+
+	// MANAGE SETTINGS page - Custom Setting - Setting table - Web Elements
 	@FindBy(xpath = "//div[@class='card-header add-header custom-row active']//*[contains(text(),'Add New Row')]")
 	private WebElement addNewRowButton;
 
@@ -55,9 +52,8 @@ public class ManageSettings extends TestBase {
 	@FindBy(xpath = "//tr[@id='trCust-1 ']//div[3]")
 	private WebElement saveButton;
 
-
-	// MANAGE SETTINGS page - Elements present in 'Custom Setting' section -
-	// When setting is opened
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Web Elements
 	@FindBy(xpath = "//span[@id='settingName']")
 	private WebElement settingName;
 
@@ -66,7 +62,7 @@ public class ManageSettings extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	// MANAGE SETTINGS page - Various functions which are used in the test cases
+	// MANAGE SETTINGS page - Header - Functions
 	public void clickingOnManageSettingsTab() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -75,17 +71,7 @@ public class ManageSettings extends TestBase {
 		logger.info("MESSAGE :: User has clicked on 'MANAGE SETTINGS' Tab");
 	}
 
-	public void clickingOnDefaultSettingOption() {
-		WebDriverWait wait = new WebDriverWait(driver,
-				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(
-				ExpectedConditions.elementToBeClickable(defaultSettingOption))
-				.click();
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Default Setting' option");
-	}
-
-	// MANAGE SETTINGS page - Custom Setting - Various functions which are used
-	// in the test cases
+	// MANAGE SETTINGS page - Custom Setting - Functions
 	public void clickingOnCustomSettingOption() {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
@@ -95,16 +81,16 @@ public class ManageSettings extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has clicked on 'Custom Setting' option");
 	}
 
-	// MANAGE SETTINGS page - Custom Setting - Setting table - Various functions
-	// which are used in the test cases
+	// MANAGE SETTINGS page - Custom Setting - Setting table - Functions
 	public void generatingAndStoringARandomSettingName() {
-		Random randomGenerator = new Random(); 
-		int randomInt = randomGenerator.nextInt(999999);  
-		String randomString = "Custom Setting "+Integer.toString(randomInt);
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(999999);
+		String randomString = "Custom Setting " + Integer.toString(randomInt);
 		customSettingDetails.addDataToTheFile("customSettingID", randomString);
-		customSettingDetails.addDataToTheFile("customSettingDescription", "Custom Setting Test Description");
+		customSettingDetails.addDataToTheFile("customSettingDescription",
+				"Custom Setting Test Description");
 	}
-	
+
 	public void addingACustomSetting(String settingID, String description)
 			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,

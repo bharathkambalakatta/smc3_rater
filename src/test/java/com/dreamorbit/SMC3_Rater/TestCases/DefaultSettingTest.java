@@ -38,16 +38,18 @@ public class DefaultSettingTest extends TestBase {
 	}
 
 	// 1. Create Default Setting Test
-	// @Test
+	@Test
 	public void verifyCreateDefaultSettingTest() throws Exception {
 		try {
+			logger.info("========== STARTING MESSAGE :: Create Default Setting Test Execution Started ==========");
+			
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
 					propertyValue.getValue("loginPassword"));
 
 			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnDefaultSettingOption();
 
+			defaultSetting.clickingOnDefaultSettingOption();
 			defaultSetting.makingDefaultDiscountsToggleON();
 			defaultSetting.enteringDefaultDiscountsDetails(
 					propertyValue.getValue("defaultDiscount1"),
@@ -122,8 +124,8 @@ public class DefaultSettingTest extends TestBase {
 					propertyValue.getValue("loginPassword"));
 
 			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnDefaultSettingOption();
 
+			defaultSetting.clickingOnDefaultSettingOption();
 			defaultSetting.makingDefaultDiscountsToggleOff();
 			defaultSetting.makingDefaultConstantClassToggleOff();
 			defaultSetting.makingDefaultConstantZIPSToggleOff();
