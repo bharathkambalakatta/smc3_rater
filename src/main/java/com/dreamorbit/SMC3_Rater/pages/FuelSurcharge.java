@@ -150,15 +150,16 @@ public class FuelSurcharge extends TestBase {
 						+ TL + "')]//following::a[@class='delete-row'][1]//img");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		if (driver.findElement(deleteButton) != null) {
-			wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
-			(driver.findElement(deleteButton)).click();
-			wait.until(ExpectedConditions.alertIsPresent());
-			driver.switchTo().alert().accept();
-			wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-			Thread.sleep(2000);// Required for Firefox browser
-			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has deleted a row");
-		} else {
+		try {
+			if (driver.findElement(deleteButton).isDisplayed()) {
+				driver.findElement(deleteButton).click();
+				wait.until(ExpectedConditions.alertIsPresent());
+				driver.switchTo().alert().accept();
+				wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+				Thread.sleep(2000);// Required for Firefox browser
+				logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has deleted a row");
+			}
+		} catch (Exception e) {
 			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - There is no row to delete");
 		}
 	}

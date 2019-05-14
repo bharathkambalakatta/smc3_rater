@@ -43,7 +43,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 10. Create a Setting with Constant Surcharge Test
-//	@Test
+	@Test
 	public void verifyCreateASettingWithConstantSurchargeTest()
 			throws Exception {
 		try {
@@ -108,7 +108,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 11. Create a Setting with National Surcharge Test - Complete Range
-//	@Test
+	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestCompleteRange()
 			throws Exception {
 		try {
@@ -222,7 +222,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 12. Create a Setting with National Surcharge Test - Incomplete Range
-//	@Test
+	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestIncompleteRange()
 			throws Exception {
 		try {
@@ -310,7 +310,7 @@ public class FuelSurchargeTest extends TestBase {
 
 	// 13. Create a Setting with National Surcharge Test - Allow Override FSC
 	// Effective Date
-//	@Test
+	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestAllowOverrideFSCEffectiveDate()
 			throws Exception {
 		try {
@@ -422,12 +422,17 @@ public class FuelSurchargeTest extends TestBase {
 			manageSettings.clickingOnCustomSettingOption();
 
 			fuelSurcharge.clickingOnGlobalSubTab();
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL1"));
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL2"));
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL3"));
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL4"));
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL5"));
-						
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL1"));
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL2"));
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL3"));
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL4"));
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL5"));
+
 			fuelSurcharge.clickAddNewRow();
 			fuelSurcharge.fillGlobalSurchargeFields(
 					propertyValue.getValue("lowRange1"),
@@ -550,12 +555,17 @@ public class FuelSurchargeTest extends TestBase {
 							.getValue("TL5")));
 
 			fuelSurcharge.makingDefaultSurchargeToggleOFF();
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL1"));
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL2"));
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL3"));
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL4"));
-			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue.getValue("TL5"));
-			
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL1"));
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL2"));
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL3"));
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL4"));
+			fuelSurcharge.verifyingAndDeletingGlobalRowsIfPresent(propertyValue
+					.getValue("TL5"));
+
 			logger.info("========== FINAL MESSAGE :: Procedure to Create Global Fuel Surcharge Test Executed Successfully ==========");
 
 		} catch (Exception e) {
