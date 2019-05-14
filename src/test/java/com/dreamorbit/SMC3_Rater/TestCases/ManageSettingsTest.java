@@ -41,7 +41,7 @@ public class ManageSettingsTest extends TestBase {
 	@Test
 	public void verifyCreateAndDeleteACustomSetting() throws Exception {
 		try {
-			logger.info("========== INITIAL MESSAGE :: Create a Custom Setting Test & Procedure to Delete a Setting Test Execution Started ==========");
+			logger.info("********** INITIAL MESSAGE :: Create a Custom Setting Test & Procedure to Delete a Setting Test Execution Started **********");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -86,5 +86,4 @@ public class ManageSettingsTest extends TestBase {
 			Assert.fail();
 		}
 	}
-
 }

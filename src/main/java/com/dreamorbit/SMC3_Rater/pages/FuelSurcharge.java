@@ -143,18 +143,24 @@ public class FuelSurcharge extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has saved a row");
 	}
 
-	public void deletingGlobalRows(String TL) throws InterruptedException {
+	public void verifyingAndDeletingGlobalRowsIfPresent(String TL)
+			throws InterruptedException {
 		By deleteButton = By
 				.xpath("//table[@id='globalTable']//tr//div[contains(text(), '"
 						+ TL + "')]//following::a[@class='delete-row'][1]//img");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.elementToBeClickable(deleteButton))
-				.click();
-		driver.switchTo().alert().accept();
-		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		Thread.sleep(2000);// Required for Firefox browser
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has deleted a row");
+		if (driver.findElement(deleteButton) != null) {
+			wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
+			(driver.findElement(deleteButton)).click();
+			wait.until(ExpectedConditions.alertIsPresent());
+			driver.switchTo().alert().accept();
+			wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+			Thread.sleep(2000);// Required for Firefox browser
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - User has deleted a row");
+		} else {
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Global table - There is no row to delete");
+		}
 	}
 
 	// MANAGE SETTINGS page - Default Setting - Surcharge section - Functions

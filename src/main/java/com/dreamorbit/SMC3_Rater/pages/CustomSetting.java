@@ -177,17 +177,17 @@ public class CustomSetting extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(discountTextBox));
 		discountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(2000);// Value is setting back to 0.00 without wait
+		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		discountTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		discountTextBox.sendKeys(discount);
 		wait.until(ExpectedConditions.elementToBeClickable(mcDiscountTextBox));
 		mcDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(2000);// Value is setting back to 0.00 without wait
+		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		mcDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcDiscountTextBox.sendKeys(mcDiscount);
 		wait.until(ExpectedConditions.elementToBeClickable(mcFloorTextBox));
 		mcFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(2000);// Value is setting back to 0.00 without wait
+		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		mcFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcFloorTextBox.sendKeys(mcFloor);
 
@@ -330,11 +330,12 @@ public class CustomSetting extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(originZIPTextBox));
 		originZIPTextBox.clear();
 		originZIPTextBox.sendKeys(originZIP);
+		Thread.sleep(2000);// Value is not getting set without wait in Firefox
 		wait.until(ExpectedConditions
 				.elementToBeClickable(destinationZIPTextBox));
 		destinationZIPTextBox.clear();
 		destinationZIPTextBox.sendKeys(destinationZIP);
-		Thread.sleep(3000);// Value is not getting set without wait in Firefox
+		Thread.sleep(2000);// Value is not getting set without wait in Firefox
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Constant ZIPS' details");
 	}
 

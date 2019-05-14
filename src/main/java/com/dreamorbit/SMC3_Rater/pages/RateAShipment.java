@@ -59,9 +59,6 @@ public class RateAShipment extends TestBase {
 	@FindBy(xpath = "//input[@id='discountTypeSingle']")
 	private WebElement singleDiscountRadioButton;
 
-	@FindBy(xpath = "//input[@value='multiple']")
-	private WebElement multipleDiscountRadioButton;
-
 	@FindBy(xpath = "//input[@name='discount']")
 	private WebElement discountTextBox;
 
@@ -70,6 +67,9 @@ public class RateAShipment extends TestBase {
 
 	@FindBy(xpath = "//input[@id='minChargeFloor']")
 	private WebElement mcFloorTextBox;
+
+	@FindBy(xpath = "//input[@value='multiple']")
+	private WebElement multipleDiscountRadioButton;
 
 	@FindBy(xpath = "//td[contains(text(),'L5C')]/parent::tr//input")
 	private WebElement l5cTextBox;

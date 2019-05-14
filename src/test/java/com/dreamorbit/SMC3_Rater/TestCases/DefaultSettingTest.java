@@ -41,7 +41,7 @@ public class DefaultSettingTest extends TestBase {
 	@Test
 	public void verifyCreateDefaultSettingTest() throws Exception {
 		try {
-			logger.info("========== INITIAL MESSAGE :: Create Default Setting Test Execution Started ==========");
+			logger.info("********** INITIAL MESSAGE :: Create Default Setting Test Execution Started **********");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),

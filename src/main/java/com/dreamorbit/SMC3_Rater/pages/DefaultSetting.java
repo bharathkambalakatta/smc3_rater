@@ -99,19 +99,19 @@ public class DefaultSetting extends TestBase {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(defaultDiscountTextBox));
 		defaultDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(2000);// Value is setting back to 0.00 without wait
+		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		defaultDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		defaultDiscountTextBox.sendKeys(discount);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(defaultMCDiscountTextBox));
 		defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(2000);// Value is setting back to 0.00 without wait
+		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		defaultMCDiscountTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		defaultMCDiscountTextBox.sendKeys(mcDiscount);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(defaultMCFloorTextBox));
 		defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(2000);// Value is setting back to 0.00 without wait
+		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		defaultMCFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		defaultMCFloorTextBox.sendKeys(mcFloor);
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Discount' details");
@@ -180,7 +180,7 @@ public class DefaultSetting extends TestBase {
 			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant ZIPS' section toggle is already ON");
 		} else {
 			toggleForDefaultConstantZIPs.click();
-			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant Class' section toggle has been set to ON");
+			logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - 'Constant ZIPS' section toggle has been set to ON");
 		}
 	}
 
@@ -192,6 +192,7 @@ public class DefaultSetting extends TestBase {
 				.elementToBeClickable(defaultOriginZIPTextBox));
 		defaultOriginZIPTextBox.clear();
 		defaultOriginZIPTextBox.sendKeys(originZIP);
+		Thread.sleep(2000);// Value is not getting set without wait in Firefox
 		wait.until(ExpectedConditions
 				.elementToBeClickable(defaultDestinationZIPTextBox));
 		defaultDestinationZIPTextBox.clear();

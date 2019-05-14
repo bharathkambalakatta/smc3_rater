@@ -46,7 +46,7 @@ public class ZipDiscountTest extends TestBase {
 	@Test
 	public void verifyCreateASettingWithZipDiscountTest() throws Exception {
 		try {
-			logger.info("========== INITIAL MESSAGE :: Create a Setting with Zip Discount Test Execution Started ==========");
+			logger.info("********** INITIAL MESSAGE :: Create a Setting with Zip Discount Test Execution Started **********");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -160,7 +160,7 @@ public class ZipDiscountTest extends TestBase {
 	@Test
 	public void verifyEditASettingWithZipDiscountTest() throws Exception {
 		try {
-			logger.info("========== INITIAL MESSAGE :: Edit a Setting with Zip Discount Test Execution Started ==========");
+			logger.info("********** INITIAL MESSAGE :: Edit a Setting with Zip Discount Test Execution Started **********");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -310,7 +310,7 @@ public class ZipDiscountTest extends TestBase {
 	@Test
 	public void verifyZipDiscountRangeOverlapTest() throws Exception {
 		try {
-			logger.info("========== INITIAL MESSAGE :: Zip Discount Range Overlap Test Execution Started ==========");
+			logger.info("********** INITIAL MESSAGE :: Zip Discount Range Overlap Test Execution Started **********");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
