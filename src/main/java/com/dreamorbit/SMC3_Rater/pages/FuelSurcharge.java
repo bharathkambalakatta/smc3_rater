@@ -82,9 +82,9 @@ public class FuelSurcharge extends TestBase {
 	private WebElement saveCustomSurchargeButton;
 
 	@FindBy(xpath = "//div[@id='surcharge_note']/span[@class='note-text']/span")
-	private WebElement incompleteRangeText;
+	private WebElement rangeMessage;
 
-	@FindBy(xpath = "//span[@title='It is recommended that the range of fuel prices covered is 0 to $5  per gallon. Your range is from 0.0 to $3.401']/img")
+	@FindBy(xpath = "//span[@title='It is recommended that the range of fuel prices covered is 0 to $5 per gallon. Your range is from 0.0 to $3.401']/img")
 	private WebElement errorImage;
 
 	@FindBy(xpath = "//span[contains(text(),'Allow Override FSC Effective Date')]")
@@ -361,12 +361,12 @@ public class FuelSurcharge extends TestBase {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - User has saved a row");
 	}
 
-	public String verifyErrorMessageText() {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - Verifying error message displayed");
+	public String verifyRangeMessage() {
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - Verifying range message displayed");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
-		wait.until(ExpectedConditions.visibilityOf(incompleteRangeText));
-		return incompleteRangeText.getText();
+		wait.until(ExpectedConditions.visibilityOf(rangeMessage));
+		return rangeMessage.getText();
 	}
 
 	public boolean verifyErrorImage() {

@@ -28,7 +28,7 @@ public class RateAShipment extends TestBase {
 	WebDriver driver;
 
 	// RATE A SHIPMENT page - Header - Web Elements
-	@FindBy(xpath = "//div[@id='rateShipmentTab']//a")
+	@FindBy(xpath = "//a[contains(text(),'Rate A Shipment')]")
 	private WebElement rateAShipmentTab;
 
 	@FindBy(xpath = "//a[contains(text(),'Log Out')]")

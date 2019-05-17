@@ -43,7 +43,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 10. Create a Setting with Constant Surcharge Test
-	@Test
+//	@Test
 	public void verifyCreateASettingWithConstantSurchargeTest()
 			throws Exception {
 		try {
@@ -108,7 +108,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 11. Create a Setting with National Surcharge Test - Complete Range
-	@Test
+//	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestCompleteRange()
 			throws Exception {
 		try {
@@ -179,6 +179,10 @@ public class FuelSurchargeTest extends TestBase {
 					propertyValue.getValue("tl11"));
 			fuelSurcharge.savingCustomSurchargeDetails();
 
+			String actual = fuelSurcharge.verifyRangeMessage();
+			Assert.assertEquals("FuelSurcharge - 'rangeMessage' ::",
+					propertyValue.getValue("completeRangeText"), actual);
+
 			rateAShipment.clickingOnRateAShipmentTab();
 			rateAShipment.selectSetting(customSettingDetails
 					.getValue("customSettingID"));
@@ -193,16 +197,16 @@ public class FuelSurchargeTest extends TestBase {
 			rateAShipment.enterWeight(propertyValue.getValue("weight3"));
 			rateAShipment.clickingOnRateShipmentButton();
 
-			String actual = rateAShipment.verifySurchargeValueInTheTable();
+			String actual1 = rateAShipment.verifySurchargeValueInTheTable();
 			Assert.assertEquals("RateAShipment - 'surchargeValue' ::",
-					propertyValue.getValue("ltl9%"), actual);
+					propertyValue.getValue("ltl9%"), actual1);
 
 			rateAShipment.enterWeight(propertyValue.getValue("weight1"));
 			rateAShipment.clickingOnRateShipmentButton();
 
-			String actual1 = rateAShipment.verifySurchargeValueInTheTable();
+			String actual2 = rateAShipment.verifySurchargeValueInTheTable();
 			Assert.assertEquals("RateAShipment - 'surchargeValue' ::",
-					propertyValue.getValue("tl9%"), actual1);
+					propertyValue.getValue("tl9%"), actual2);
 
 			manageSettings.clickingOnManageSettingsTab();
 			manageSettings.clickingOnCustomSettingOption();
@@ -283,8 +287,8 @@ public class FuelSurchargeTest extends TestBase {
 					propertyValue.getValue("tl10"));
 			fuelSurcharge.savingCustomSurchargeDetails();
 
-			String actual = fuelSurcharge.verifyErrorMessageText();
-			Assert.assertEquals("FuelSurcharge - 'incompleteRangeText' ::",
+			String actual = fuelSurcharge.verifyRangeMessage();
+			Assert.assertEquals("FuelSurcharge - 'rangeMessage' ::",
 					propertyValue.getValue("incompleteRangeText"), actual);
 			boolean found = fuelSurcharge.verifyErrorImage();
 			Assert.assertTrue("FuelSurcharge - 'errorImage' ::", found);
@@ -310,7 +314,7 @@ public class FuelSurchargeTest extends TestBase {
 
 	// 13. Create a Setting with National Surcharge Test - Allow Override FSC
 	// Effective Date
-	@Test
+//	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestAllowOverrideFSCEffectiveDate()
 			throws Exception {
 		try {
@@ -409,7 +413,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 18. Procedure to Create Global Fuel Surcharge
-	@Test
+//	@Test
 	public void verifyCreateGlobalFuelSurchargeTest() throws Exception {
 		try {
 			logger.info("********** INITIAL MESSAGE :: Procedure to Create Global Fuel Surcharge Test Execution Started **********");
