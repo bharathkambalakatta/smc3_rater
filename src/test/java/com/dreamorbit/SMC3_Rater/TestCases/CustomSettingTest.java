@@ -79,7 +79,7 @@ public class CustomSettingTest extends TestBase {
 			manageSettings
 					.clickingOnArrowPresentForASetting(customSettingDetails
 							.getValue("customSettingID"));
-		
+
 			customSetting.settingUpDataModule(
 					propertyValue.getValue("rateFamily2"),
 					propertyValue.getValue("availableTariffs2"));
@@ -468,10 +468,8 @@ public class CustomSettingTest extends TestBase {
 			rateAShipment.enterWeight(propertyValue.getValue("weight3"));
 			rateAShipment.clickingOnRateShipmentButton();
 
-			// boolean found =
-			// rateAShipment.verifyIfAsteriskSymbolIsDisplayed();
-			// Assert.assertTrue("RateAShipment - 'asteriskSymbol' ::",
-			// found);
+			boolean found = rateAShipment.verifyIfAsteriskSymbolIsDisplayed();
+			Assert.assertTrue("RateAShipment - 'asteriskSymbol' ::", found);
 
 			rateAShipment.selectClass(propertyValue.getValue("class4"));
 			rateAShipment.clickingOnRateShipmentButton();
