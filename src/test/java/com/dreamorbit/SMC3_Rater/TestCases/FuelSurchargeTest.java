@@ -43,7 +43,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 10. Create a Setting with Constant Surcharge Test
-//	@Test
+	@Test
 	public void verifyCreateASettingWithConstantSurchargeTest()
 			throws Exception {
 		try {
@@ -108,7 +108,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 11. Create a Setting with National Surcharge Test - Complete Range
-//	@Test
+	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestCompleteRange()
 			throws Exception {
 		try {
@@ -314,7 +314,7 @@ public class FuelSurchargeTest extends TestBase {
 
 	// 13. Create a Setting with National Surcharge Test - Allow Override FSC
 	// Effective Date
-//	@Test
+	@Test
 	public void verifyCreateASettingWithNationalSurchargeTestAllowOverrideFSCEffectiveDate()
 			throws Exception {
 		try {
@@ -413,7 +413,7 @@ public class FuelSurchargeTest extends TestBase {
 	}
 
 	// 18. Procedure to Create Global Fuel Surcharge
-//	@Test
+	@Test
 	public void verifyCreateGlobalFuelSurchargeTest() throws Exception {
 		try {
 			logger.info("********** INITIAL MESSAGE :: Procedure to Create Global Fuel Surcharge Test Execution Started **********");
