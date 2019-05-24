@@ -190,6 +190,7 @@ public class CustomSetting extends TestBase {
 		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		mcFloorTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		mcFloorTextBox.sendKeys(mcFloor);
+		Thread.sleep(2000);// Required for Firefox browser
 
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has entered 'Single Discount' details");
 	}

@@ -316,12 +316,14 @@ public class ZipDiscount extends TestBase {
 		return select.getFirstSelectedOption().getText();
 	}
 
-	public String verifyOriginCountryDropDownValue() {
+	public String verifyOriginCountryDropDownValue()
+			throws InterruptedException {
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin - Country' drop down value");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(editOriginCountryDropDown));
+		Thread.sleep(2000);
 		Select select = new Select(editOriginCountryDropDown);
 		return select.getFirstSelectedOption().getText();
 	}
@@ -540,7 +542,7 @@ public class ZipDiscount extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
-		Thread.sleep(2000);// Required for Firefox browser
+		Thread.sleep(3000);// Required for Firefox browser
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has clicked on 'Edit' Zip Range button");
 	}
 }
