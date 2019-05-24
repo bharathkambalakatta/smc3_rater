@@ -197,6 +197,9 @@ public class DefaultSetting extends TestBase {
 				.elementToBeClickable(defaultDestinationZIPTextBox));
 		defaultDestinationZIPTextBox.clear();
 		defaultDestinationZIPTextBox.sendKeys(destinationZIP);
+		defaultOriginZIPTextBox.click(); // Added to handle inconsistent
+											// behavior with
+											// defaultDestinationZIPTextBox
 		Thread.sleep(2000);// Value is not getting set without wait in Firefox
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Default Setting - User has entered 'Constant ZIPS' details");
 	}

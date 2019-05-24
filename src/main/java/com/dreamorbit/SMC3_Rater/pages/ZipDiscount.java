@@ -503,7 +503,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public boolean verifyZipRangeDestinationValue(String destination) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin' value in the table");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Destination' value in the table");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement destinationValue = driver.findElement(By
@@ -518,7 +518,7 @@ public class ZipDiscount extends TestBase {
 	}
 
 	public boolean verifyZipRangeDiscountIDValueValue(String discountID) {
-		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Origin' value in the table");
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - Verifying 'Discount ID' value in the table");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		WebElement discountIDValue = driver.findElement(By
@@ -532,13 +532,15 @@ public class ZipDiscount extends TestBase {
 		return present;
 	}
 
-	public void clickingOnEditZipRangeButton(String origin) {
+	public void clickingOnEditZipRangeButton(String origin)
+			throws InterruptedException {
 		By editButton = By.xpath("//td[contains(text(),'" + origin
 				+ "')]/parent::tr/td[4]//img");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		Thread.sleep(2000);// Required for Firefox browser
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has clicked on 'Edit' Zip Range button");
 	}
 }

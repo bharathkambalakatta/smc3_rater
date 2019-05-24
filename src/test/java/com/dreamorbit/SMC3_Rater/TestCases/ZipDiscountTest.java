@@ -245,12 +245,19 @@ public class ZipDiscountTest extends TestBase {
 							.getValue("customSettingID"));
 
 			zipDiscount.clickingOnZipDiscountButton();
-			zipDiscount.verifyZipRangeOriginValue(propertyValue
+
+			boolean found = zipDiscount.verifyZipRangeOriginValue(propertyValue
 					.getValue("originZipRange"));
-			zipDiscount.verifyZipRangeDestinationValue(propertyValue
-					.getValue("destinationZipRange"));
-			zipDiscount.verifyZipRangeDiscountIDValueValue(propertyValue
-					.getValue("discountID1"));
+			Assert.assertTrue("ZipDiscount - 'originValue' ::", found);
+			boolean found1 = zipDiscount
+					.verifyZipRangeDestinationValue(propertyValue
+							.getValue("destinationZipRange"));
+			Assert.assertTrue("ZipDiscount - 'destinationValue' ::", found1);
+			boolean found2 = zipDiscount
+					.verifyZipRangeDiscountIDValueValue(propertyValue
+							.getValue("discountID1"));
+			Assert.assertTrue("ZipDiscount - 'discountIDValue' ::", found2);
+
 			zipDiscount.clickingOnEditZipRangeButton(propertyValue
 					.getValue("originZipRange"));
 
