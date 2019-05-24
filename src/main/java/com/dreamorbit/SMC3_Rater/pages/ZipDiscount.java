@@ -323,7 +323,7 @@ public class ZipDiscount extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(editOriginCountryDropDown));
-		Thread.sleep(2000);
+		Thread.sleep(3000);// Required for Chrome browser
 		Select select = new Select(editOriginCountryDropDown);
 		return select.getFirstSelectedOption().getText();
 	}
