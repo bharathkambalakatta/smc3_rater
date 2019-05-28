@@ -284,14 +284,16 @@ public class FuelSurcharge extends TestBase {
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(ltlTextBox));
 		ltlTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(2000);// Value is setting back to 0.00 without wait
+		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		ltlTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		ltlTextBox.sendKeys(ltl);
 		wait.until(ExpectedConditions.elementToBeClickable(tlTextBox));
 		tlTextBox.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		Thread.sleep(2000);// Value is setting back to 0.00 without wait
+		Thread.sleep(1000);// Value is setting back to 0.00 without wait
 		tlTextBox.sendKeys(Keys.chord(Keys.DELETE));
 		tlTextBox.sendKeys(tl);
+		ltlTextBox.click();// Added to handle inconsistent behavior with
+							// tlTextBox
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Surcharge - User has entered 'Surcharge' details");
 	}
 
