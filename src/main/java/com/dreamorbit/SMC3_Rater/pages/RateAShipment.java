@@ -38,7 +38,7 @@ public class RateAShipment extends TestBase {
 	@FindBy(xpath = "//select[@id='settingId']")
 	private WebElement settingsDropDown;
 
-	@FindBy(xpath = "//select[@name='family']")
+	@FindBy(xpath = "//select[@id='family']")
 	private WebElement rateFamilyDropDown;
 
 	@FindBy(xpath = "//select[@name='dataModule']")
