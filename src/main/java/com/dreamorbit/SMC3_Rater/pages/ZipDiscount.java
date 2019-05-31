@@ -2,6 +2,7 @@ package com.dreamorbit.SMC3_Rater.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,6 +31,9 @@ public class ZipDiscount extends TestBase {
 	// opened - Discounts section - Zip Discount - Web Elements
 	@FindBy(xpath = "//button[contains(text(),'Zip Discount')]")
 	private WebElement zipDiscountButton;
+
+	@FindBy(xpath = "//span[@class='back-text'][contains(text(),'ZIP')]")
+	private WebElement zipDiscountBackOption;
 
 	// MANAGE SETTINGS page - Custom Setting - Setting table - When a setting is
 	// opened - Discounts section - Zip Discount - Discount ID (ZIP) - Web
@@ -154,6 +158,9 @@ public class ZipDiscount extends TestBase {
 	@FindBy(xpath = "//select[@id='editDisSelect']")
 	private WebElement editDiscountIDDropDown;
 
+	@FindBy(xpath = "//button[contains(@class,'update-cancel-btn')]")
+	private WebElement cancelUpdateRangeButton;
+
 	WebDriver driver;
 
 	public ZipDiscount(WebDriver driver) {
@@ -170,6 +177,18 @@ public class ZipDiscount extends TestBase {
 				.click();
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Zip Discount' button");
+	}
+
+	public void clickingOnZipDiscountBackOption() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();",
+				zipDiscountBackOption);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(zipDiscountBackOption));
+		zipDiscountBackOption.click();
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - User has clicked on 'Zip Discount - Back' option");
 	}
 
 	// MANAGE SETTINGS page - Custom Setting - Setting table - When a setting is
@@ -546,5 +565,14 @@ public class ZipDiscount extends TestBase {
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		Thread.sleep(3000);// Required for Firefox browser
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has clicked on 'Edit' Zip Range button");
+	}
+
+	public void clickingOnCancelUpdateRangeButton() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions
+				.elementToBeClickable(cancelUpdateRangeButton));
+		cancelUpdateRangeButton.click();
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - Zip Discount - Range Settings - User has clicked on 'Cancel' Update Range button");
 	}
 }

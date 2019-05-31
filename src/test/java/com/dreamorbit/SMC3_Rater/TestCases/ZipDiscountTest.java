@@ -260,6 +260,9 @@ public class ZipDiscountTest extends TestBase {
 
 			zipDiscount.clickingOnEditZipRangeButton(propertyValue
 					.getValue("originZipRange"));
+			zipDiscount.clickingOnCancelUpdateRangeButton();
+			zipDiscount.clickingOnEditZipRangeButton(propertyValue
+					.getValue("originZipRange"));
 
 			String actual = zipDiscount.verifyOriginTypeDropDownValue();
 			Assert.assertEquals("ZipDiscount - 'editOriginTypeDropDown' ::",
@@ -409,10 +412,10 @@ public class ZipDiscountTest extends TestBase {
 			Assert.assertEquals("ZipDiscount - 'errorBlock' ::",
 					propertyValue.getValue("zipRangeError1"), actual);
 
-			rateAShipment.clickingOnRateAShipmentTab();
+			zipDiscount.clickingOnCancelRangeButton();
+			zipDiscount.clickingOnZipDiscountBackOption();
 
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.clickingOnSettingNameBackOption();
 			manageSettings.deletingACustomSetting(customSettingDetails
 					.getValue("customSettingID"));
 

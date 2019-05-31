@@ -134,4 +134,15 @@ public class ManageSettings extends TestBase {
 		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
 		logger.info("MESSAGE :: MANAGE SETTINGS Tab - User has deleted a custom setting");
 	}
+
+	// MANAGE SETTINGS page - Custom Setting - Setting table - When a
+	// setting is opened - Functions
+	public void clickingOnSettingNameBackOption() {
+		WebDriverWait wait = new WebDriverWait(driver,
+				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(settingName))
+				.click();
+		wait.until(ExpectedConditions.invisibilityOf(loadingImage));
+		logger.info("MESSAGE :: MANAGE SETTINGS Tab - Custom Setting - User has clicked on 'Setting Name - Back' option");
+	}
 }
