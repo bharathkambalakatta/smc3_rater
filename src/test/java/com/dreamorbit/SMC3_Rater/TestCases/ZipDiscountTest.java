@@ -260,9 +260,6 @@ public class ZipDiscountTest extends TestBase {
 
 			zipDiscount.clickingOnEditZipRangeButton(propertyValue
 					.getValue("originZipRange"));
-			zipDiscount.clickingOnCancelUpdateRangeButton();
-			zipDiscount.clickingOnEditZipRangeButton(propertyValue
-					.getValue("originZipRange"));
 
 			String actual = zipDiscount.verifyOriginTypeDropDownValue();
 			Assert.assertEquals("ZipDiscount - 'editOriginTypeDropDown' ::",
