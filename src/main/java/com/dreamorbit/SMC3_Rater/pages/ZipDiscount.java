@@ -149,10 +149,10 @@ public class ZipDiscount extends TestBase {
 	@FindBy(xpath = "//select[@id='editDestiCountry']")
 	private WebElement editDestinationCountryDropDown;
 
-	@FindBy(xpath = "//input[@id='stateDestL']")
+	@FindBy(xpath = "//input[@id='zipDestL']")
 	private WebElement editDestinationLTextBox;
 
-	@FindBy(xpath = "//input[@id='stateDestH']")
+	@FindBy(xpath = "//input[@id='zipDestH']")
 	private WebElement editDestinationHTextBox;
 
 	@FindBy(xpath = "//select[@id='editDisSelect']")

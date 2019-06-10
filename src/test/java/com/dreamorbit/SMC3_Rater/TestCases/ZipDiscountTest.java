@@ -236,10 +236,10 @@ public class ZipDiscountTest extends TestBase {
 			zipDiscount.selectDiscountID(propertyValue.getValue("discountID1"));
 			zipDiscount.clickingOnSaveRangeButton();
 
-			rateAShipment.clickingOnRateAShipmentTab();
+			zipDiscount.clickingOnCancelRangeButton();
+			zipDiscount.clickingOnZipDiscountBackOption();
 
-			manageSettings.clickingOnManageSettingsTab();
-			manageSettings.clickingOnCustomSettingOption();
+			manageSettings.clickingOnSettingNameBackOption();
 			manageSettings
 					.clickingOnArrowPresentForASetting(customSettingDetails
 							.getValue("customSettingID"));

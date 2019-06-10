@@ -318,7 +318,7 @@ public class FuelSurchargeTest extends TestBase {
 	public void verifyCreateASettingWithNationalSurchargeTestAllowOverrideFSCEffectiveDate()
 			throws Exception {
 		try {
-			logger.info("********** INITIAL MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date - Execution Started **********");
+			logger.info("********** INITIAL MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date Execution Started **********");
 
 			loginToApplication.LoginToApplication(
 					propertyValue.getValue("loginUserName"),
@@ -400,7 +400,7 @@ public class FuelSurchargeTest extends TestBase {
 			manageSettings.deletingACustomSetting(customSettingDetails
 					.getValue("customSettingID"));
 
-			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date - Executed Successfully ==========");
+			logger.info("========== FINAL MESSAGE :: Create a Setting with National Surcharge Test - Allow Override FSC Effective Date Executed Successfully ==========");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
