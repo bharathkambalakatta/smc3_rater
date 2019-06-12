@@ -474,15 +474,13 @@ public class RateAShipment extends TestBase {
 	}
 
 	public boolean verifyIfAsteriskSymbolIsDisplayed() {
+		logger.info("MESSAGE :: RATE A SHIPMENT Tab - Verifying '*' symbol display next to 'Class' drop down");
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(classDropDown));
 		boolean found = false;
 		if (asteriskSymbol.isDisplayed()) {
 			found = true;
-			logger.info("MESSAGE :: RATE A SHIPMENT Tab - '*' symbol is displayed next to 'Class' drop down");
-		} else {
-			logger.info("MESSAGE :: RATE A SHIPMENT Tab - '*' symbol is not displayed next to 'Class' drop down");
 		}
 		return found;
 	}
