@@ -478,8 +478,9 @@ public class RateAShipment extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver,
 				RaterTestUtils.UP_TO_TWENTY_FIVE_SECONDS);
 		wait.until(ExpectedConditions.visibilityOf(classDropDown));
+		String value = asteriskSymbol.getText();
 		boolean found = false;
-		if (asteriskSymbol.isDisplayed()) {
+		if (value.equals("*")) {
 			found = true;
 		}
 		return found;
